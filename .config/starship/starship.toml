@@ -1,0 +1,38 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$jobs\
+$character\
+"""
+
+add_newline = false
+
+[directory]
+truncate_to_repo = false
+read_only = ''
+truncation_symbol = '…/'
+
+[git_branch]
+format = '[$symbol$branch]($style) '
+symbol = ''
+style = 'bold #c4a7e7'
+
+[cmd_duration]
+format = ''
+
+[character]
+success_symbol = '[❯](bold purple)'
+error_symbol = '[❯](bold purple)'
+
+[package]
+disabled = true
+
+[jobs]
+symbol = ''
+style = 'bold red'
+
+[git_status]
+modified = "✘"
+format = '[$all_status$ahead_behind]($style) '
+style = 'bold red'

@@ -1,0 +1,5 @@
+[user]
+	name = Justin Polis
+  email = j.polikevicius@gmail.com
+[core]
+  excludesfile = ~/.config/git/ignore
