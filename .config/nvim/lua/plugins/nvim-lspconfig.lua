@@ -1,5 +1,5 @@
 return {
-  "neovim/nvim-lspconfig",
+  lsp("neovim/nvim-lspconfig"),
   lazy = true,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
@@ -93,6 +93,11 @@ return {
           gofumpt = true,
         },
       },
+    })
+
+    require("lspconfig").sourcekit.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     require("lspconfig").nil_ls.setup({

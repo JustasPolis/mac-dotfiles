@@ -1,3 +1,6 @@
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
 yabai -m config layout float
 yabai -m config top_padding    23
 yabai -m config bottom_padding 23
@@ -5,3 +8,8 @@ yabai -m config left_padding   23
 yabai -m config right_padding  23
 yabai -m config window_gap     16
 yabai -m config mouse_drop_action off
+yabai -m config mouse_follows_focus on
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 0.85
+yabai -m config normal_window_opacity 0.85
+yabai -m config window_shadow off  

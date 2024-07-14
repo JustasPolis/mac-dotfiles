@@ -13,11 +13,13 @@ local function remap(mods, key, pressFn)
 	hs.hotkey.bind(mods, key, pressFn, nil, pressFn)
 end
 
+hs.hotkey.bind({}, 'f4', function() print("Hello F11") end)
+
 function mapCmdTab(event)
 	local flags = event:getFlags()
 	local chars = event:getCharacters()
 	if chars == "\t" and flags:containExactly({ "cmd" }) then
-		os.execute("open -g raycast://extensions/justinpolis/applications/open-app")
+		os.execute("open -g raycast://extensions/raycast/navigation/switch-windows")
 		return true
 	elseif chars == string.char(25) and flags:containExactly({ "cmd", "shift" }) then
 		return true
