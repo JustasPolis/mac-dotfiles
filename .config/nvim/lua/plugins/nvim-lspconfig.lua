@@ -1,5 +1,5 @@
 return {
-  lsp("neovim/nvim-lspconfig"),
+  "neovim/nvim-lspconfig",
   lazy = true,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
@@ -101,6 +101,11 @@ return {
     })
 
     require("lspconfig").nil_ls.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    require("lspconfig").clangd.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })

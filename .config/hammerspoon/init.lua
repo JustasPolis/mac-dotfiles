@@ -13,7 +13,9 @@ local function remap(mods, key, pressFn)
 	hs.hotkey.bind(mods, key, pressFn, nil, pressFn)
 end
 
-hs.hotkey.bind({}, 'f4', function() print("Hello F11") end)
+hs.hotkey.bind({}, "f4", function()
+	print("Hello F11")
+end)
 
 function mapCmdTab(event)
 	local flags = event:getFlags()
@@ -28,8 +30,16 @@ function mapCmdTab(event)
 	end
 end
 
-tapCmdTab = hs.eventtap.new({ hs.eventtap.event.types.keyDown }, mapCmdTab)
-tapCmdTab:start()
+local chooser = hs.chooser.new(function()
+	return {}
+end)
+
+hs.hotkey.bind({ "cmd", "option", "ctrl", "shift" }, "o", function()
+	chooser:show()
+end)
+
+--tapCmdTab = hs.eventtap.new({ hs.eventtap.event.types.keyDown }, mapCmdTab)
+--tapCmdTab:start()
 
 remap({ "ctrl" }, "n", pressFn("down"))
 remap({ "ctrl" }, "p", pressFn("up"))
