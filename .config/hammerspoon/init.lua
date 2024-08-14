@@ -319,3 +319,24 @@ local running_apps = hs.application.runningApplications()
 -- for index, val in pairs(running_apps) do
 --   print(val:path())
 -- end
+
+function resize(to)
+	local currentApp = hs.application.frontmostApplication()
+
+	local menuPath
+	if currentApp then
+		if to == "split" then
+			menuPath = { "Window", "Move & Resize", "Left & Right" }
+		elseif to == "fill" then
+			menuPath = { "Window", "Fill" }
+		elseif to == "centre" then
+			menuPath = { "Window", "Centre" }
+		elseif to == "centre" then
+			menuPath = { "Window", "Move & Resize", "Left & Right" }
+		elseif to == "quarter" then
+			menuPath = { "Window", "Move & Resize", "Left & Quarters" }
+			hs.eventtap.event.newKeyEvent(hs.keycodes.map.alt, true):post()
+		end
+	end
+	currentApp:selectMenuItem(menuPath)
+end

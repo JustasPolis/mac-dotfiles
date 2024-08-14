@@ -1,5 +1,25 @@
-hyper - 1: yabai -m space --focus 1
-hyper - 2: yabai -m space --focus 2
-hyper - 3: yabai -m space --focus 3
-hyper - 4: yabai -m space --focus 4
-hyper - 5: yabai -m space --focus 5
+
+:: default 
+
+default < hyper - 1: yabai -m space --focus 1
+default < hyper - 2: yabai -m space --focus 2
+default < hyper - 3: yabai -m space --focus 3
+default < hyper - 4: yabai -m space --focus 4
+default < hyper - 5: yabai -m space --focus 5
+default < hyper - right: yabai -m window --resize right:20:0
+default < hyper - left: yabai -m window --resize right:-20:0
+
+default < hyper - l: yabai -m window --focus "$(yabai -m query --windows --space | jq -re "[sort_by(.id, .frame) | .[] | select(.role == \"AXWindow\" and .subrole == \"AXStandardWindow\") | .id] | nth(index($(yabai -m query --windows --window | jq -re ".id")) - 1)")"
+default < hyper - h: yabai -m window --focus "$(yabai -m query --windows --space | jq -re "[sort_by(.id, .frame) | reverse | .[] | select(.role == \"AXWindow\" and .subrole == \"AXStandardWindow\") | .id] | nth(index($(yabai -m query --windows --window | jq -re ".id")) - 1)")"
+
+
+:: resize
+
+hyper - w ; resize
+
+resize < s: hs -c "resize('split')"; skhd -k "escape"
+resize < f: hs -c "resize('fill')"; skhd -k "escape"
+resize < c: hs -c "resize('centre')"; skhd -k "escape"
+resize < q: hs -c "resize('quarter')"; skhd -k "escape"
+
+resize < escape ; default 

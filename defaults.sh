@@ -29,9 +29,9 @@ defaults write com.apple.dock launchanim -bool false
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Left' '@~^$\U2190'
 defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Right' '@~^$\U2192'
-defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Bottom Right' '@~^$k'
-defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Bottom Left' '@~^$j'
-defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Top Right' '@~^$l'
-defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Top Left' '@~^$h'
+defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Bottom Right' '@~^$;'
+defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Bottom Left' '@~^$/'
+defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Top Right' '@~^$,'
+defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Move & Resize\033Top Left' '@~^$.'
 defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Fill' '@~^$\U0046'
 defaults write -g NSUserKeyEquivalents -dict-add '\033Window\033Center' '@~^$\U0043'
