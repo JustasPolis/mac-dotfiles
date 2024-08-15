@@ -14,7 +14,6 @@ default < hyper - h: yabai -m window --focus "$(yabai -m query --windows --space
 
 
 :: resize
-
 hyper - w ; resize
 
 resize < s: hs -c "resize('split')"; skhd -k "escape"
@@ -23,3 +22,14 @@ resize < c: hs -c "resize('centre')"; skhd -k "escape"
 resize < q: hs -c "resize('quarter')"; skhd -k "escape"
 
 resize < escape ; default 
+
+:: app
+hyper - a ; app
+
+app < t: open /Applications/kitty.app; skhd -k "escape"
+app < x: hs -c "hs.application.launchOrFocus('Xcode')"; skhd -k "escape"
+app < b: hs -c "hs.application.launchOrFocus('Safari')"; skhd -k "escape"
+app < c: open /Applications/ChatGPT.app; skhd -k "escape"
+
+app < escape ; default
+

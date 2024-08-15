@@ -11,6 +11,7 @@ bind yy fish_clipboard_copy
 bind p fish_clipboard_paste
 zoxide init --cmd cd fish | source
 set -x PATH $PATH ~/.cargo/bin
+set -gx PATH /opt/homebrew/bin $PATH
 
 
 alias cdi="cd (zoxide query --list | gum filter --limit 1 --placeholder 'Pick directory' --height 20 --prompt='⚡')"

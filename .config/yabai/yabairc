@@ -34,6 +34,7 @@ setup_space 3 editor
 yabai -m rule --add app="^Safari$" space=^2
 yabai -m rule --add app="^kitty$" space=^1
 yabai -m rule --add app="^Xcode$" space=^3
-yabai -m rule --add app="^Finder$" sticky=on 
-yabai -m rule --add app="System Settings" sticky=on 
-yabai -m rule --add app="Activity Monitor" sticky=on 
+yabai -m rule --add app="^Finder$" sticky=on sub-layer=above
+yabai -m rule --add app="^System Settings$" sticky=on sub-layer=above 
+yabai -m rule --add app="^Activity Monitor$" sticky=on sub-layer=above 
+yabai -m rule --add app="^Hammerspoon$" sticky=on sub-layer=above layer=above
