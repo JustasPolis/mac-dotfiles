@@ -30,14 +30,6 @@ function mapCmdTab(event)
 	end
 end
 
-local chooser = hs.chooser.new(function()
-	return {}
-end)
-
-hs.hotkey.bind({ "cmd", "option", "ctrl", "shift" }, "o", function()
-	chooser:show()
-end)
-
 --tapCmdTab = hs.eventtap.new({ hs.eventtap.event.types.keyDown }, mapCmdTab)
 --tapCmdTab:start()
 

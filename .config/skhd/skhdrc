@@ -1,3 +1,5 @@
+shift + alt - b : skhd -k "shift + alt - left"
+shift + alt - f : skhd -k "shift + alt - right"
 
 :: default 
 
@@ -22,14 +24,3 @@ resize < c: hs -c "resize('centre')"; skhd -k "escape"
 resize < q: hs -c "resize('quarter')"; skhd -k "escape"
 
 resize < escape ; default 
-
-:: app
-hyper - a ; app
-
-app < t: open /Applications/kitty.app; skhd -k "escape"
-app < x: hs -c "hs.application.launchOrFocus('Xcode')"; skhd -k "escape"
-app < b: hs -c "hs.application.launchOrFocus('Safari')"; skhd -k "escape"
-app < c: open /Applications/ChatGPT.app; skhd -k "escape"
-
-app < escape ; default
-
