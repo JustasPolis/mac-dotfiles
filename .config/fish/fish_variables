@@ -22,7 +22,7 @@ SETUVAR fish_color_quote:normal
 SETUVAR fish_color_search_match:yellow\x1e\x2d\x2dbackground\x3dblack
 SETUVAR fish_color_status:normal
 SETUVAR fish_color_user:normal
-SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:yellow
 SETUVAR fish_pager_color_progress:normal

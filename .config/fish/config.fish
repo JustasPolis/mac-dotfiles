@@ -3,7 +3,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 starship init fish | source
 set fzf_fd_opts --hidden --max-depth 3
 set EDITOR nvim
-
 zoxide init --cmd cd fish | source
 set -x PATH $PATH ~/.cargo/bin
 set -gx PATH /opt/homebrew/bin $PATH
@@ -11,39 +10,12 @@ set -gx PATH /opt/homebrew/bin $PATH
 set -x PATH /Users/justinpolis/Library/Android/sdk/build-tools/35.0.0 $PATH
 set -x PATH "$PATH:$(go env GOPATH)/bin"
 
-
-alias tcs="sesh connect (sesh list -i | gum filter --limit 1 --placeholder 'Pick session' --height 20 --prompt='⚡')"
-alias tksession="tmux kill-session"
-alias tkserver="tmux kill-server"
-alias tkw="tmux kill-window"
-alias td="tmux detach"
-
-
-# set fish_color_valid_path
-# set fish_color_redirection cyan
-# set fish_color_autosuggestion 'brblack'
-# set fish_color_history_current 'brblack'
-# set fish_pager_color_prefix normal
-# set fish_color_selection 'white' '--background=yellow'
-# set fish_color_error red
-# set fish_color_escape cyan
-# set fish_color_operator cyan
-# set fish_color_search_match 'yellow' '--background=black' 
-# set fish_color_user green
-# set fish_pager_color_description yellow
-#set fish_pager_color_progress 'white' '--background=cyan'
 fish_vi_cursor --force-iterm
 set -g fish_cursor_insert line
 set -g fish_cursor_default block
 
 bind -M default \cz 'fg 2>/dev/null; commandline -f repaint'
 bind -M insert \cz 'fg 2>/dev/null; commandline -f repaint'
-
-# set fish_color_valid_path
-# set fish_color_redirection cyan
-# set fish_color_history_current
-# set fish_pager_color_prefix normal
-# set fish_color_selection white
 
 set -Ux FZF_DEFAULT_OPTS "\
 --ansi \
@@ -117,3 +89,8 @@ set -x GIT_CONFIG_PARAMETERS "'color.ui=never'"
 set -x HOMEBREW_NO_COLOR 1
 
 set -x FZF_DEFAULT_OPTS "--no-color"
+
+if status --is-interactive
+    fish_vi_key_bindings
+end
+
