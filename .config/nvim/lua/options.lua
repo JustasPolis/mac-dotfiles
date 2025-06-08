@@ -39,26 +39,30 @@ vim.opt.shortmess:append({
   A = true,
 })
 vim.opt.showcmd = false
-vim.opt.laststatus = 0
+vim.opt.laststatus = 1
 vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
 vim.opt.smoothscroll = true
 vim.opt.fillchars = {
   eob = " ",
 }
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.scrolloff = 4
 vim.o.signcolumn = "yes:1"
 vim.opt.autoindent = true
 
 vim.cmd([[highlight StatusLine guibg=NONE]])
-vim.diagnostic.config({
-  underline = true,
-})
 
-vim.diagnostic.config({ virtual_text = { prefix = "", spacing = 0 } })
+vim.api.nvim_set_hl(0, "Normal",   { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
 
-local signs = { Error = "", Warn = "󱈸", Hint = "", Info = "󰙎" }
-for name, icon in pairs(signs) do
-  name = "DiagnosticSign" .. name
-  vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+local function set_undercurl(group, color)
+  vim.api.nvim_set_hl(0, group, {
+    undercurl = true,
+    sp = color,      -- special color for the curl
+  })
 end
+
+set_undercurl("DiagnosticUnderlineError", "#e06c75")
+set_undercurl("DiagnosticUnderlineWarn",  "#e5c07b")
+set_undercurl("DiagnosticUnderlineInfo",  "#56b6c2")
+set_undercurl("DiagnosticUnderlineHint",  "#98c379")
