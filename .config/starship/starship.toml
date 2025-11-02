@@ -1,41 +1,26 @@
+add_newline = false
+
 format = """
 $directory\
 $git_branch\
-$git_status\
 $jobs\
 $character\
 """
 
-add_newline = false
-
 [directory]
-truncate_to_repo = false
-read_only = ''
-style = 'white'
+format = "[$path]($style) "
+style = "dimmed"
 truncation_symbol = '…/'
+truncate_to_repo = false
 
 [git_branch]
-format = '[$symbol$branch]($style) '
-symbol = ''
-style = '#FFFFFFF'
-
-[cmd_duration]
-format = ''
+format = "[$branch]($style) "
+style = "dimmed red"
 
 [character]
-success_symbol = '[❯](white)'
-error_symbol = '[❯](white)'
-vimcmd_symbol = '[❯](white)'
-vimcmd_visual_symbol = '[❯](white)'
-
-[package]
-disabled = true
+disabled = false
+success_symbol = '[❯](bold blue)'
 
 [jobs]
 symbol = ''
 style = 'bold red'
-
-[git_status]
-modified = "✘"
-format = '[$all_status$ahead_behind]($style) '
-style = 'white'

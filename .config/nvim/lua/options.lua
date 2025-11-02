@@ -16,8 +16,8 @@ vim.opt.undofile = true -- enable persistent undo
 vim.opt.updatetime = 300 -- faster completion (4000ms default)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.expandtab = true -- convert tabs to spaces
-vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 2 -- insert 2 spaces for a tab
+vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 4 -- insert 2 spaces for a tab
 vim.opt.cursorline = false -- highlight the current line
 vim.opt.number = true -- set numbered lines
 vim.opt.relativenumber = true -- set relative numbered lines
@@ -28,41 +28,82 @@ vim.opt.ignorecase = true
 vim.opt.shiftround = true
 vim.opt.splitkeep = "screen"
 vim.opt.shortmess:append({
-  W = true,
-  I = true,
-  c = true,
-  F = true,
-  C = true,
-  o = true,
-  S = true,
-  s = true,
-  A = true,
+	W = true,
+	I = true,
+	c = true,
+	F = true,
+	C = true,
+	o = true,
+	S = true,
+	s = true,
+	A = true,
 })
-vim.opt.showcmd = false
-vim.opt.laststatus = 1
-vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
 vim.opt.smoothscroll = true
 vim.opt.fillchars = {
-  eob = " ",
+	eob = " ",
 }
-vim.opt.cmdheight = 1
 vim.opt.scrolloff = 4
 vim.o.signcolumn = "yes:1"
 vim.opt.autoindent = true
+vim.opt.cmdheight = 0
 
 vim.cmd([[highlight StatusLine guibg=NONE]])
 
-vim.api.nvim_set_hl(0, "Normal",   { bg = "none", ctermbg = "none" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
-
+vim.api.nvim_set_hl(0, "TelescopePreviewDirectory", { bg = "none", fg = "NvimLightRed" })
+vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none", fg = "NvimLightGrey4" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", fg = "none" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "NvimLightGrey4" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "none", fg = "NvimLightGrey4" })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "none", fg = "NvimLightBlue" })
+vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "NvimLightGrey4", fg = "NvimLightGrey4" })
+vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "NvimLightGrey4", fg = "NvimLightGrey4" })
+vim.api.nvim_set_hl(0, "@lsp.type.struct", { bg = "none", fg = "#dfd1fb" })
+vim.api.nvim_set_hl(0, "@lsp.type", { bg = "none", fg = "#92d3e3" })
+vim.api.nvim_set_hl(0, "@lsp.type.keyword", { bg = "none", fg = "#dd93b6" })
+vim.api.nvim_set_hl(0, "@lsp.type.string", { bg = "none", fg = "#dd977f" })
+vim.api.nvim_set_hl(0, "@lsp.type.method", { bg = "none", fg = "#92d3e3" })
+vim.api.nvim_set_hl(0, "@lsp.type.function", { bg = "none", fg = "#92d3e3" })
+vim.api.nvim_set_hl(0, "@lsp.type.decorator", { bg = "none", fg = "#dfd1fb" })
+vim.api.nvim_set_hl(0, "@lsp.type.modifier", { bg = "none", fg = "#dfd1fb" })
+vim.api.nvim_set_hl(0, "@variable", { bg = "none", fg = "#ffffff" })
+vim.api.nvim_set_hl(0, "@variable.member", { bg = "none", fg = "#6DD9FF" })
+vim.api.nvim_set_hl(0, "@type.swift", { bg = "none", fg = "#dfd1fb" })
+vim.api.nvim_set_hl(0, "@type.definition", { bg = "none", fg = "#dfd1fb" })
+vim.api.nvim_set_hl(0, "@keyword.type", { bg = "none", fg = "#dd93b6" })
+vim.api.nvim_set_hl(0, "@keyword.modifier", { bg = "none", fg = "#dd93b6" })
+vim.api.nvim_set_hl(0, "@variable.builtin", { bg = "none", fg = "#dd93b6" })
+vim.api.nvim_set_hl(0, "@keyword", { bg = "none", fg = "#dd93b6" })
+vim.api.nvim_set_hl(0, "@attribute", { bg = "none", fg = "#dfd1fb" })
+vim.api.nvim_set_hl(0, "@string", { bg = "none", fg = "#dd977f" })
+vim.api.nvim_set_hl(0, "@constructor", { bg = "none", fg = "#dd93b6" })
+vim.api.nvim_set_hl(0, "@function.method", { bg = "none", fg = "#6DD9FF" })
+vim.api.nvim_set_hl(0, "@function.call", { bg = "none", fg = "#6DD9FF" })
+vim.api.nvim_set_hl(0, "SnippetTabStop", { bg = "none", fg = "none" })
 local function set_undercurl(group, color)
-  vim.api.nvim_set_hl(0, group, {
-    undercurl = true,
-    sp = color,      -- special color for the curl
-  })
+	vim.api.nvim_set_hl(0, group, {
+		undercurl = true,
+		sp = color, -- special color for the curl
+	})
 end
 
 set_undercurl("DiagnosticUnderlineError", "#e06c75")
-set_undercurl("DiagnosticUnderlineWarn",  "#e5c07b")
-set_undercurl("DiagnosticUnderlineInfo",  "#56b6c2")
-set_undercurl("DiagnosticUnderlineHint",  "#98c379")
+set_undercurl("DiagnosticUnderlineWarn", "#e5c07b")
+set_undercurl("DiagnosticUnderlineInfo", "#56b6c2")
+set_undercurl("DiagnosticUnderlineHint", "#98c379")
+vim.o.winborder = "single"
+
+vim.diagnostic.config({
+	virtual_text = { spacing = 2, prefix = "●", source = "if_many" },
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = true,
+	float = {
+		border = "single",
+		source = true,
+		focusable = false,
+	},
+})
+vim.highlight.priorities.semantic_tokens = 95

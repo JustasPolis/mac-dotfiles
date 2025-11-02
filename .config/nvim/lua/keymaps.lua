@@ -21,7 +21,6 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>o", ":normal o<CR>", opts)
 keymap("n", "<leader>O", ":normal O<CR>", opts)
 
-
 vim.keymap.set("n", "<ESC>", function()
 	for _, win in pairs(vim.api.nvim_list_wins()) do
 		if not vim.api.nvim_win_is_valid(win) then
@@ -40,3 +39,14 @@ vim.keymap.set("n", "<ESC>", function()
 end, opts)
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+
+vim.keymap.set("n", "<leader>ff", function()
+	local file = vim.fn.expand("%:p")
+	vim.system({ "stylua", file }, { text = true }, function(res)
+		print(res.stderr)
+	end)
+end, { desc = "Run current file (by filetype)" })
+
+vim.keymap.set("n", "<leader>sd", function()
+	vim.diagnostic.open_float(nil, { scope = "cursor", focus = false })
+end, { desc = "Open diagnostic float" })

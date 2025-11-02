@@ -19,7 +19,7 @@ return {
 			virt_text_priority = 100,
 		},
 		preview_config = {
-			border = "rounded",
+			border = "single",
 			style = "minimal",
 			relative = "cursor",
 			row = 0,
