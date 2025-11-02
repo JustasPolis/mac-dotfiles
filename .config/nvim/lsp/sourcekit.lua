@@ -20,7 +20,7 @@ return {
 	single_file_support = true,
 	flags = { debounce_text_changes = 0 },
 	on_attach = function(client, _)
-		client.server_capabilities.semanticTokensProvider = nil
+		--client.server_capabilities.semanticTokensProvider = nil
 		-- we use other diagnostics for sourcekit
 		-- need to disable publishDiagnostics
 		if client.name == "sourcekit" then
