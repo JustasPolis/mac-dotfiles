@@ -33,8 +33,3 @@ vim.keymap.set("n", "<ESC>", function()
 		end
 	end
 end, opts)
-
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-vim.keymap.set("n", "<leader>sd", function()
-	vim.diagnostic.open_float(nil, { scope = "cursor", focus = false })
-end, { desc = "Open diagnostic float" })

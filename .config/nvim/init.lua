@@ -1,3 +1,4 @@
+require("theme")
 require("options")
 require("lazy-nvim")
 require("keymaps")

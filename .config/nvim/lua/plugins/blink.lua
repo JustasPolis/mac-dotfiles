@@ -13,6 +13,10 @@ return {
 			["<Down>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "show_signature", "hide_signature", "fallback" }, -- default
 		},
+		cmdline = {
+			keymap = { preset = "inherit" },
+			completion = { menu = { auto_show = true } },
+		},
 		completion = {
 			ghost_text = { enabled = false, show_with_menu = false },
 			documentation = {
@@ -52,5 +56,6 @@ return {
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
+
 	opts_extend = { "sources.default" },
 }
