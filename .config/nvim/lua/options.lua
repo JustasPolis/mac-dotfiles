@@ -81,29 +81,33 @@ vim.api.nvim_set_hl(0, "@constructor", { bg = "none", fg = "#dd93b6" })
 vim.api.nvim_set_hl(0, "@function.method", { bg = "none", fg = "#6DD9FF" })
 vim.api.nvim_set_hl(0, "@function.call", { bg = "none", fg = "#6DD9FF" })
 vim.api.nvim_set_hl(0, "SnippetTabStop", { bg = "none", fg = "none" })
-local function set_undercurl(group, color)
-	vim.api.nvim_set_hl(0, group, {
-		undercurl = true,
-		sp = color, -- special color for the curl
-	})
-end
-
-set_undercurl("DiagnosticUnderlineError", "#e06c75")
-set_undercurl("DiagnosticUnderlineWarn", "#e5c07b")
-set_undercurl("DiagnosticUnderlineInfo", "#56b6c2")
-set_undercurl("DiagnosticUnderlineHint", "#98c379")
+vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { bg = "none", fg = "none" })
 vim.o.winborder = "single"
+local u = function(name, sp)
+	vim.api.nvim_set_hl(0, name, { undercurl = true, sp = sp, fg = nil, bg = nil, bold = false, italic = false })
+end
+u("DiagnosticUnderlineError", "#ff5555")
+u("DiagnosticUnderlineWarn", "#ffaa00")
+u("DiagnosticUnderlineInfo", "#00aaff")
+u("DiagnosticUnderlineHint", "#66ccff")
 
 vim.diagnostic.config({
-	virtual_text = { spacing = 2, prefix = "●", source = "if_many" },
-	signs = true,
+	virtual_text = false,
 	underline = true,
 	update_in_insert = true,
 	severity_sort = true,
 	float = {
 		border = "single",
 		source = true,
-		focusable = false,
+		focusable = true,
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "󰅚",
+			[vim.diagnostic.severity.WARN] = "󰀪",
+			[vim.diagnostic.severity.INFO] = "󰋽",
+			[vim.diagnostic.severity.HINT] = "󰌶",
+		},
 	},
 })
 vim.highlight.priorities.semantic_tokens = 95
