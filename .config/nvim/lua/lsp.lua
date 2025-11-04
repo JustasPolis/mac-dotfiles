@@ -3,7 +3,6 @@ vim.lsp.enable({
 	"sourcekit",
 })
 
--- lowering priority for semantic tokens to have treesitter have priority
 vim.highlight.priorities.semantic_tokens = 95
 
 vim.diagnostic.config({

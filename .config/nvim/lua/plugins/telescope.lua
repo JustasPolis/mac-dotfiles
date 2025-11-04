@@ -5,7 +5,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
@@ -60,12 +59,6 @@ return {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
 					},
-					file_browser = {
-						hijack_netrw = true,
-						display_stat = false,
-						git_status = false,
-						depth = false,
-					},
 				},
 				defaults = {
 					prompt_title = "",
@@ -101,7 +94,6 @@ return {
 				},
 			})
 			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("file_browser")
 			require("telescope").load_extension("ui-select")
 		end,
 	},

@@ -27,7 +27,6 @@ local opts = {
 			disabled_plugins = {
 				"gzip",
 				"matchit",
-				"netrwPlugin",
 				"tarPlugin",
 				"tohtml",
 				"tutor",
