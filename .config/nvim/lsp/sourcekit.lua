@@ -152,7 +152,6 @@ return {
 		}
 	end,
 	single_file_support = true,
-	flags = { debounce_text_changes = 0 },
 	on_attach = function(client, _)
 		-- we use other diagnostics for sourcekit
 		-- need to disable publishDiagnostics to avoid duplicates
