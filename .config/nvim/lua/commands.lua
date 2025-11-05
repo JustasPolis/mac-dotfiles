@@ -29,13 +29,13 @@ local function poke_change(bufnr)
 end
 
 -- Hack to force semantic tokens to load for Swift files, need to make file change
-vim.api.nvim_create_autocmd("DiagnosticChanged", {
+vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*.swift",
 	callback = function(args)
 		vim.defer_fn(function()
 			poke_change(args.buf)
 			vim.api.nvim_del_autocmd(args.id)
-		end, 400)
+		end, 1000)
 	end,
 })
 

@@ -16,17 +16,17 @@ return {
 			completion = { menu = { auto_show = true } },
 		},
 		completion = {
-			ghost_text = { enabled = true, show_with_menu = false },
+			ghost_text = { enabled = false, show_with_menu = false },
 			documentation = {
-				auto_show = false,
+				auto_show = true,
 				treesitter_highlighting = true,
 				draw = function(opts)
 					opts.default_implementation()
 				end,
 			},
-			list = { selection = { preselect = true, auto_insert = false }, max_items = 5 },
+			list = { selection = { preselect = false, auto_insert = false }, max_items = 5 },
 			menu = {
-				auto_show = false,
+				auto_show = true,
 				border = nil,
 				scrollbar = false,
 				draw = {
@@ -38,7 +38,7 @@ return {
 			},
 		},
 		sources = {
-			default = { "copilot", "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "copilot", "path", "snippets", "buffer" },
 			providers = {
 				copilot = {
 					name = "copilot",
