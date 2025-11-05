@@ -2,6 +2,9 @@ vim.api.nvim_create_autocmd("LspTokenUpdate", {
 	group = vim.api.nvim_create_augroup("one_type_priority", { clear = true }),
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client and client.name ~= "sourcekit" then
+			return
+		end
 		local t = args.data.token
 		if t.type == "function" then
 			vim.lsp.semantic_tokens.highlight_token(
@@ -39,15 +42,6 @@ vim.api.nvim_create_autocmd("LspTokenUpdate", {
 				{ priority = 150 }
 			)
 		end
-		--if t.type == "method" and t.modifiers and t.modifiers.static then
-		--	vim.lsp.semantic_tokens.highlight_token(
-		--		t,
-		--		args.buf,
-		--		args.data.client_id,
-		--		"@lsp.typemod.method.static.swift",
-		--		{ priority = 170 }
-		--	)
-		--end
 		if t.type == "property" and t.modifiers and t.modifiers.defaultLibrary then
 			vim.lsp.semantic_tokens.highlight_token(
 				t,

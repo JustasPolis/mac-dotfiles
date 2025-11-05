@@ -35,6 +35,13 @@ vim.api.nvim_create_autocmd("DiagnosticChanged", {
 		vim.defer_fn(function()
 			poke_change(args.buf)
 			vim.api.nvim_del_autocmd(args.id)
-		end, 300)
+		end, 400)
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "lua", "python", "rust", "swift" }, -- pick filetypes
+	callback = function(args)
+		vim.treesitter.start(args.buf)
 	end,
 })

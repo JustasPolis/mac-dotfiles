@@ -1,34 +1,32 @@
 return {
 	"saghen/blink.cmp",
 	dependencies = { "rafamadriz/friendly-snippets", "nvim-tree/nvim-web-devicons", "fang2hou/blink-copilot" },
-	version = "1.*",
+	version = "1.x",
 	opts = {
-		signature = {
-			enabled = true,
-		},
 		keymap = {
 			preset = "none",
 			["<C-f>"] = { "accept", "fallback" },
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
-			["<C-k>"] = { "show_signature", "hide_signature", "fallback" }, -- default
+			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+			["<C-Space>"] = { "show", "fallback" },
 		},
 		cmdline = {
 			keymap = { preset = "inherit" },
 			completion = { menu = { auto_show = true } },
 		},
 		completion = {
-			ghost_text = { enabled = false, show_with_menu = false },
+			ghost_text = { enabled = true, show_with_menu = false },
 			documentation = {
-				auto_show = true,
+				auto_show = false,
 				treesitter_highlighting = true,
 				draw = function(opts)
 					opts.default_implementation()
 				end,
 			},
-			list = { selection = { preselect = true, auto_insert = false }, max_items = 10 },
+			list = { selection = { preselect = true, auto_insert = false }, max_items = 5 },
 			menu = {
-				auto_show = true,
+				auto_show = false,
 				border = nil,
 				scrollbar = false,
 				draw = {

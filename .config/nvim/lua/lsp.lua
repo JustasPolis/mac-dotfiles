@@ -8,7 +8,7 @@ vim.highlight.priorities.semantic_tokens = 95
 vim.diagnostic.config({
 	virtual_text = false,
 	underline = true,
-	update_in_insert = true,
+	update_in_insert = false,
 	severity_sort = true,
 	float = {
 		border = "single",
