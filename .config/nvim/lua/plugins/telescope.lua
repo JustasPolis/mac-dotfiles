@@ -25,13 +25,6 @@ return {
 				desc = "Telescope find files",
 			},
 			{
-				"<leader>fb",
-				function()
-					require("telescope").extensions.file_browser.file_browser()
-				end,
-				desc = "Telescope file browser",
-			},
-			{
 				"<leader>lg",
 				function()
 					require("telescope.builtin").live_grep()
@@ -45,6 +38,14 @@ return {
 				end,
 				desc = "Telescope git files",
 			},
+			{
+				"<leader>sb",
+				function()
+					require("telescope.builtin").buffers()
+				end,
+				desc = "Telescope buffers",
+			},
+
 			{
 				"<leader>so",
 				function()
@@ -68,7 +69,6 @@ return {
 						"%.xcassets/",
 						"%.graphql.swift",
 						"%.generated.swift",
-						"react-app",
 					},
 					prompt_title = "",
 					results_title = "",
