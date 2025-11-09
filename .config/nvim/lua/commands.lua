@@ -60,3 +60,13 @@ vim.keymap.set("n", "<leader>m", function()
 		end
 	end)
 end)
+
+local function toggle_diag_virtual_text()
+	local cfg = vim.diagnostic.config()
+	local vt = cfg.virtual_text
+	local enabled = (vt == true) or (type(vt) == "table")
+	vim.diagnostic.config({ virtual_text = not enabled })
+end
+
+vim.api.nvim_create_user_command("ToggleDiagVirtualText", toggle_diag_virtual_text, {})
+vim.keymap.set("n", "<leader>td", toggle_diag_virtual_text, { desc = "Toggle diagnostics virtual text" })

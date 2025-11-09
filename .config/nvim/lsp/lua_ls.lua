@@ -32,5 +32,8 @@ return {
 			},
 		},
 	},
+	on_attach = function(client, _)
+		client.server_capabilities.semanticTokensProvider = nil
+	end,
 	log_level = vim.lsp.protocol.MessageType.Warning,
 }
