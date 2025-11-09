@@ -23,13 +23,13 @@ return {
 				},
 			},
 			suggestion = {
-				enabled = false,
-				auto_trigger = false,
+				enabled = true,
+				auto_trigger = true,
 				hide_during_completion = true,
-				debounce = 75,
+				debounce = 100,
 				trigger_on_accept = true,
 				keymap = {
-					accept = "<M-l>",
+					accept = "<C-f>",
 					accept_word = false,
 					accept_line = false,
 					next = "<M-]>",

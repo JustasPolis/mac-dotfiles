@@ -1,6 +1,6 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets", "nvim-tree/nvim-web-devicons", "fang2hou/blink-copilot" },
+	dependencies = { "rafamadriz/friendly-snippets", "nvim-tree/nvim-web-devicons" },
 	version = "1.x",
 	opts = {
 		keymap = {
@@ -9,14 +9,13 @@ return {
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
-			["<tab>"] = { "show", "fallback" },
 		},
 		cmdline = {
 			keymap = { preset = "inherit" },
 			completion = { menu = { auto_show = true } },
 		},
 		completion = {
-			ghost_text = { enabled = true, show_with_menu = false },
+			ghost_text = { enabled = false, show_with_menu = false },
 			documentation = {
 				auto_show = true,
 				treesitter_highlighting = true,
@@ -26,7 +25,7 @@ return {
 			},
 			list = { selection = { preselect = true, auto_insert = false }, max_items = 5 },
 			menu = {
-				auto_show = false,
+				auto_show = true,
 				border = nil,
 				scrollbar = false,
 				draw = {
@@ -38,14 +37,8 @@ return {
 			},
 		},
 		sources = {
-			default = { "copilot", "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer" },
 			providers = {
-				copilot = {
-					name = "copilot",
-					module = "blink-copilot",
-					score_offset = 100,
-					async = true,
-				},
 				lsp = { name = "LSP" },
 				buffer = { name = "Buffer" },
 				path = { name = "Path" },
