@@ -29,7 +29,7 @@ return {
 				debounce = 100,
 				trigger_on_accept = true,
 				keymap = {
-					accept = "<right>",
+					accept = "<C-0>",
 					accept_word = false,
 					accept_line = false,
 					next = "<M-]>",

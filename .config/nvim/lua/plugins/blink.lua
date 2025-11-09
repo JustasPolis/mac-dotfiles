@@ -5,10 +5,34 @@ return {
 	opts = {
 		keymap = {
 			preset = "none",
-			["<right>"] = { "accept", "fallback" },
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+			["<C-1>"] = {
+				function(cmp)
+					cmp.accept({ index = 1 })
+				end,
+			},
+			["<C-2>"] = {
+				function(cmp)
+					cmp.accept({ index = 2 })
+				end,
+			},
+			["<C-3>"] = {
+				function(cmp)
+					cmp.accept({ index = 3 })
+				end,
+			},
+			["<C-4>"] = {
+				function(cmp)
+					cmp.accept({ index = 4 })
+				end,
+			},
+			["<C-5>"] = {
+				function(cmp)
+					cmp.accept({ index = 5 })
+				end,
+			},
 		},
 		cmdline = {
 			keymap = { preset = "inherit" },
@@ -30,8 +54,16 @@ return {
 				scrollbar = false,
 				draw = {
 					columns = {
+						{ "item_idx" },
 						{ "kind_icon", "label", "label_description", gap = 1 },
 						{ "source_name" }, -- shows LSP/Buffer/Path/etc.
+					},
+					components = {
+						item_idx = {
+							text = function(ctx)
+								return tostring(ctx.idx)
+							end,
+						},
 					},
 				},
 			},
