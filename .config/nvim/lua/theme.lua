@@ -5,7 +5,7 @@ end
 
 local p = {
 	none = "none",
-	cyan = "#6DD9FF",
+	cyan = "NvimLightBlue",
 	pink = "#dd93b6",
 	purple = "#dfd1fb",
 	orange = "#dd977f",
@@ -41,7 +41,7 @@ hl("@lsp.type.function.swift", { bg = "none", fg = p.green })
 hl("@lsp.type.decorator", { bg = "none", fg = p.purple })
 hl("@lsp.type.modifier", { bg = p.none, fg = p.purple })
 hl("@variable", { bg = p.none, fg = p.white })
-hl("@variable.member", { bg = p.none, fg = p.cyan })
+hl("@variable.member", { bg = p.none, fg = p.white })
 hl("@variable.parameter", { bg = p.none, fg = p.white })
 hl("@type.swift", { bg = p.none, fg = p.purple })
 hl("@type.definition", { bg = p.none, fg = p.purple })

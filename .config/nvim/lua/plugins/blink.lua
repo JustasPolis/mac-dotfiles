@@ -8,6 +8,7 @@ return {
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+			["<Tab>"] = { "show", "cancel", "fallback" },
 			["<C-1>"] = {
 				function(cmp)
 					cmp.accept({ index = 1 })
@@ -49,6 +50,8 @@ return {
 			},
 			list = { selection = { preselect = false, auto_insert = false }, max_items = 5 },
 			menu = {
+				direction_priority = { "n", "s" },
+				max_height = 10,
 				auto_show = true,
 				border = nil,
 				scrollbar = false,
