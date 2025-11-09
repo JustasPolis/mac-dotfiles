@@ -127,7 +127,7 @@ vim.api.nvim_create_autocmd("LspTokenUpdate", {
 
 return {
 	cmd = {
-		"/Users/justinpolis/developer/sourcekit-lsp/.build/arm64-apple-macosx/debug/sourcekit-lsp",
+		"sourcekit-lsp",
 	},
 	filetypes = {
 		"swift",
