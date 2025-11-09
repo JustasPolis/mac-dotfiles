@@ -9,14 +9,14 @@ return {
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
-			["<C-Space>"] = { "show", "fallback" },
+			["<tab>"] = { "show", "fallback" },
 		},
 		cmdline = {
 			keymap = { preset = "inherit" },
 			completion = { menu = { auto_show = true } },
 		},
 		completion = {
-			ghost_text = { enabled = false, show_with_menu = false },
+			ghost_text = { enabled = true, show_with_menu = false },
 			documentation = {
 				auto_show = true,
 				treesitter_highlighting = true,
@@ -24,9 +24,9 @@ return {
 					opts.default_implementation()
 				end,
 			},
-			list = { selection = { preselect = false, auto_insert = false }, max_items = 5 },
+			list = { selection = { preselect = true, auto_insert = false }, max_items = 5 },
 			menu = {
-				auto_show = true,
+				auto_show = false,
 				border = nil,
 				scrollbar = false,
 				draw = {
@@ -38,7 +38,7 @@ return {
 			},
 		},
 		sources = {
-			default = { "lsp", "copilot", "path", "snippets", "buffer" },
+			default = { "copilot", "lsp", "path", "snippets", "buffer" },
 			providers = {
 				copilot = {
 					name = "copilot",

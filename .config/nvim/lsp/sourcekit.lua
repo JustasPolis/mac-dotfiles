@@ -127,7 +127,7 @@ vim.api.nvim_create_autocmd("LspTokenUpdate", {
 
 return {
 	cmd = {
-		"sourcekit-lsp",
+		"/Users/justinpolis/developer/sourcekit-lsp/.build/arm64-apple-macosx/debug/sourcekit-lsp",
 	},
 	filetypes = {
 		"swift",
@@ -149,10 +149,9 @@ return {
 	on_attach = function(client, _)
 		-- we use other diagnostics for sourcekit
 		-- need to disable publishDiagnostics to avoid duplicates
-		if client.name == "sourcekit" then
-			---@diagnostic disable-next-line: duplicate-set-field
-			vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
-		end
+		client.server_capabilities.semanticTokensProvider = nil
+		---@diagnostic disable-next-line: duplicate-set-field
+		vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 	end,
 	log_level = vim.lsp.protocol.MessageType.Warning,
 }

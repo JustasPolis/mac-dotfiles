@@ -69,7 +69,7 @@ return {
 					},
 					{
 						"filename",
-						path = 1,
+						path = 0,
 						cond = file_type,
 						symbols = { modified = "", readonly = "", unnamed = "" },
 						padding = { left = 0, right = 0 },

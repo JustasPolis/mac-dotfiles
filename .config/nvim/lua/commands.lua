@@ -45,3 +45,18 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.treesitter.start(args.buf)
 	end,
 })
+
+vim.keymap.set("n", "<leader>m", function()
+	local items = { "Build", "Test", "Deploy" }
+	vim.ui.select(items, { prompt = "Choose task" }, function(choice)
+		if choice == "Build" then
+			vim.cmd("make")
+		end
+		if choice == "Test" then
+			vim.cmd("Make test")
+		end
+		if choice == "Deploy" then
+			print("Deploying…")
+		end
+	end)
+end)
