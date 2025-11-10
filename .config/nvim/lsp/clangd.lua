@@ -1,15 +1,13 @@
 return {
 	cmd = {
-		"sourcekit-lsp",
+		"clangd",
 	},
 	filetypes = {
-		"swift",
+		"c",
+		"cpp",
 	},
 	root_markers = {
 		".git",
-		"Package.swift",
-		"*.xcodeproj",
-		"*.xcworkspace",
 	},
 	on_init = function(client)
 		-- this removes diagnostics delays
@@ -20,6 +18,9 @@ return {
 	end,
 	single_file_support = true,
 	on_attach = function(client, _)
+		-- we use other diagnostics for sourcekit
+		-- need to disable publishDiagnostics to avoid duplicates
+		client.server_capabilities.semanticTokensProvider = nil
 		---@diagnostic disable-next-line: duplicate-set-field
 		vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 	end,

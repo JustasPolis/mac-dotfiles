@@ -2,9 +2,8 @@ vim.lsp.enable({
 	"lua_ls",
 	"sourcekit",
 	"rust-analyzer",
+	"zls",
 })
-
-vim.highlight.priorities.semantic_tokens = 95
 
 vim.diagnostic.config({
 	virtual_text = false,
@@ -35,7 +34,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("<leader>sd", vim.diagnostic.open_float, "Open Diagnostic Float")
 		map("K", vim.lsp.buf.hover, "Hover Documentation")
 		map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
-		map("gD", vim.lsp.buf.declaration, "Goto Declaration")
+		map("gD", vim.lsp.buf.implementation, "Goto implementation")
 		map("<leader>lc", vim.lsp.buf.code_action, "Code Action")
 		map("<leader>lr", vim.lsp.buf.rename, "Rename all references")
 		map("<leader>lf", vim.lsp.buf.format, "Format")
@@ -49,6 +48,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
+		if client then
+			client.server_capabilities.semanticTokensProvider = nil
+		end
+
 		if
 			client
 			and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)

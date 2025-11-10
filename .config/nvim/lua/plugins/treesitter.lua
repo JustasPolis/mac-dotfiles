@@ -10,6 +10,7 @@ return {
 			"cpp",
 			"go",
 			"lua",
+			"zig",
 			"python",
 			"rust",
 			"tsx",
