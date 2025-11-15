@@ -21,15 +21,9 @@ end
 
 fish_vi_key_bindings
 
-set -g nvim_dark_blue     004c63
-set -g nvim_dark_cyan     007373
-set -g nvim_dark_green    005523
-set -g nvim_dark_magenta  470045
-set -g nvim_dark_red      590008
-set -g nvim_dark_yellow   6b5300
-set -g nvim_light_blue    A6DBFF
-set -g nvim_light_cyan    8cf8f7
-set -g nvim_light_green   b4f6c0
+set -g nvim_light_blue    A6DBFF 
+set -g nvim_light_cyan    A6DBFF 
+set -g nvim_light_green   a1c5bc 
 set -g nvim_light_magenta FFCAFF
 set -g nvim_light_red     FFC0B9
 set -g nvim_light_yellow  FCE094
@@ -43,15 +37,15 @@ set -g nvim_dark_grey2    14161B
 set -g nvim_dark_grey1    07080D
 
 set -U fish_color_normal           $nvim_light_grey3
-set -U fish_color_command          $nvim_light_cyan
+set -U fish_color_command          $nvim_light_green
 set -U fish_color_keyword          $nvim_light_cyan
 set -U fish_color_quote            $nvim_light_magenta
-set -U fish_color_redirection      $nvim_dark_cyan
+set -U fish_color_redirection      $nvim_light_cyan
 set -U fish_color_end              $nvim_light_cyan
-set -U fish_color_error            $nvim_light_red
+set -U fish_color_error            $nvim_light_green
 set -U fish_color_param            $nvim_light_green
 set -U fish_color_option           $nvim_light_yellow
-set -U fish_color_comment          $nvim_dark_grey4
+set -U fish_color_comment          $nvim_light_grey3
 set -U fish_color_operator         $nvim_light_yellow
 set -U fish_color_escape           $nvim_light_cyan
 set -U fish_color_autosuggestion   $nvim_dark_grey4

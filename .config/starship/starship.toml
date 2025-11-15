@@ -9,13 +9,13 @@ $character\
 
 [directory]
 format = "[$path]($style) "
-style = "dimmed"
+style = "#A6DBFF"
 truncation_symbol = '…/'
 truncate_to_repo = false
 
 [git_branch]
 format = "[$branch]($style) "
-style = "dimmed red"
+style = "#dfd1fb"
 
 [character]
 disabled = false
