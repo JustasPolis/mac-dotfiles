@@ -25,11 +25,24 @@ return {
 			end
 		end
 
+		local function hide_in_filetypes(ft_list)
+			return function()
+				return not vim.tbl_contains(ft_list, vim.bo.filetype)
+			end
+		end
+
+		local active_lsp_name = function()
+			local clients = vim.lsp.get_clients({ bufnr = 0 })
+			if next(clients) ~= nil then
+				return clients[1].name
+			end
+		end
+
 		lualine.setup({
 			options = {
 				icons_enabled = true,
 				theme = theme,
-				ignore_focus = { "Telescope", "Navigator", "help" },
+				ignore_focus = { "Telescope", "Navigator", "help", "NetrwTreeListing" },
 				always_divide_middle = false,
 				globalstatus = true,
 				refresh = {
@@ -49,22 +62,28 @@ return {
 					{
 						"diagnostics",
 						draw_empty = false,
-						separator = "",
+						separator = " ",
 						always_visible = false,
 						color = { fg = "None", bg = "None" },
 						sections = { "error", "warn", "info", "hint" },
 						cond = file_type,
 						padding = {
 							left = 0,
-							right = 1,
+							right = 0,
 						},
+					},
+					{
+						active_lsp_name,
+						always_visible = false,
+						color = { fg = "#FFFFFF", bg = "None" },
+						cond = hide_in_filetypes({ "netrw", "Telescope" }),
 					},
 					{
 						"filetype",
 						icon_only = true,
 						separator = "",
 						cond = file_type,
-						padding = { left = 0, right = 0 },
+						padding = { left = 0, right = 1 },
 						color = { fg = "None", bg = "None" },
 					},
 					{
@@ -80,7 +99,7 @@ return {
 					{
 						"branch",
 						always_visible = true,
-						icon = { "", padding = { left = 0, right = 0 }, color = { fg = "#e17792" } },
+						icon = { " ", padding = { left = 0, right = 0 }, color = { fg = "#e17792" } },
 						color = { fg = "white", bg = "None" },
 					},
 				},

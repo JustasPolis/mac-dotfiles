@@ -42,7 +42,7 @@ return {
 		completion = {
 			ghost_text = { enabled = false, show_with_menu = false },
 			documentation = {
-				auto_show = false,
+				auto_show = true,
 				treesitter_highlighting = true,
 				draw = function(opts)
 					opts.default_implementation()
@@ -52,13 +52,14 @@ return {
 			menu = {
 				direction_priority = { "n", "s" },
 				max_height = 10,
+				min_width = 10,
 				auto_show = true,
 				border = nil,
 				scrollbar = false,
 				draw = {
 					columns = {
 						{ "item_idx" },
-						{ "kind_icon", "label", "label_description", gap = 1 },
+						{ "kind_icon", "label", gap = 1 },
 						{ "source_name" }, -- shows LSP/Buffer/Path/etc.
 					},
 					components = {
