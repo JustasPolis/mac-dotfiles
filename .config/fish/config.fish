@@ -1,4 +1,5 @@
 set fish_greeting ""
+set -x FZF_DEFAULT_OPTS '--style=minimal --layout=reverse --no-scrollbar --color=gutter:-1 --inline-info'
 eval "$(/opt/homebrew/bin/brew shellenv)"
 starship init fish | source
 set EDITOR nvim
