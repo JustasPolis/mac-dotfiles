@@ -1,8 +1,15 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets", "nvim-tree/nvim-web-devicons" },
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		"nvim-tree/nvim-web-devicons",
+		"L3MON4D3/LuaSnip",
+	},
 	version = "1.x",
 	opts = {
+		snippets = {
+			preset = "luasnip",
+		},
 		keymap = {
 			preset = "none",
 			["<Up>"] = { "select_prev", "fallback" },

@@ -32,6 +32,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("<leader>lr", vim.lsp.buf.rename, "Rename all references")
 		map("<leader>lf", vim.lsp.buf.format, "Format")
 		map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+		map("<leader>th", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }), { bufnr = event.buf })
+		end, "Toggle Inlay Hints")
 		local function client_supports_method(client, method, bufnr)
 			if vim.fn.has("nvim-0.11") == 1 then
 				return client:supports_method(method, bufnr)
@@ -43,6 +46,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		if client then
 			client.server_capabilities.semanticTokensProvider = nil
+
+			-- Enable inlay hints if supported
+			if client.server_capabilities.inlayHintProvider then
+				vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+			end
 		end
 
 		if
