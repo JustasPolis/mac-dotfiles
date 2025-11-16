@@ -41,6 +41,7 @@ vim.opt.shortmess:append({
 vim.opt.smoothscroll = true
 vim.opt.fillchars = {
 	eob = " ",
+	vert = " ",
 }
 vim.opt.scrolloff = 4
 vim.o.signcolumn = "yes:1"

@@ -36,6 +36,7 @@ return {
 			if next(clients) ~= nil then
 				return clients[1].name
 			end
+			return ""
 		end
 
 		lualine.setup({
