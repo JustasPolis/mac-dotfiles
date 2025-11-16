@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "lua", "python", "rust", "swift", "zig", "c" },
+	pattern = { "lua", "python", "rust", "swift", "zig", "c", "codecompanion" },
 	callback = function(args)
 		vim.treesitter.start(args.buf)
 	end,

@@ -3,6 +3,7 @@ return {
 	lazy = true,
 	event = { "BufReadPost", "BufNewFile" },
 	opts = {
+		word_diff = true,
 		signs = {
 			add = { text = "│" },
 			change = { text = "│" },

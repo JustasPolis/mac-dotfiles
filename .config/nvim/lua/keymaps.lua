@@ -16,6 +16,7 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>o", ":normal o<CR>", opts)
 keymap("n", "<leader>O", ":normal O<CR>", opts)
+keymap("n", "<leader>wf", ":write <CR>", opts)
 
 vim.keymap.set("n", "<ESC>", function()
 	for _, win in pairs(vim.api.nvim_list_wins()) do

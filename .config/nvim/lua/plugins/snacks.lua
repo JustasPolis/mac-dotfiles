@@ -11,6 +11,13 @@ return {
 			desc = "Diagnostics",
 		},
 		{
+			"<leader>fh",
+			function()
+				Snacks.picker.highlights()
+			end,
+			desc = "Highlights",
+		},
+		{
 			"<leader>fe",
 			function()
 				Snacks.explorer({ focus = "input" })
@@ -18,7 +25,7 @@ return {
 			desc = "File Explorer",
 		},
 		{
-			"<leader>sf",
+			"<leader>ff",
 			function()
 				Snacks.picker.files()
 			end,
@@ -32,7 +39,7 @@ return {
 			desc = "Buffers",
 		},
 		{
-			"<leader>lv",
+			"<leader>fg",
 			function()
 				Snacks.picker.grep()
 			end,
@@ -63,14 +70,6 @@ return {
 					tree = true,
 					jump = { close = true },
 					auto_close = true,
-					win = {
-						list = {
-							keys = {},
-						},
-						input = {
-							keys = {},
-						},
-					},
 				},
 				diagnostics = {
 					enter = true, -- move focus into the explorer picker
@@ -81,14 +80,6 @@ return {
 					tree = true,
 					jump = { close = true },
 					auto_close = true,
-					win = {
-						list = {
-							keys = {},
-						},
-						input = {
-							keys = {},
-						},
-					},
 				},
 			},
 		},
