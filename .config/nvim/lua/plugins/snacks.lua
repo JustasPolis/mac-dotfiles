@@ -1,17 +1,3 @@
-local Actions = require("snacks.picker.actions")
-local function jump_n_and_confirm(n)
-	return function(picker)
-		local list = picker:list() -- get list component
-		local top = list:top() -- first visible row
-		local row = top + (n - 1)
-
-		if row <= list:count() then -- within bounds
-			list:set_cursor(row) -- jump to that row
-			Actions.confirm(picker) -- reuse built-in confirm
-		end
-	end
-end
-
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
