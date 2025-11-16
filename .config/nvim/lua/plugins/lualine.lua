@@ -1,6 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons", "folke/sidekick.nvim" },
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local theme = require("lualine.themes.auto")
 		theme.normal.c.bg = "None"
@@ -57,21 +57,7 @@ return {
 			sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = {
-					{
-						function()
-							local status = require("sidekick.status").cli()
-							return " " .. (#status > 1 and #status or "")
-						end,
-						cond = function()
-							return #require("sidekick.status").cli() > 0
-						end,
-						color = function()
-							return "Special"
-						end,
-					},
-				},
-
+				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {
 					{

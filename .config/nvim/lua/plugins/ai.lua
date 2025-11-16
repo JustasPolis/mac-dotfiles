@@ -1,5 +1,21 @@
 return {
 	"olimorris/codecompanion.nvim",
+	cmd = {
+		"CodeCompanion",
+		"CodeCompanionChat",
+		"CodeCompanionActions",
+		"CodeCompanionToggle",
+		"CodeCompanionAdd",
+	},
+	keys = {
+		{
+			"<leader>ac",
+			function()
+				vim.cmd("CodeCompanionChat Toggle")
+			end,
+			desc = "CodeCompanion chat",
+		},
+	},
 	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -55,8 +71,34 @@ return {
 				enabled = true,
 			},
 		},
+		tools = {
+			["edit"] = "insert_edit_into_file",
+			["web"] = "fetch_webpage",
+		},
+		adapters = {
+			acp = {
+				gemini_cli = function()
+					return require("codecompanion.adapters").extend("gemini_cli", {
+						defaults = {
+							auth_method = "oauth-personal", -- "oauth-personal"|"gemini-api-key"|"vertex-ai"
+						},
+					})
+				end,
+				codex = function()
+					return require("codecompanion.adapters").extend("codex", {
+						defaults = {
+							auth_method = "chatgpt", -- "oauth-personal"|"gemini-api-key"|"vertex-ai"
+						},
+					})
+				end,
+			},
+		},
 		strategies = {
 			chat = {
+				keymaps = {
+					close = false,
+				},
+				--adapter = "codex",
 				adapter = {
 					name = "copilot",
 					model = "claude-sonnet-4.5",
