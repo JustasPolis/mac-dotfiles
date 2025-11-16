@@ -60,6 +60,12 @@ return {
 		words = { enabled = false },
 		picker = {
 			sources = {
+				buffers = {
+					sort_lastused = false,
+				},
+				files = {
+					git_status = false,
+				},
 				explorer = {
 					enter = true, -- move focus into the explorer picker
 					focus = "input", -- or "input" if you prefer the search box
