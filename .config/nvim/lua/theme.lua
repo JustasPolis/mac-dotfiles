@@ -6,14 +6,16 @@ end
 local p = {
 	none = "none",
 	cyan = "NvimLightBlue",
-	pink = "#dd93b6",
-	purple = "#dfd1fb",
-	orange = "#dd977f",
-	white = "#ffffff",
-	grey = "#9b9ea4",
-	yellow = "#cfc877",
 	dark_purple = "#c3a6f8",
 	green = "#a1c5bc",
+	grey = "#9b9ea4",
+	info_blue = "#5fafff",
+	orange = "#dd977f",
+	pink = "#dd93b6",
+	purple = "#dfd1fb",
+	warn_orange = "#ffaf00",
+	white = "#ffffff",
+	yellow = "#cfc877",
 }
 
 local function hl(group, opts)
@@ -78,8 +80,8 @@ hl("@punctuation.special.swift", { bg = p.none, fg = p.white })
 hl("@function.macro.swift", { bg = p.none, fg = p.purple })
 hl("@lsp.type.enumMember.swift", { bg = p.none, fg = p.green })
 hl("DiagnosticUnderlineError", { undercurl = true, sp = "NvimLightRed" })
-hl("DiagnosticUnderlineWarn", { undercurl = true, sp = "#ffaf00" })
-hl("DiagnosticUnderlineInfo", { undercurl = true, sp = "#5fafff" })
+hl("DiagnosticUnderlineWarn", { undercurl = true, sp = p.warn_orange })
+hl("DiagnosticUnderlineInfo", { undercurl = true, sp = p.info_blue })
 hl("DiagnosticUnderlineHint", { undercurl = true, sp = p.yellow })
 hl("BlinkCmpMenuSelection", { bg = p.none, fg = p.white })
 hl("CursorLine", { bg = p.none, fg = p.none })

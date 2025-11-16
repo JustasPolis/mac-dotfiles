@@ -14,11 +14,9 @@ return {
 				})
 			end,
 		},
-		"franco-ruggeri/codecompanion-spinner.nvim",
 	},
 	opts = {
 		extensions = {
-			spinner = {},
 			mcphub = {
 				callback = "mcphub.extensions.codecompanion",
 				opts = {
@@ -29,6 +27,17 @@ return {
 			},
 		},
 		display = {
+			chat = {
+				show_settings = true,
+				window = {
+					layout = "vertical", -- float|vertical|horizontal|buffer
+					position = "right", -- left|right|top|bottom (nil will default depending on vim.opt.splitright|vim.opt.splitbelow)
+					width = 0.50,
+					relative = "editor",
+					full_height = true,
+					sticky = true, -- chat buffer remains open when switching tabs
+				},
+			},
 			action_palette = {
 				width = 95,
 				height = 10,

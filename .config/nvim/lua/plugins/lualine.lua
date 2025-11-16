@@ -43,7 +43,7 @@ return {
 			options = {
 				icons_enabled = true,
 				theme = theme,
-				ignore_focus = { "Telescope", "Navigator", "help", "NetrwTreeListing" },
+				ignore_focus = { "Telescope", "Navigator", "help", "NetrwTreeListing", "codecompanion" },
 				always_divide_middle = false,
 				globalstatus = true,
 				refresh = {

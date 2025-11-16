@@ -4,7 +4,7 @@ return {
 		"copilotlsp-nvim/copilot-lsp",
 	},
 	cmd = "Copilot",
-	enabled = true,
+	enabled = false,
 	event = "InsertEnter",
 	config = function()
 		require("copilot").setup({
