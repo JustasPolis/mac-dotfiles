@@ -59,6 +59,29 @@ return {
 		statuscolumn = { enabled = false },
 		words = { enabled = false },
 		picker = {
+			formatters = {
+				file = {
+					filename_only = true,
+				},
+			},
+			matcher = {
+				fuzzy = true,
+				ignorecase = true,
+			},
+			layout = {
+				layout = {
+					backdrop = true,
+					width = 0.999,
+					height = 0.999,
+					box = "vertical",
+					border = true,
+					{ win = "input", height = 1, border = "bottom" },
+					{ win = "list", border = "none" },
+					{ win = "preview", height = 0.80, border = "top" },
+				},
+			},
+			--preset = "vertical",
+			--fullscreen = true,
 			sources = {
 				buffers = {
 					sort_lastused = false,
@@ -71,7 +94,7 @@ return {
 					focus = "input", -- or "input" if you prefer the search box
 					diagnostics = false,
 					git_status = false,
-					layout = { preset = "telescope" },
+					layout = { preset = "default" },
 					follow_file = true,
 					tree = true,
 					jump = { close = true },

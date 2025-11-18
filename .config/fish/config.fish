@@ -6,7 +6,8 @@ set EDITOR nvim
 zoxide init --cmd cd fish | source
 set -x PATH $PATH ~/.cargo/bin
 set -gx PATH /opt/homebrew/bin $PATH
-set -x PATH "$PATH:$(go env GOPATH)/bin"
+set -gx PATH ~/.local/share/bob/nvim-bin $PATH
+
 
 fish_vi_cursor --force-iterm
 set -g fish_cursor_insert line
@@ -66,3 +67,10 @@ set -U fish_pager_color_selected_completion    $nvim_light_grey1
 set -U fish_pager_color_selected_description   $nvim_light_grey4
 bind -M insert \cf forward-char
 set -x STARSHIP_VIMCMD false
+
+abbr -a gs git status
+abbr -a ga git add
+abbr -a gai git add -i
+abbr -a gc git commit
+abbr -a gp git push
+abbr -a gl git log

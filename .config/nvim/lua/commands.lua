@@ -70,3 +70,11 @@ end
 
 vim.api.nvim_create_user_command("ToggleDiagVirtualText", toggle_diag_virtual_text, {})
 vim.keymap.set("n", "<leader>td", toggle_diag_virtual_text, { desc = "Toggle diagnostics virtual text" })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		if vim.fn.argc() == 0 then
+			Snacks.picker.files()
+		end
+	end,
+})
