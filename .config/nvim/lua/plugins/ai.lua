@@ -18,6 +18,7 @@ return {
 	},
 	lazy = false,
 	dependencies = {
+		"artemave/workspace-diagnostics.nvim",
 		"nvim-lua/plenary.nvim",
 		"ravitemer/mcphub.nvim",
 		{ "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },

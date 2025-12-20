@@ -74,7 +74,7 @@ vim.keymap.set("n", "<leader>td", toggle_diag_virtual_text, { desc = "Toggle dia
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		if vim.fn.argc() == 0 then
-			require("snacks").picker.files()
+			Snacks.picker.files()
 		end
 	end,
 })
