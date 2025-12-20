@@ -18,7 +18,6 @@ return {
 	},
 	lazy = false,
 	dependencies = {
-		"artemave/workspace-diagnostics.nvim",
 		"nvim-lua/plenary.nvim",
 		"ravitemer/mcphub.nvim",
 		{ "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
@@ -99,7 +98,6 @@ return {
 				keymaps = {
 					close = false,
 				},
-				--adapter = "codex",
 				adapter = {
 					name = "copilot",
 					model = "claude-sonnet-4.5",
