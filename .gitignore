@@ -1,1 +1,6 @@
 .DS_Store
+**/secrets.fish
+**/secrets.*
+**/*.secret
+**/*.local
+.env*
