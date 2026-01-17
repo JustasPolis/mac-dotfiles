@@ -7,6 +7,9 @@ zoxide init --cmd cd fish | source
 set -x PATH $PATH ~/.cargo/bin
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH ~/.local/share/bob/nvim-bin $PATH
+set -gx GOOGLE_CLOUD_PROJECT "nimble-radio-231516"
+set -gx OPENCODE_EXPERIMENTAL_LSP_TOOL true
+test -f ~/.config/fish/secrets.fish && source ~/.config/fish/secrets.fish
 
 
 fish_vi_cursor --force-iterm

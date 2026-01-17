@@ -2,6 +2,7 @@ vim.lsp.enable({
 	"lua_ls",
 	"sourcekit",
 	"rust-analyzer",
+	"clangd",
 	"zls",
 })
 

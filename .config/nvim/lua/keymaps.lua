@@ -17,6 +17,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>o", ":normal o<CR>", opts)
 keymap("n", "<leader>O", ":normal O<CR>", opts)
 keymap("n", "<leader>wf", ":write <CR>", opts)
+keymap("n", "<leader>wq", ":wqa <CR>", opts)
 vim.keymap.set("v", "<space>ai", function()
 	return ":CodeCompanion " .. vim.fn.input("message") .. "<cr>"
 end, { expr = true })
