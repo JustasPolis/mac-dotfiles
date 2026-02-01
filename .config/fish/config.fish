@@ -76,6 +76,9 @@ set -x STARSHIP_VIMCMD false
 abbr -a gs git status
 abbr -a ga git add
 abbr -a gai git add -i
-abbr -a gc git commit
+abbr -a gcm git commit
+abbr -a gch git checkout 
 abbr -a gp git push
 abbr -a gl git log
+abbr -a oc opencode
+abbr -a ss seshstart
