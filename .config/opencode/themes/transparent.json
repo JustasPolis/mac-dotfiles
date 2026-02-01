@@ -1,0 +1,40 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "nvCyan": "#add8e6",
+    "nvDarkPurple": "#c3a6f8",
+    "nvGreen": "#a1c5bc",
+    "nvGrey": "#9b9ea4",
+    "nvOrange": "#dd977f",
+    "nvPink": "#dd93b6",
+    "nvPurple": "#dfd1fb",
+    "nvWhite": "#ffffff",
+    "nvYellow": "#cfc877",
+    "nvBorder": "#9b9ea4"
+  },
+  "theme": {
+    "primary": { "dark": "nvCyan", "light": "nvCyan" },
+    "accent": { "dark": "nvPurple", "light": "nvPurple" },
+    "text": { "dark": "nvWhite", "light": "nvWhite" },
+    "textMuted": { "dark": "nvGrey", "light": "nvGrey" },
+    "background": { "dark": "none", "light": "none" },
+    "backgroundPanel": { "dark": "#2a2a2a", "light": "#2a2a2a" },
+    "backgroundElement": { "dark": "none", "light": "none" },
+    "inputBackground": { "dark": "nvGrey", "light": "nvGrey" },
+    "border": { "dark": "none", "light": "none" },
+    "borderActive": { "dark": "none", "light": "none" },
+    "InputBorder": { "dark": "none", "light": "none" },
+    "InputBorderActive": { "dark": "none", "light": "none" },
+    "syntaxKeyword": { "dark": "nvPink", "light": "nvPink" },
+    "syntaxFunction": { "dark": "nvGreen", "light": "nvGreen" },
+    "syntaxVariable": { "dark": "nvWhite", "light": "nvWhite" },
+    "syntaxString": { "dark": "nvOrange", "light": "nvOrange" },
+    "syntaxType": { "dark": "nvPurple", "light": "nvPurple" },
+    "syntaxNumber": { "dark": "nvYellow", "light": "nvYellow" },
+    "syntaxComment": { "dark": "nvGrey", "light": "nvGrey" },
+    "markdownHeading": { "dark": "nvPink", "light": "nvPink" },
+    "markdownLink": { "dark": "nvCyan", "light": "nvCyan" },
+    "markdownCode": { "dark": "nvOrange", "light": "nvOrange" },
+    "inputCursor": { "dark": "nvCyan", "light": "nvCyan" }
+  }
+}

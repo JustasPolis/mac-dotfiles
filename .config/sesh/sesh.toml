@@ -1,0 +1,55 @@
+[[session]]
+name = "downloads"
+path = "~/Downloads"
+startup_command = "yazi"
+
+[[session]]
+name = "projects"
+path = "~/job"
+startup_command = "yazi"
+
+[[session]]
+name = "podimo"
+path = "~/job/podimo-app-ios/"
+
+[[session]]
+name = "desktop"
+path = "~/Desktop"
+startup_command = "yazi"
+
+[[session]]
+name = "documents"
+path = "~/documents"
+startup_command = "yazi"
+
+[[session]]
+name = "tmux"
+path = "~/.dotfiles/.config/tmux"
+startup_command = "nvim tmux.conf"
+
+[[session]]
+name = "nvim"
+path = "~/.dotfiles/.config/nvim"
+startup_command = "nvim"
+
+[[session]]
+name = "fish"
+path = "~/.dotfiles/.config/fish"
+startup_command = "nvim"
+
+[[session]]
+name = "kitty"
+path = "~/.dotfiles/.config/kity"
+startup_command = "nvim kitty.conf"
+
+[[session]]
+name = "opencode"
+path = "~/.dotfiles/.config/opencode"
+startup_command = "nvim opencode.json"
+
+[[session]]
+name = "sesh"
+path = "~/.dotfiles/.config/sesh"
+startup_command = "nvim sesh.toml"
+
+

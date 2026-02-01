@@ -1,16 +1,13 @@
 return {
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 	cmd = {
 		"clangd",
-	},
-	filetypes = {
-		"c",
-		"cpp",
+		"--background-index",
+		"--completion-style=detailed",
+		"--header-insertion=never",
 	},
 	root_markers = {
 		".git",
-	},
-	init_options = {
-		--fallbackFlags = { "-std=c11", "-Iinclude" },
 	},
 	single_file_support = true,
 	on_attach = function(client, _)

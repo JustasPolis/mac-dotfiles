@@ -14,6 +14,8 @@ return {
 			preset = "none",
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
+			["<C-p>"] = { "select_prev", "fallback" },
+			["<C-n>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
 			["<Tab>"] = { "show", "cancel", "fallback" },
 			["<C-1>"] = {

@@ -2,6 +2,18 @@ local opts = { noremap = true, silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
+local keys = {
+	["\27[49;5u"] = "<C-1>",
+	["\27[50;5u"] = "<C-2>",
+	["\27[51;5u"] = "<C-3>",
+	["\27[52;5u"] = "<C-4>",
+	["\27[53;5u"] = "<C-5>",
+}
+
+for code, mapping in pairs(keys) do
+	vim.keymap.set("n", code, mapping, { remap = true, silent = true })
+end
+
 keymap("", "<Space>", "<Nop>", opts)
 keymap("n", "<leader>|", ":vnew <cr>", opts)
 keymap("n", "gb", "<C-o>", opts)

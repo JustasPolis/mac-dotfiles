@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "system",
+  "plugin": ["opencode-anthropic-auth@0.0.13", "opencode-gemini-auth@latest"],
+  "model": "anthropic/claude-opus-4-5",
+  "autoupdate": true,
+  "permission": {
+    "edit": "ask",
+    "lsp": "allow",
+    "skill": "allow"
+  },
+  "keybinds": {
+    "command_list": "<leader>c"
+  },
+  "mcp": {
+  }
+}

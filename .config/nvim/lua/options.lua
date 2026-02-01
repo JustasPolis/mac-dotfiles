@@ -61,3 +61,9 @@ vim.g.netrw_hide = 1
 vim.g.netrw_preview = 1
 vim.g.netrw_keepdir = 1
 vim.g.netrw_fastbrowse = 1
+
+vim.filetype.add({
+	extension = {
+		h = "objc",
+	},
+})

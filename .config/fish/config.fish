@@ -1,5 +1,6 @@
 set fish_greeting ""
-set -x FZF_DEFAULT_OPTS '--style=minimal --layout=reverse --no-scrollbar --color=gutter:-1 --inline-info'
+set -x FZF_DEFAULT_OPTS '--no-sort --ansi --header "" --no-info --preview-window hidden --bind "tab:down,btab:up"'
+set -gx TERMINFO_DIRS "$TERMINFO_DIRS:/opt/homebrew/share/terminfo"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 starship init fish | source
 set EDITOR nvim
@@ -8,9 +9,10 @@ set -x PATH $PATH ~/.cargo/bin
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH ~/.local/share/bob/nvim-bin $PATH
 set -gx GOOGLE_CLOUD_PROJECT "nimble-radio-231516"
+set -gx OPENCODE_GEMINI_PROJECT_ID "nimble-radio-231516"
 set -gx OPENCODE_EXPERIMENTAL_LSP_TOOL true
 test -f ~/.config/fish/secrets.fish && source ~/.config/fish/secrets.fish
-
+set -gx NO_UPDATE_NOTIFIER 1
 
 fish_vi_cursor --force-iterm
 set -g fish_cursor_insert line
