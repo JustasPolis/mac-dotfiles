@@ -8,7 +8,7 @@ function gwt --description "Create git worktree and connect via sesh"
     # Get worktree name from argument or prompt
     set -l worktree_name $argv[1]
     if test -z "$worktree_name"
-        echo "Usage: gwt <worktree-name> [branch-name]"
+        echo "Usage: gwt <worktree-name> [branch-name] [base-branch]"
         return 1
     end
 
@@ -16,6 +16,12 @@ function gwt --description "Create git worktree and connect via sesh"
     set -l branch_name $argv[2]
     if test -z "$branch_name"
         set branch_name $worktree_name
+    end
+
+    # Base branch defaults to main if not provided
+    set -l base_branch $argv[3]
+    if test -z "$base_branch"
+        set base_branch main
     end
 
     # Get the git common dir (works from main repo or any worktree)
@@ -44,6 +50,17 @@ function gwt --description "Create git worktree and connect via sesh"
     end
 
     # Create the worktree
+    # Resolve base branch to a ref if needed
+    set -l base_ref "$base_branch"
+    if git show-ref --verify --quiet "refs/heads/$base_branch"
+        set base_ref "$base_branch"
+    else if git show-ref --verify --quiet "refs/remotes/origin/$base_branch"
+        set base_ref "origin/$base_branch"
+    else if not git rev-parse --verify --quiet "$base_branch^{commit}"
+        echo "Error: Base branch or commit not found: $base_branch"
+        return 1
+    end
+
     echo "Creating worktree at $worktree_path with branch $branch_name..."
     
     # Check if branch exists locally or remotely
@@ -75,7 +92,7 @@ function gwt --description "Create git worktree and connect via sesh"
         end
     else
         # Branch doesn't exist anywhere, create new branch
-        if git worktree add "$worktree_path" -b "$branch_name"
+        if git worktree add "$worktree_path" -b "$branch_name" "$base_ref"
             echo "Created new worktree with new branch '$branch_name'"
         else
             echo "Error: Failed to create worktree with new branch '$branch_name'"

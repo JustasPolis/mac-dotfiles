@@ -6,6 +6,9 @@ return {
 		"--completion-style=detailed",
 		"--header-insertion=never",
 	},
+	init_options = {
+		fallbackFlags = { "-std=c++20" },
+	},
 	root_markers = {
 		".git",
 	},

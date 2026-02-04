@@ -4,6 +4,7 @@ vim.lsp.enable({
 	"rust-analyzer",
 	"clangd",
 	"zls",
+	"typescript",
 })
 
 vim.diagnostic.config({

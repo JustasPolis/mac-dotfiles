@@ -40,7 +40,23 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "lua", "python", "rust", "swift", "zig", "c", "cpp", "objc", "objcpp" },
+	pattern = {
+		"lua",
+		"python",
+		"rust",
+		"swift",
+		"zig",
+		"c",
+		"cpp",
+		"objc",
+		"objcpp",
+		"javascript",
+		"javascriptreact",
+		"javascript.jsx",
+		"typescript",
+		"typescriptreact",
+		"typescript.tsx",
+	},
 	callback = function(args)
 		vim.treesitter.start(args.buf)
 	end,

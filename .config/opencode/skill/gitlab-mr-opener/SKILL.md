@@ -49,6 +49,20 @@ Before creating MR, confirm with user:
 - **MR title**: Suggest based on branch name/commits
 - **Options**: squash commits, remove source branch, draft MR
 
+## MR Title Format
+
+Use this format for MR titles:
+```
+<TICKET-ID> <Description>
+```
+
+Examples:
+- `POD-10589 Fix incorrect newsletter deeplink values`
+- `POD-12345 Add user profile settings screen`
+- `STAFF-100 Update analytics tracking`
+
+Do NOT use brackets around the ticket ID or platform prefixes like `[iOS]`.
+
 ### 4. Review Changes
 
 ```bash

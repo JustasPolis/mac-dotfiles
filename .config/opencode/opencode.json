@@ -12,6 +12,11 @@
   "keybinds": {
     "command_list": "<leader>c"
   },
-  "mcp": {
+    "mcp": {
+    "xcode": {
+      "type": "local",
+      "command": ["xcrun", "mcpbridge" ],
+      "enabled": true
   }
+}
 }

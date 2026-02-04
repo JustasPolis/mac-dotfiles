@@ -49,7 +49,6 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		dashboard = { enabled = false },
-		explorer = { enabled = true },
 		indent = { enabled = false },
 		input = { enabled = false },
 		notifier = { enabled = false },
@@ -80,8 +79,6 @@ return {
 					{ win = "preview", height = 0.80, border = "top" },
 				},
 			},
-			--preset = "vertical",
-			--fullscreen = true,
 			sources = {
 				buffers = {
 					sort_lastused = false,
@@ -99,6 +96,13 @@ return {
 					tree = true,
 					jump = { close = true },
 					auto_close = true,
+					win = {
+						input = {
+							keys = {
+								["<C-c>"] = { "explorer_add", mode = { "n", "i" } },
+							},
+						},
+					},
 				},
 				diagnostics = {
 					enter = true, -- move focus into the explorer picker

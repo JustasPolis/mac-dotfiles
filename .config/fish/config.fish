@@ -7,6 +7,8 @@ set EDITOR nvim
 zoxide init --cmd cd fish | source
 set -x PATH $PATH ~/.cargo/bin
 set -gx PATH /opt/homebrew/bin $PATH
+set -gx PATH /Users/justaspolikevicius/job/depot_tools $PATH
+set -gx PATH /Users/justaspolikevicius/job/rosetta/build $PATH
 set -gx PATH ~/.local/share/bob/nvim-bin $PATH
 set -gx GOOGLE_CLOUD_PROJECT "nimble-radio-231516"
 set -gx OPENCODE_GEMINI_PROJECT_ID "nimble-radio-231516"
@@ -82,3 +84,12 @@ abbr -a gp git push
 abbr -a gl git log
 abbr -a oc opencode
 abbr -a ss seshstart
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
