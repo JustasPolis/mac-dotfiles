@@ -15,7 +15,7 @@
     "mcp": {
     "xcode": {
       "type": "local",
-      "command": ["xcrun", "mcpbridge" ],
+      "command": ["/Users/justaspolikevicius/.dotfiles/.config/opencode/xcode_mcp_bridge"],
       "enabled": true
   }
 }

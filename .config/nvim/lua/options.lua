@@ -41,7 +41,6 @@ vim.opt.shortmess:append({
 vim.opt.smoothscroll = true
 vim.opt.fillchars = {
 	eob = " ",
-	vert = " ",
 }
 vim.opt.scrolloff = 4
 vim.o.signcolumn = "yes:1"
@@ -67,3 +66,6 @@ vim.filetype.add({
 		h = "objc",
 	},
 })
+
+vim.opt.diffopt:append("context:99999")
+vim.opt.fillchars:append({ diff = " " })

@@ -17,28 +17,6 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 	end,
 })
 
-local function poke_change(bufnr)
-	if not vim.api.nvim_buf_is_loaded(bufnr) or vim.bo[bufnr].modifiable == false then
-		return
-	end
-	local view = vim.fn.winsaveview()
-	local line = vim.api.nvim_get_current_line()
-	vim.api.nvim_set_current_line(line .. " ")
-	vim.cmd("silent undo")
-	vim.fn.winrestview(view)
-end
-
--- Hack to force semantic tokens to load for Swift files, need to make file change
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*.swift",
-	callback = function(args)
-		vim.defer_fn(function()
-			poke_change(args.buf)
-			vim.api.nvim_del_autocmd(args.id)
-		end, 1000)
-	end,
-})
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"lua",

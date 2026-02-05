@@ -100,6 +100,7 @@ return {
 						input = {
 							keys = {
 								["<C-c>"] = { "explorer_add", mode = { "n", "i" } },
+								["<C-d>"] = { "explorer_del", mode = { "n", "i" } },
 							},
 						},
 					},

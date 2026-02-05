@@ -9,6 +9,7 @@ local p = {
 	dark_purple = "#c3a6f8",
 	green = "#a1c5bc",
 	grey = "#9b9ea4",
+	grey2 = "#4F5258",
 	info_blue = "#5fafff",
 	orange = "#dd977f",
 	pink = "#dd93b6",
@@ -88,7 +89,6 @@ hl("CursorLine", { bg = p.none, fg = p.none })
 hl("netrwdir", { bg = p.none, fg = p.cyan })
 hl("DiagnosticVirtualTextInfo", { bg = p.none, fg = p.cyan })
 hl("Directory", { bg = p.none, fg = p.cyan })
-hl("WinSeparator", { bg = p.none, fg = p.none, sp = p.none })
 hl("SnacksWinSeparator", { bg = p.none, fg = p.none, sp = p.none })
 hl("SnacksPickerIconMethod", { bg = p.none, fg = p.white, sp = p.none })
 hl("SnacksPickerMatch", { bg = p.none, fg = p.white })
@@ -100,6 +100,12 @@ hl("SnacksPickerListBorder", { bg = p.none, fg = p.grey })
 hl("SnacksPickerInputBorder", { bg = p.none, fg = p.grey })
 hl("LspInlayHint", { bg = p.none, fg = p.grey })
 hl("SnacksPickerBorder", { bg = p.none, fg = p.grey })
+hl("DiffChange", { bg = p.none, fg = p.none })
+hl("DiffDelete", { bg = "#4b1818", fg = p.none })
+hl("DiffText", { bg = "#597B60", fg = p.none })
+hl("DiffAdd", { bg = p.none, fg = p.none })
+hl("WinSeparator", { bg = p.none, fg = p.grey2 })
+
 hl("SnacksPickerPreviewBorder", { bg = p.none, fg = p.grey })
 hl("Substitute", { bg = p.dark_purple, fg = "NvimDarkGrey4" })
 hl("ColorColumn", { bg = p.none })
