@@ -12,7 +12,6 @@ set -gx PATH ~/.local/share/bob/nvim-bin $PATH
 set -gx GOOGLE_CLOUD_PROJECT "nimble-radio-231516"
 set -gx OPENCODE_GEMINI_PROJECT_ID "nimble-radio-231516"
 set -gx OPENCODE_EXPERIMENTAL_LSP_TOOL true
-set -gx GITLAB_AUTH_TOKEN "glpat-eGjPe5U85qjnuKK9AA-LFG86MQp1OmNyeGZoCw.01.121a7huqe"
 test -f ~/.config/fish/secrets.fish && source ~/.config/fish/secrets.fish
 set -gx NO_UPDATE_NOTIFIER 1
 
