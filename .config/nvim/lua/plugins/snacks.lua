@@ -67,17 +67,37 @@ return {
 				fuzzy = true,
 				ignorecase = true,
 			},
-			layout = {
-				layout = {
-					backdrop = true,
-					width = 0.999,
-					height = 0.999,
-					box = "vertical",
-					border = true,
-					{ win = "input", height = 1, border = "bottom" },
-					{ win = "list", border = "none" },
-					{ win = "preview", height = 0.80, border = "top" },
+			win = {
+				input = {
+					keys = {
+						["<leader>p"] = { "focus_preview", mode = "n" },
+						["<leader>l"] = { "focus_list", mode = "n" },
+					},
 				},
+				list = {
+					keys = {
+						["<leader>p"] = { "focus_preview", mode = "n" },
+						["<leader>i"] = { "focus_input", mode = "n" },
+					},
+				},
+				preview = {
+					keys = {
+						["<leader>l"] = { "focus_list", mode = "n" },
+						["<leader>i"] = { "focus_input", mode = "n" },
+					},
+				},
+			},
+			layout = {
+				--layout = {
+				--	backdrop = true,
+				--	width = 0.999,
+				--	height = 0.999,
+				--	box = "vertical",
+				--	border = true,
+				--	{ win = "input", height = 1, border = "bottom" },
+				--	{ win = "list", border = "none" },
+				--	{ win = "preview", height = 0.80, border = "top" },
+				--},
 			},
 			sources = {
 				buffers = {

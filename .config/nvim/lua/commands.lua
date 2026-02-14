@@ -21,6 +21,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"lua",
 		"python",
+		"markdown",
+		"markdown_inline",
 		"rust",
 		"swift",
 		"zig",

@@ -30,6 +30,11 @@ keymap("n", "<leader>o", ":normal o<CR>", opts)
 keymap("n", "<leader>O", ":normal O<CR>", opts)
 keymap("n", "<leader>wf", ":write <CR>", opts)
 keymap("n", "<leader>wq", ":wqa <CR>", opts)
+
+-- GitLab MR Review
+keymap("n", "<leader>gr", ":GitLabReview<CR>", opts)
+keymap("n", "<leader>gc", ":GitLabComment<CR>", opts)
+keymap("n", "<leader>gi", ":GitLabSessionInfo<CR>", opts)
 vim.keymap.set("v", "<space>ai", function()
 	return ":CodeCompanion " .. vim.fn.input("message") .. "<cr>"
 end, { expr = true })
@@ -50,3 +55,16 @@ vim.keymap.set("n", "<ESC>", function()
 		end
 	end
 end, opts)
+
+local function open_tmux_at_root()
+	local git_root = vim.fs.root(0, { ".git" })
+
+	local target_dir = git_root or vim.fn.getcwd()
+
+	local cmd = string.format('tmux display-popup -d "%s" -w 80%% -h 80%% -E', target_dir)
+	vim.fn.jobstart(cmd)
+end
+
+vim.keymap.set("n", "<leader>tf", open_tmux_at_root, { desc = "Tmux Popup at Git Root" })
+
+keymap("n", "<leader>sf", ":source % <CR>", opts)

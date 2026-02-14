@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+"""
+Wrapper for xcrun mcpbridge that adds structuredContent to responses.
+"""
+ 
+import sys, json, subprocess, threading
+ 
+def process_response(line):
+    try:
+        data = json.loads(line)
+        if isinstance(data, dict) and 'result' in data:
+            result = data['result']
+            if isinstance(result, dict):
+                if 'content' in result and 'structuredContent' not in result:
+                    content = result.get('content', [])
+                    if isinstance(content, list) and len(content) > 0:
+                        for item in content:
+                            if isinstance(item, dict) and item.get('type') == 'text':
+                                text = item.get('text', '')
+                                try:
+                                    result['structuredContent'] = json.loads(text)
+                                except json.JSONDecodeError:
+                                    result['structuredContent'] = {"text": text}
+                                break
+        return json.dumps(data)
+    except json.JSONDecodeError:
+        return line
+ 
+def main():
+    proc = subprocess.Popen(
+        ['xcrun', 'mcpbridge'] + sys.argv[1:],
+        stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+        stderr=sys.stderr, text=True, bufsize=1
+    )
+    
+    def pipe_output(stdout):
+        for line in stdout:
+            print(process_response(line.strip()), flush=True)
+    
+    threading.Thread(target=pipe_output, args=(proc.stdout,), daemon=True).start()
+    
+    for line in sys.stdin:
+        proc.stdin.write(line)
+        proc.stdin.flush()
+ 
+if __name__ == '__main__':
+    main()

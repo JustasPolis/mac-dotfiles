@@ -4,13 +4,17 @@ path = "~/Downloads"
 startup_command = "yazi"
 
 [[session]]
+name = "home"
+path = "~/"
+
+[[session]]
 name = "projects"
 path = "~/job"
 startup_command = "yazi"
 
 [[session]]
 name = "podimo"
-path = "~/job/podimo-app-ios/"
+path = "~/job/podimo-app-ios.git/"
 
 [[session]]
 name = "desktop"
@@ -39,7 +43,7 @@ startup_command = "nvim"
 
 [[session]]
 name = "kitty"
-path = "~/.dotfiles/.config/kity"
+path = "~/.dotfiles/.config/kitty"
 startup_command = "nvim kitty.conf"
 
 [[session]]

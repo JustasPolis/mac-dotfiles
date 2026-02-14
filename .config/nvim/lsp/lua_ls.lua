@@ -1,6 +1,6 @@
 return {
 	cmd = {
-		"lua-language-server",
+		"emmylua_ls",
 	},
 	filetypes = {
 		"lua",
@@ -14,6 +14,7 @@ return {
 		"selene.toml",
 		"selene.yml",
 		"stylua.toml",
+		".emmyrc.json",
 	},
 	single_file_support = true,
 	settings = {
@@ -23,9 +24,7 @@ return {
 				globals = { "vim" },
 			},
 			workspace = {
-				-- make the server aware of Neovim runtime files
 				library = vim.api.nvim_get_runtime_file("", true),
-				checkThirdParty = false, -- disable prompting for third-party libs
 			},
 			telemetry = {
 				enable = false, -- turn off telemetry
