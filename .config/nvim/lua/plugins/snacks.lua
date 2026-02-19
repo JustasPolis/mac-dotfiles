@@ -87,31 +87,24 @@ return {
 					},
 				},
 			},
-			layout = {
-				--layout = {
-				--	backdrop = true,
-				--	width = 0.999,
-				--	height = 0.999,
-				--	box = "vertical",
-				--	border = true,
-				--	{ win = "input", height = 1, border = "bottom" },
-				--	{ win = "list", border = "none" },
-				--	{ win = "preview", height = 0.80, border = "top" },
-				--},
-			},
 			sources = {
 				buffers = {
 					sort_lastused = false,
+					layout = { fullscreen = true },
 				},
 				files = {
 					git_status = false,
+					layout = { fullscreen = true },
+				},
+				grep = {
+					layout = { fullscreen = true },
 				},
 				explorer = {
 					enter = true, -- move focus into the explorer picker
 					focus = "input", -- or "input" if you prefer the search box
 					diagnostics = false,
 					git_status = false,
-					layout = { preset = "default" },
+					layout = { fullscreen = true },
 					follow_file = true,
 					tree = true,
 					jump = { close = true },
@@ -125,6 +118,15 @@ return {
 						},
 					},
 				},
+				lsp_incoming_calls = {
+					layout = { fullscreen = true },
+				},
+				lsp_definitions = {
+					layout = { fullscreen = true },
+				},
+				lsp_implementations = {
+					layout = { fullscreen = true },
+				},
 				diagnostics = {
 					enter = true, -- move focus into the explorer picker
 					focus = "list", -- or "input" if you prefer the search box
@@ -134,6 +136,7 @@ return {
 					tree = true,
 					jump = { close = true },
 					auto_close = true,
+					layout = { fullscreen = true },
 				},
 			},
 		},

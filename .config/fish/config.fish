@@ -7,6 +7,7 @@ set EDITOR nvim
 zoxide init --cmd cd fish | source
 set -x PATH $PATH ~/.cargo/bin
 set -gx PATH /opt/homebrew/bin $PATH
+set -gx LS_COLORS (vivid generate mellow)
 set -gx PATH /Users/justaspolikevicius/job/depot_tools $PATH
 set -gx PATH ~/.local/share/bob/nvim-bin $PATH
 set -gx GOOGLE_CLOUD_PROJECT "nimble-radio-231516"

@@ -1,0 +1,2 @@
+# Open kitty in fullscreen, attach to tmux or start sesh session picker
+hyper - t : open -na /Applications/kitty.app --args --start-as fullscreen -e fish -c "tmux attach; or seshstart"

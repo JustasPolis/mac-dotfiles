@@ -2,25 +2,24 @@ add_newline = false
 
 format = """
 $directory\
-$git_branch\
 $jobs\
 $character\
 """
 
 [directory]
 format = "[$path]($style) "
-style = "#A6DBFF"
+style = "#aca1cf"
 truncation_symbol = '…/'
 truncate_to_repo = false
 
 [git_branch]
-format = "[$branch]($style) "
-style = "#dfd1fb"
+disabled = true
 
 [character]
 disabled = false
-success_symbol = '[❯](bold blue)'
+success_symbol = '[❯](#aca1cf)'
+error_symbol = '[❯](#f5a191)'
 
 [jobs]
 symbol = ''
-style = 'bold red'
+style = 'bold #f5a191'

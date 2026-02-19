@@ -5,18 +5,18 @@ end
 
 local p = {
 	none = "none",
-	cyan = "NvimLightBlue",
-	dark_purple = "#c3a6f8",
-	green = "#a1c5bc",
-	grey = "#9b9ea4",
-	grey2 = "#4F5258",
-	info_blue = "#5fafff",
-	orange = "#dd977f",
-	pink = "#dd93b6",
-	purple = "#dfd1fb",
-	warn_orange = "#ffaf00",
-	white = "#ffffff",
-	yellow = "#cfc877",
+	cyan = "#aca1cf",
+	dark_purple = "#e29eca",
+	green = "#90b99f",
+	grey = "#7b7b80",
+	grey2 = "#353539",
+	info_blue = "#aca1cf",
+	orange = "#e6b99d",
+	pink = "#ea83a5",
+	purple = "#b9aeda",
+	warn_orange = "#f0c5a9",
+	white = "#c9c7cd",
+	yellow = "#f5a191",
 }
 
 local function hl(group, opts)
@@ -100,10 +100,10 @@ hl("SnacksPickerListBorder", { bg = p.none, fg = p.grey })
 hl("SnacksPickerInputBorder", { bg = p.none, fg = p.grey })
 hl("LspInlayHint", { bg = p.none, fg = p.grey })
 hl("SnacksPickerBorder", { bg = p.none, fg = p.grey })
---   hl("DiffChange", { bg = p.none, fg = p.none })
---   hl("DiffDelete", { bg = "#4b1818", fg = p.none })
---   hl("DiffText", { bg = "#597B60", fg = p.none })
---   hl("DiffAdd", { bg = p.none, fg = p.none })
+hl("DiffChange", { bg = p.none, fg = p.none })
+hl("DiffDelete", { bg = "#4b1818", fg = p.none })
+hl("DiffText", { bg = "#597B60", fg = p.none })
+hl("DiffAdd", { bg = p.none, fg = p.none })
 hl("WinSeparator", { bg = p.none, fg = p.grey2 })
 hl("SnacksPickerPreviewBorder", { bg = p.none, fg = p.grey })
 hl("Substitute", { bg = p.dark_purple, fg = "NvimDarkGrey4" })

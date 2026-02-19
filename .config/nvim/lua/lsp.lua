@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
 		map("<leader>sd", vim.diagnostic.open_float, "Open Diagnostic Float")
+		map("<leader>sc", require("snacks").picker.lsp_incoming_calls, "show callers")
 		map("K", vim.lsp.buf.hover, "Hover Documentation")
 		map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
 		map("gd", require("snacks").picker.lsp_definitions, "definition")

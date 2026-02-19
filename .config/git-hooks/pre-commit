@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Global git pre-commit hook with local hook pass-through
+# Location: ~/.dotfiles/.config/git-hooks/pre-commit
+#
+# This hook:
+# 1. Runs gitleaks to scan for secrets in staged files
+# 2. Runs the local repo's pre-commit hook if it exists
+
+set -e
+
+# 1. Run gitleaks on staged files
+if command -v gitleaks &> /dev/null; then
+    gitleaks protect --staged --verbose
+    if [ $? -ne 0 ]; then
+        echo "gitleaks: secrets detected - commit blocked"
+        exit 1
+    fi
+else
+    echo "warning: gitleaks not installed - skipping secret scan"
+fi
+
+# 2. Run local repo hook if it exists (preserves project hooks)
+LOCAL_HOOK="$(git rev-parse --git-dir 2>/dev/null)/hooks/pre-commit"
+if [ -x "$LOCAL_HOOK" ]; then
+    "$LOCAL_HOOK" "$@"
+    exit $?
+fi
+
+exit 0

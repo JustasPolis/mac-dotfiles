@@ -13,12 +13,12 @@ return {
 	},
 	on_init = function(client)
 		client.server_capabilities.diagnosticProvider = {
-			interFileDependencies = true,
-			workspaceDiagnostics = false,
+			interFileDependencies = false,
+			workspaceDiagnostics = true,
 		}
 	end,
 	single_file_support = true,
-	on_attach = function(client, _)
+	on_attach = function(_, _)
 		---@diagnostic disable-next-line: duplicate-set-field
 		vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 	end,
