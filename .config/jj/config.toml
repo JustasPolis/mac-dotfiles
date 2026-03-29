@@ -1,0 +1,15 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Justas Polikevicius"
+email = "justas.polikevicius@podimo.com"
+
+[ui]
+default-command = "st"
+editor = "nvim"
+diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+
+[templates]
+log = "builtin_log_oneline"
+
+

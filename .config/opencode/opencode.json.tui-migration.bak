@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "mellow",
+  "plugin": ["opencode-anthropic-auth@0.0.13"],
+  "model": "anthropic/claude-opus-4-6",
+  "autoupdate": false,
+  "permission": {
+    "edit": "ask",
+    "lsp": "allow",
+    "skill": "allow"
+  },
+  "keybinds": {
+    "command_list": "<leader>c"
+  },
+    "mcp": {
+    "xcode": {
+      "type": "local",
+      "command": ["/Users/justaspolikevicius/.dotfiles/.config/opencode/xcode_mcp_bridge"],
+      "enabled": true
+  }
+}
+}

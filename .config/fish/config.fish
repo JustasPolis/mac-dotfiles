@@ -15,6 +15,7 @@ set -gx OPENCODE_GEMINI_PROJECT_ID "nimble-radio-231516"
 set -gx OPENCODE_EXPERIMENTAL_LSP_TOOL true
 test -f ~/.config/fish/secrets.fish && source ~/.config/fish/secrets.fish
 set -gx NO_UPDATE_NOTIFIER 1
+set -gx GITLAB_AUTH_TOKEN (security find-generic-password -s gitlab.com -w 2>/dev/null)
 
 fish_vi_cursor --force-iterm
 set -g fish_cursor_insert line

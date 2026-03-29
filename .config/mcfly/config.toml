@@ -1,0 +1,23 @@
+[colors.menubar]
+bg = "reset"
+fg = "white"
+
+[colors.darkmode]
+prompt = "magenta"
+timing = "blue"
+results_fg = "grey"
+results_bg = "black"
+results_hl = "yellow"
+results_selection_fg = "white"
+results_selection_bg = "dark_grey"
+results_selection_hl = "magenta"
+
+[colors.lightmode]
+prompt = "dark_magenta"
+timing = "dark_blue"
+results_fg = "black"
+results_bg = "white"
+results_hl = "dark_blue"
+results_selection_fg = "white"
+results_selection_bg = "dark_grey"
+results_selection_hl = "blue"
