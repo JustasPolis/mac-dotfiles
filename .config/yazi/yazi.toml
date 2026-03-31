@@ -2,3 +2,19 @@
 show_hidden = true
 ratio = [2, 3, 2]
 linemode = "none"
+
+[[opener.pdf]]
+run = 'open -a "Preview" "$@"'
+desc = "Open with Preview"
+
+[[opener.video]]
+run = 'open -a "IINA" "$@"'
+desc = "Open with IINA"
+
+[[open.prepend_rules]]
+name = "*.pdf"
+use = "pdf"
+
+[[open.prepend_rules]]
+mime = "video/*"
+use = "video"

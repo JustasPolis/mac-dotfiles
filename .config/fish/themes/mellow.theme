@@ -1,0 +1,36 @@
+# name: Mellow
+# preferred_background: 161617
+
+fish_color_normal c9c7cd
+fish_color_command c9a5b5
+fish_color_keyword bdb2e0
+fish_color_quote d4b5a0
+fish_color_redirection bdb2e0
+fish_color_end 7b7b80
+fish_color_error c9a5b5
+fish_color_param c9c7cd
+fish_color_option d4b5a0
+fish_color_comment 7b7b80
+fish_color_operator c9c7cd
+fish_color_escape c9a5b5
+fish_color_autosuggestion 7b7b80
+fish_color_cwd bdb2e0
+fish_color_cwd_root c9a5b5
+fish_color_valid_path bdb2e0
+fish_color_cancel -r
+fish_color_search_match c9c7cd --bold --background=353539
+fish_color_selection --background=353539
+fish_color_host normal
+fish_color_host_remote c9a5b5
+fish_color_user bdb2e0
+fish_color_status c9a5b5
+fish_color_history_current --bold
+fish_pager_color_prefix c9a5b5 --bold
+fish_pager_color_completion c9c7cd
+fish_pager_color_description 7b7b80
+fish_pager_color_progress bdb2e0 --bold
+fish_pager_color_secondary_description 7b7b80
+fish_pager_color_selected_background --background=353539
+fish_pager_color_selected_prefix c9a5b5 --bold
+fish_pager_color_selected_completion c9c7cd
+fish_pager_color_selected_description 7b7b80

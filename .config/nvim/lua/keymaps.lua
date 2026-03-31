@@ -9,7 +9,6 @@ local keys = {
     ["\27[52;5u"] = "<C-4>",
     ["\27[53;5u"] = "<C-5>",
 }
-
 for code, mapping in pairs(keys) do
     vim.keymap.set("n", code, mapping, { remap = true, silent = true })
 end
