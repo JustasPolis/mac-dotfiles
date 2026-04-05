@@ -1,5 +1,17 @@
 [user]
-	name = Justin Polis
-  email = j.polikevicius@gmail.com
+  name = Justas Polikevicius
+  email = justas.polikevicius@podimo.com
 [core]
   excludesfile = ~/.config/git/ignore
+  hooksPath = ~/.config/git-hooks
+	pager = delta
+[credential]
+	helper = !glab auth git-credential
+[diff]
+    tool = nvim_difftool
+[difftool "nvim_difftool"]
+    cmd = nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\"
+[push]
+	autoSetupRemote = true
+[alias]
+  difftree = "!f() { nvim +\"DiffTree ${1:-}\"; }; f"

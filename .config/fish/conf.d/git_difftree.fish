@@ -1,0 +1,5 @@
+complete -f -c git -n '__fish_git_needs_command' -a difftree -d 'Open DiffTree in nvim'
+complete -f -c git -n '__fish_git_using_command difftree' -a '(__fish_git_branches)'
+complete -f -c git -n '__fish_git_using_command difftree' -a '(__fish_git_tags)'
+complete -f -c git -n '__fish_git_using_command difftree' -a '(__fish_git_recent_commits)'
+complete -f -c git -n '__fish_git_using_command difftree' -a 'HEAD~1 HEAD~3'
