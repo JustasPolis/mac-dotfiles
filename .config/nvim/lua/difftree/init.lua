@@ -14,6 +14,8 @@ M._augroup = nil
 M._left = nil
 ---@type string? right ref for current diff
 M._right = nil
+---@type string? diff mode for current comparison (".." or "...")
+M._mode = nil
 ---@type integer? left diff window
 M._base_win = nil
 ---@type integer? right diff window
@@ -37,12 +39,7 @@ function M.build_tree_nodes(files, hunks_by_file)
         for i, hunk in ipairs(hunks) do
             local cs = hunk.change_start or hunk.new_start
             local ce = hunk.change_end or cs
-            local range
-            if cs == ce then
-                range = string.format("%d", cs)
-            else
-                range = string.format("%d-%d", cs, ce)
-            end
+            local range = cs == ce and string.format("%d", cs) or string.format("%d-%d", cs, ce)
             table.insert(
                 hunk_nodes,
                 NuiTree.Node({
@@ -56,33 +53,35 @@ function M.build_tree_nodes(files, hunks_by_file)
             )
         end
 
-        local file_node
-        if #hunk_nodes > 0 and file.status ~= "D" then
-            file_node = NuiTree.Node({
-                id = file.path,
-                type = "file",
-                filepath = file.path,
-                status = file.status,
-            }, hunk_nodes)
-        else
-            file_node = NuiTree.Node({
-                id = file.path,
-                type = "file",
-                filepath = file.path,
-                status = file.status,
-            })
-        end
-        table.insert(nodes, file_node)
+        local children = (#hunk_nodes > 0 and file.status ~= "D") and hunk_nodes or nil
+        table.insert(nodes, NuiTree.Node({
+            id = file.path,
+            type = "file",
+            filepath = file.path,
+            status = file.status,
+        }, children))
     end
     return nodes
 end
+
+---@type any? cached NuiLine class
+local _NuiLine = nil
+---@type any? cached devicons module (false if not available)
+local _devicons = nil
 
 --- Render a single tree node as a NuiLine.
 ---@param node any NuiTree.Node
 ---@return any NuiLine
 function M.prepare_node(node)
-    local NuiLine = require("nui.line")
-    local line = NuiLine()
+    if not _NuiLine then
+        _NuiLine = require("nui.line")
+    end
+    if _devicons == nil then
+        local ok, mod = pcall(require, "nvim-web-devicons")
+        _devicons = ok and mod or false
+    end
+
+    local line = _NuiLine()
 
     if node.type == "info" then
         line:append("  " .. node.text, "DiffTreePreview")
@@ -95,12 +94,10 @@ function M.prepare_node(node)
         })[node.status] or "DiffTreeFile"
         line:append(node.status .. " ", status_hl)
 
-        -- File icon from nvim-web-devicons
-        local ok, devicons = pcall(require, "nvim-web-devicons")
-        if ok then
+        if _devicons then
             local filename = vim.fn.fnamemodify(node.filepath, ":t")
             local ext = vim.fn.fnamemodify(node.filepath, ":e")
-            local icon, icon_hl = devicons.get_icon(filename, ext, { default = true })
+            local icon, icon_hl = _devicons.get_icon(filename, ext, { default = true })
             if icon then
                 line:append(icon .. " ", icon_hl)
             end
@@ -141,7 +138,7 @@ end
 --- Fetch git data and build fresh tree nodes (single git call).
 ---@return any[] NuiTree.Node[]
 local function fetch_nodes()
-    local files, hunks_by_file = git.get_all(M._left, M._right)
+    local files, hunks_by_file = git.get_all(M._left, M._right, M._mode)
     return M.build_tree_nodes(files, hunks_by_file)
 end
 
@@ -185,9 +182,9 @@ local function setup_keymaps(split, tree)
                     target = first_hunk.line
                 end
             end
-            view.open(node.filepath, target, M._left, M._right)
+            view.open(node.filepath, target, M._left, M._right, M._mode)
         elseif node.type == "hunk" then
-            view.open(node.filepath, node.line, M._left, M._right)
+            view.open(node.filepath, node.line, M._left, M._right, M._mode)
         end
     end, map_opts)
 
@@ -203,9 +200,10 @@ end
 --- Open the DiffTree panel.
 ---@param range string? Git diff range (e.g. "HEAD~3", "main..feature")
 function M.open(range)
-    local left, right = git.parse_diff_range(range)
+    local left, right, mode = git.parse_diff_range(range)
     M._left = left
     M._right = right
+    M._mode = mode
 
     if M._split then
         M.refresh()
@@ -322,6 +320,7 @@ function M.close()
     M._tree = nil
     M._left = nil
     M._right = nil
+    M._mode = nil
     M._base_win = nil
     M._right_win = nil
 end

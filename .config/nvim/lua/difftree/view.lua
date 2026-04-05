@@ -71,7 +71,8 @@ end
 ---@param target_line integer? Line number to jump to
 ---@param left_ref string? Git ref for left side (nil = index)
 ---@param right_ref string? Git ref for right side (nil = working tree)
-function M.open(filepath, target_line, left_ref, right_ref)
+---@param mode string? ".." or "..."
+function M.open(filepath, target_line, left_ref, right_ref, mode)
     local root = git.git_root()
     if not root then
         return
@@ -92,15 +93,29 @@ function M.open(filepath, target_line, left_ref, right_ref)
         vim.cmd("diffoff")
     end)
 
-    -- Left = current: always the real file (editable, LSP works)
-    local abs_path = root .. "/" .. filepath
-    vim.api.nvim_set_current_win(state.base_win)
-    vim.cmd("edit " .. vim.fn.fnameescape(abs_path))
+    if right_ref then
+        local base_ref = left_ref
+        if mode == "..." then
+            base_ref = git.get_merge_base(left_ref, right_ref) or left_ref
+        end
 
-    -- Right gets left_ref (the "old" / previous side)
-    local right_content = git.get_content_at_ref(filepath, left_ref)
-    local right_buf = M.create_base_buf(right_content, filepath, left_ref or "index")
-    vim.api.nvim_win_set_buf(state.right_win, right_buf)
+        local left_content = git.get_content_at_ref(filepath, right_ref)
+        local left_buf = M.create_base_buf(left_content, filepath, right_ref)
+        vim.api.nvim_win_set_buf(state.base_win, left_buf)
+
+        local right_content = git.get_content_at_ref(filepath, base_ref)
+        local right_buf = M.create_base_buf(right_content, filepath, base_ref or "index")
+        vim.api.nvim_win_set_buf(state.right_win, right_buf)
+    else
+        -- Working-tree diffs keep the editable file open on the left.
+        local abs_path = root .. "/" .. filepath
+        vim.api.nvim_set_current_win(state.base_win)
+        vim.cmd("edit " .. vim.fn.fnameescape(abs_path))
+
+        local right_content = git.get_content_at_ref(filepath, left_ref)
+        local right_buf = M.create_base_buf(right_content, filepath, left_ref or "index")
+        vim.api.nvim_win_set_buf(state.right_win, right_buf)
+    end
 
     -- Enable diff mode, disable folding
     vim.api.nvim_win_call(state.base_win, function()

@@ -81,7 +81,7 @@ require("lualine").setup({
     options = {
         icons_enabled = true,
         theme = theme,
-        ignore_focus = { "Telescope", "Navigator", "help", "NetrwTreeListing", "codecompanion" },
+        ignore_focus = { "help", "NetrwTreeListing", "difftree" },
         always_divide_middle = false,
         globalstatus = true,
         refresh = {
@@ -155,15 +155,15 @@ require("lualine").setup({
                 cond = function() return file_type() and not vim.b.agent end,
                 symbols = { modified = "", readonly = "", unnamed = "" },
                 padding = { left = 0, right = 0 },
-                color = { fg = "white", bg = "None" },
+                color = { fg = p.fg, bg = "None" },
             },
         },
         lualine_z = {
             {
                 "branch",
                 always_visible = true,
-                icon = { " ", padding = { left = 0, right = 0 }, color = { fg = "#e17792" } },
-                color = { fg = "white", bg = "None" },
+                icon = { " ", padding = { left = 0, right = 0 }, color = { fg = p.accent } },
+                color = { fg = p.fg, bg = "None" },
             },
         },
     },

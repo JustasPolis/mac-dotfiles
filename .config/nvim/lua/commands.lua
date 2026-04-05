@@ -53,11 +53,3 @@ end
 
 vim.api.nvim_create_user_command("ToggleDiagVirtualText", toggle_diag_virtual_text, {})
 vim.keymap.set("n", "<leader>td", toggle_diag_virtual_text, { desc = "Toggle diagnostics virtual text" })
-
--- Get visual selection text
-local function get_visual_selection()
-    local _, ls, cs = unpack(vim.fn.getpos("'<"))
-    local _, le, ce = unpack(vim.fn.getpos("'>"))
-    local lines = vim.api.nvim_buf_get_text(0, ls - 1, cs - 1, le - 1, ce, {})
-    return table.concat(lines, "\n")
-end

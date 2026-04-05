@@ -18,9 +18,8 @@ return {
 		}
 	end,
 	single_file_support = true,
-	on_attach = function(_, _)
-		---@diagnostic disable-next-line: duplicate-set-field
-		vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
-	end,
+	handlers = {
+		["textDocument/publishDiagnostics"] = function() end,
+	},
 	log_level = vim.lsp.protocol.MessageType.Warning,
 }

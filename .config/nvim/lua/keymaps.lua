@@ -1,6 +1,4 @@
-local opts = { noremap = true, silent = true }
-
-local keymap = vim.api.nvim_set_keymap
+local opts = { silent = true }
 
 local keys = {
     ["\27[49;5u"] = "<C-1>",
@@ -13,30 +11,22 @@ for code, mapping in pairs(keys) do
     vim.keymap.set("n", code, mapping, { remap = true, silent = true })
 end
 
-keymap("", "<Space>", "<Nop>", opts)
-keymap("n", "<leader>|", ":vnew <cr>", opts)
-keymap("n", "gb", "<C-o>", opts)
-keymap("n", "+", ":resize +2<CR>", opts)
-keymap("n", "_", ":resize -2<CR>", opts)
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-keymap("n", "<leader>o", ":normal o<CR>", opts)
-keymap("n", "<leader>O", ":normal O<CR>", opts)
-keymap("n", "<leader>wf", ":write <CR>", opts)
-keymap("n", "<leader>wq", ":wqa <CR>", opts)
-
--- GitLab MR Review
-keymap("n", "<leader>gr", ":GitLabReview<CR>", opts)
-keymap("n", "<leader>gc", ":GitLabComment<CR>", opts)
-keymap("n", "<leader>gi", ":GitLabSessionInfo<CR>", opts)
-vim.keymap.set("v", "<space>ai", function()
-    return ":CodeCompanion " .. vim.fn.input("message") .. "<cr>"
-end, { expr = true })
+vim.keymap.set("", "<Space>", "<Nop>", opts)
+vim.keymap.set("n", "<leader>|", ":vnew <cr>", opts)
+vim.keymap.set("n", "gb", "<C-o>", opts)
+vim.keymap.set("n", "+", ":resize +2<CR>", opts)
+vim.keymap.set("n", "_", ":resize -2<CR>", opts)
+vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
+vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
+vim.keymap.set("v", "p", '"_dP', opts)
+vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
+vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
+vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+vim.keymap.set("n", "<leader>o", ":normal o<CR>", opts)
+vim.keymap.set("n", "<leader>O", ":normal O<CR>", opts)
+vim.keymap.set("n", "<leader>wf", ":write <CR>", opts)
+vim.keymap.set("n", "<leader>wq", ":wqa <CR>", opts)
 
 vim.keymap.set("n", "<ESC>", function()
     for _, win in pairs(vim.api.nvim_list_wins()) do
@@ -44,10 +34,7 @@ vim.keymap.set("n", "<ESC>", function()
             return
         end
 
-        if
-            vim.api.nvim_win_get_config(win).relative == "win"
-            or vim.api.nvim_win_get_config(win).relative == "editor"
-        then
+        if vim.api.nvim_win_get_config(win).relative ~= "" then
             if vim.api.nvim_win_is_valid(win) then
                 vim.api.nvim_win_close(win, false)
             end
@@ -66,4 +53,4 @@ end
 
 vim.keymap.set("n", "<leader>tf", open_tmux_at_root, { desc = "Tmux Popup at Git Root" })
 
-keymap("n", "<leader>sf", ":source % <CR>", opts)
+vim.keymap.set("n", "<leader>sf", ":source % <CR>", opts)

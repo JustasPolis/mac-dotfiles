@@ -26,132 +26,47 @@ function M.git_root()
 end
 
 --- Parse a diff range string into left and right refs.
---- "main..feature" → "main", "feature"
---- "main...feature" → "main", "feature"
---- "HEAD~3" → "HEAD~3", nil
---- nil or "" → nil, nil
+--- "main..feature" → "main", "feature", ".."
+--- "main...feature" → "main", "feature", "..."
+--- "HEAD~3" → "HEAD~3", nil, nil
+--- nil or "" → nil, nil, nil
 ---@param range string?
----@return string? left, string? right
+---@return string? left, string? right, string? mode
 function M.parse_diff_range(range)
     if not range or range == "" then
-        return nil, nil
+        return nil, nil, nil
     end
 
     local left, right = range:match("^(.+)%.%.%.(.+)$")
     if left then
-        return left, right
+        return left, right, "..."
     end
 
     left, right = range:match("^(.+)%.%.(.+)$")
     if left then
-        return left, right
+        return left, right, ".."
     end
 
-    return range, nil
+    return range, nil, nil
 end
 
---- Build git diff command from parsed refs.
----@param left string? Left ref (base)
----@param right string? Right ref (nil = working tree)
----@param filepath string? File to diff (nil = all files)
----@param name_status boolean? If true, add --name-status flag
----@return string[]
-function M.build_diff_cmd(left, right, filepath, name_status)
-    local cmd = { "git", "diff" } ---@type string[]
-
-    if name_status then
-        table.insert(cmd, "--name-status")
-    end
-
-    if left and right then
-        table.insert(cmd, left .. ".." .. right)
-    elseif left then
-        table.insert(cmd, left)
-    end
-
-    if filepath then
-        table.insert(cmd, "--")
-        table.insert(cmd, filepath)
-    end
-
-    return cmd
-end
-
---- Get the base (left-side) ref for git show.
 ---@param left string?
 ---@param right string?
 ---@return string?
-function M.resolve_base_ref(left, right)
-    if left then
-        return left
+function M.get_merge_base(left, right)
+    local root = M.git_root()
+    if not root or not left or not right then
+        return nil
     end
-    return nil
-end
 
---- Get the right-side ref for git show.
----@param left string?
----@param right string?
----@return string?
-function M.resolve_right_ref(left, right)
-    return right
-end
-
---- Parse `git diff --name-status` output into structured file entries.
----@param output string Raw stdout from git diff --name-status
----@return difftree.FileEntry[]
-function M.parse_name_status(output)
-    local files = {} ---@type difftree.FileEntry[]
-    for line in output:gmatch("[^\n]+") do
-        local status, path = line:match("^(%a%d*)%s+(.+)$")
-        if status and path then
-            status = status:sub(1, 1)
-            local rename_path = path:match("\t(.+)$")
-            table.insert(files, {
-                status = status,
-                path = rename_path or path,
-            })
-        end
+    local result = vim.system({ "git", "merge-base", left, right }, { text = true, cwd = root }):wait()
+    if result.code ~= 0 or not result.stdout then
+        return nil
     end
-    return files
+
+    return result.stdout:match("([^\n]+)")
 end
 
---- Parse unified diff output into hunk metadata.
----@param diff_output string Raw stdout from git diff
----@return difftree.Hunk[]
-function M.parse_diff_hunks(diff_output)
-    local hunks = {} ---@type difftree.Hunk[]
-    local lines = vim.split(diff_output, "\n")
-
-    for i, line in ipairs(lines) do
-        local old_start, old_count, new_start, new_count =
-            line:match("^@@ %-(%d+),?(%d*) %+(%d+),?(%d*) @@")
-        if old_start then
-            local preview = ""
-            for j = i + 1, math.min(i + 20, #lines) do
-                local l = lines[j]
-                if l:match("^@@ ") then
-                    break
-                end
-                if l:match("^[%+%-]") and not l:match("^[%+%-][%+%-][%+%-]") then
-                    preview = l:sub(2):match("^%s*(.-)%s*$") or ""
-                    if #preview > 60 then
-                        preview = preview:sub(1, 57) .. "..."
-                    end
-                    break
-                end
-            end
-
-            table.insert(hunks, {
-                old_start = tonumber(old_start),
-                old_count = old_count ~= "" and tonumber(old_count) or 1,
-                new_start = tonumber(new_start),
-                new_count = new_count ~= "" and tonumber(new_count) or 1,
-                preview = preview,
-            })
-        end
-    end
-    return hunks
-end
 
 --- Parse a full unified diff into files and their hunks in one pass.
 --- Replaces the need for separate --name-status + per-file diff calls.
@@ -164,33 +79,36 @@ function M.parse_full_diff(diff_output)
 
     local current_path = nil ---@type string?
     local current_status = "M" ---@type string
-    local is_rename = false
-
-    for i, line in ipairs(lines) do
+    local current_file = nil ---@type difftree.FileEntry?
+    for _, line in ipairs(lines) do
         -- New file header
         local a_path, b_path = line:match("^diff %-%-git a/(.+) b/(.+)$")
         if a_path then
             current_path = b_path
             current_status = "M"
-            is_rename = false
+            current_file = { status = current_status, path = current_path }
+            table.insert(files, current_file)
+            hunks_by_file[current_path] = hunks_by_file[current_path] or {}
         elseif line:match("^new file") then
             current_status = "A"
+            if current_file then
+                current_file.status = current_status
+            end
         elseif line:match("^deleted file") then
             current_status = "D"
+            if current_file then
+                current_file.status = current_status
+            end
         elseif line:match("^rename from") then
-            is_rename = true
             current_status = "R"
+            if current_file then
+                current_file.status = current_status
+            end
         elseif current_path then
             -- Hunk header
             local old_start, old_count, new_start, new_count =
                 line:match("^@@ %-(%d+),?(%d*) %+(%d+),?(%d*) @@")
             if old_start then
-                -- Register the file on first hunk (or if not yet registered)
-                if not hunks_by_file[current_path] then
-                    table.insert(files, { status = current_status, path = current_path })
-                    hunks_by_file[current_path] = {}
-                end
-
                 local ns = tonumber(new_start)
                 local nc = new_count ~= "" and tonumber(new_count) or 1
 
@@ -208,7 +126,7 @@ function M.parse_full_diff(diff_output)
     end
 
     -- Handle files with no hunks (binary, etc.) that had a diff header but no @@
-    -- They won't appear in the output, which is fine
+    -- These are registered on the diff header with an empty hunk list.
 
     return files, hunks_by_file
 end
@@ -217,16 +135,20 @@ end
 --- Uses -U0 (no context) so @@ headers give exact change ranges.
 ---@param left string? Left ref
 ---@param right string? Right ref
+---@param mode string? ".." or "..."
 ---@return difftree.FileEntry[] files, table<string, difftree.Hunk[]> hunks_by_file
-function M.get_all(left, right)
+function M.get_all(left, right, mode)
     local root = M.git_root()
     if not root then
         return {}, {}
     end
 
-    local cmd = M.build_diff_cmd(left, right)
-    -- Insert -U0 after "git diff" to strip context lines
-    table.insert(cmd, 3, "-U0")
+    local cmd = { "git", "diff", "-U0" }
+    if left and right then
+        table.insert(cmd, left .. ((mode == "...") and "..." or "..") .. right)
+    elseif left then
+        table.insert(cmd, left)
+    end
     local result = vim.system(cmd, { text = true, cwd = root }):wait()
     if result.code ~= 0 or not result.stdout then
         return {}, {}
@@ -236,7 +158,7 @@ end
 
 --- Get file content at a specific ref.
 ---@param filepath string Relative path from git root
----@param ref string? Git ref (nil uses index/HEAD)
+---@param ref string? Git ref (nil uses the index)
 ---@return string? content nil if file doesn't exist at ref
 function M.get_content_at_ref(filepath, ref)
     local root = M.git_root()
@@ -244,7 +166,7 @@ function M.get_content_at_ref(filepath, ref)
         return nil
     end
 
-    local show_ref = (ref or "HEAD") .. ":" .. filepath
+    local show_ref = ref and (ref .. ":" .. filepath) or (":" .. filepath)
     local result = vim.system({ "git", "show", show_ref }, { text = true, cwd = root }):wait()
     if result.code ~= 0 then
         return nil

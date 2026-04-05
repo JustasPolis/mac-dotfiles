@@ -5,9 +5,7 @@ return {
 		"--stdio",
 	},
 	init_options = {
-		{
-			hostInfo = "neovim",
-		},
+		hostInfo = "neovim",
 	},
 	single_file_support = true,
 }
