@@ -1,4 +1,1 @@
-return {
-	"MunifTanjim/nui.nvim",
-	lazy = true,
-}
+-- nui.nvim: no setup needed, loaded by vim.pack

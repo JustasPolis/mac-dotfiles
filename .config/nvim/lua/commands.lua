@@ -38,24 +38,11 @@ vim.api.nvim_create_autocmd("FileType", {
         "typescript.tsx",
     },
     callback = function(args)
-        vim.treesitter.start(args.buf)
+        if vim.bo[args.buf].buftype == "" then
+            vim.treesitter.start(args.buf)
+        end
     end,
 })
-
-vim.keymap.set("n", "<leader>m", function()
-    local items = { "Build", "Test", "Deploy" }
-    vim.ui.select(items, { prompt = "Choose task" }, function(choice)
-        if choice == "Build" then
-            vim.cmd("make")
-        end
-        if choice == "Test" then
-            vim.cmd("Make test")
-        end
-        if choice == "Deploy" then
-            print("Deploying…")
-        end
-    end)
-end)
 
 local function toggle_diag_virtual_text()
     local cfg = vim.diagnostic.config()
@@ -67,29 +54,6 @@ end
 vim.api.nvim_create_user_command("ToggleDiagVirtualText", toggle_diag_virtual_text, {})
 vim.keymap.set("n", "<leader>td", toggle_diag_virtual_text, { desc = "Toggle diagnostics virtual text" })
 
--- OpenCode in Kitty tab
-local function opencode_in_kitty(opts)
-    opts = opts or {}
-    local cwd = vim.fn.getcwd()
-    local cmd = {
-        "kitten",
-        "@",
-        "launch",
-        "--type=tab",
-        "--tab-title=opencode",
-        "--cwd=" .. cwd,
-        "opencode",
-    }
-
-    -- If text is provided, use 'run' subcommand with the text as prompt
-    if opts.text and opts.text ~= "" then
-        table.insert(cmd, "run")
-        table.insert(cmd, opts.text)
-    end
-
-    vim.fn.jobstart(cmd, { detach = true })
-end
-
 -- Get visual selection text
 local function get_visual_selection()
     local _, ls, cs = unpack(vim.fn.getpos("'<"))
@@ -97,23 +61,3 @@ local function get_visual_selection()
     local lines = vim.api.nvim_buf_get_text(0, ls - 1, cs - 1, le - 1, ce, {})
     return table.concat(lines, "\n")
 end
-
--- Normal mode: open opencode
-vim.keymap.set("n", "<leader>oo", function()
-    opencode_in_kitty()
-end, { desc = "Open opencode in Kitty tab" })
-
--- Visual mode: send selection to opencode
-vim.keymap.set("v", "<leader>oo", function()
-    local text = get_visual_selection()
-    opencode_in_kitty({ text = text })
-end, { desc = "Send selection to opencode in Kitty tab" })
-
--- Normal mode: prompt for text and send to opencode
-vim.keymap.set("n", "<leader>op", function()
-    vim.ui.input({ prompt = "OpenCode prompt: " }, function(input)
-        if input and input ~= "" then
-            opencode_in_kitty({ text = input })
-        end
-    end)
-end, { desc = "Prompt and send to opencode in Kitty tab" })

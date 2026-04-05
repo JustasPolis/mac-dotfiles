@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" } -- mostly just for cmp
@@ -65,6 +68,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		})
 	end,
 })
+vim.opt.showtabline = 0
 vim.opt.smoothscroll = true
 vim.opt.fillchars = {
     eob = " ",

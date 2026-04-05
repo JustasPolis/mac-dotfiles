@@ -1,9 +1,7 @@
 require("theme")
 require("options")
-require("lazy-nvim")
+require("pack")
+require("plugins")
 require("keymaps")
 require("commands")
 require("lsp")
-require("ui2")
-
-vim.cmd("packadd nvim.difftool")

@@ -1,5 +1,5 @@
 set fish_greeting ""
-set -x FZF_DEFAULT_OPTS '--no-sort --ansi --header "" --no-info --preview-window hidden --bind "tab:down,btab:up" --color=fg:#c9c7cd,bg:#161617,hl:#c9a5b5,fg+:#c9c7cd,bg+:#353539,hl+:#c9a5b5,info:#7b7b80,prompt:#bdb2e0,pointer:#c9a5b5,marker:#d4b5a0,spinner:#bdb2e0,header:#7b7b80,scrollbar:#353539,border:#353539'
+set -x FZF_DEFAULT_OPTS '--no-sort --ansi --header "" --no-info --preview-window hidden --color=fg:#c9c7cd,bg:#161617,hl:#c9a5b5,fg+:#c9c7cd,bg+:#353539,hl+:#c9a5b5,info:#7b7b80,prompt:#bdb2e0,pointer:#c9a5b5,marker:#d4b5a0,spinner:#bdb2e0,header:#7b7b80,scrollbar:#353539,border:#353539'
 set -gx TERMINFO_DIRS "$TERMINFO_DIRS:/opt/homebrew/share/terminfo"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 starship init fish | source
@@ -16,6 +16,8 @@ set -gx OPENCODE_EXPERIMENTAL_LSP_TOOL true
 test -f ~/.config/fish/secrets.fish && source ~/.config/fish/secrets.fish
 set -gx NO_UPDATE_NOTIFIER 1
 set -gx GITLAB_AUTH_TOKEN (security find-generic-password -s gitlab.com -w 2>/dev/null)
+set -gx JIRA_API_TOKEN (security find-generic-password -s JIRA_API_TOKEN -w 2>/dev/null)
+set -gx OUTLINE_API_TOKEN (security find-generic-password -s outline-api-token -w 2>/dev/null)
 
 fish_vi_cursor --force-iterm
 set -g fish_cursor_insert line

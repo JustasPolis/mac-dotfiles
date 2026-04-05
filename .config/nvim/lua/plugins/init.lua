@@ -1,0 +1,6 @@
+require("plugins.treesitter")
+require("plugins.conform")
+require("plugins.gitsigns")
+require("plugins.snacks")
+require("plugins.blink")
+require("plugins.lualine")
