@@ -1,21 +1,23 @@
 return {
-	cmd = {
-		"emmylua_ls",
-	},
-	filetypes = {
-		"lua",
-	},
-	root_markers = {
-		".git",
-		".luacheckrc",
-		".luarc.json",
-		".luarc.jsonc",
-		".stylua.toml",
-		"selene.toml",
-		"selene.yml",
-		"stylua.toml",
-		".emmyrc.json",
-	},
-	single_file_support = true,
-	log_level = vim.lsp.protocol.MessageType.Warning,
+    cmd = {
+        "emmylua_ls",
+        "--editor",
+        "neovim",
+    },
+    filetypes = {
+        "lua",
+    },
+    root_markers = {
+        ".emmyrc.json",
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".luacheckrc",
+        ".stylua.toml",
+        "selene.toml",
+        "selene.yml",
+        "stylua.toml",
+        ".git",
+    },
+    single_file_support = true,
+    log_level = vim.lsp.protocol.MessageType.Warning,
 }

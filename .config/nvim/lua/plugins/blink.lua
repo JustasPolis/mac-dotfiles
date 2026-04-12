@@ -51,7 +51,6 @@ require("blink.cmp").setup({
         },
         list = { selection = { preselect = false, auto_insert = false }, max_items = 5 },
         menu = {
-            direction_priority = { "n", "s" },
             max_height = 10,
             min_width = 10,
             auto_show = true,

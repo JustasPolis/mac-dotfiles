@@ -101,6 +101,7 @@ tab_bar_style separator
 scrollbar scrolled
 tab_separator '  '
 
+
 font_family      family="Fira Code"
 bold_font        auto
 italic_font      auto

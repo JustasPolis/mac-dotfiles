@@ -5,13 +5,18 @@
   excludesfile = ~/.config/git/ignore
   hooksPath = ~/.config/git-hooks
 	pager = delta
+	editor = nvim
 [credential]
 	helper = !glab auth git-credential
 [diff]
-    tool = nvim_difftool
-[difftool "nvim_difftool"]
-    cmd = nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\"
+    external = difft
+[difftool "difftastic"]
+    cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
+[difftool]
+    prompt = false
+[pager]
+    difftool = true
+[diff]
+    tool = difftastic
 [push]
 	autoSetupRemote = true
-[alias]
-  difftree = "!f() { nvim +\"DiffTree ${1:-}\"; }; f"

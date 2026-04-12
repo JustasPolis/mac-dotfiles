@@ -4,8 +4,7 @@ set -gx TERMINFO_DIRS "$TERMINFO_DIRS:/opt/homebrew/share/terminfo"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 starship init fish | source
 set EDITOR nvim
-zoxide init --cmd cd fish | source
-set -x PATH $PATH ~/.cargo/bin
+set -x PATH $PATH ~/.cargo/bin ~/.local/bin
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx LS_COLORS (vivid generate mellow)
 set -gx PATH /Users/justaspolikevicius/job/depot_tools $PATH

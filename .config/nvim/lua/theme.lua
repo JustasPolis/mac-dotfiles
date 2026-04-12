@@ -107,9 +107,15 @@ hl("SnacksPickerInputBorder", { bg = p.transparent, fg = p.dimmed })
 hl("LspInlayHint", { bg = p.transparent, fg = p.dimmed })
 hl("SnacksPickerBorder", { bg = p.transparent, fg = p.dimmed })
 hl("DiffChange", { bg = p.transparent, fg = p.transparent })
-hl("DiffDelete", { bg = "#2a1f1f", fg = p.transparent })
-hl("DiffText", { bg = "#1f2a1f", fg = p.transparent })
-hl("DiffAdd", { bg = "#1f2a1f", fg = p.transparent })
+hl("DiffDelete", { bg = "#331b1b", fg = p.transparent })
+hl("DiffText", { bg = "#1b331b", fg = p.transparent })
+hl("DiffAdd", { bg = "#1b331b", fg = p.transparent })
+hl("GitSignsAdd", { fg = p.secondary })
+hl("GitSignsChange", { fg = p.dimmed })
+hl("GitSignsDelete", { fg = p.accent })
+hl("GitSignsTopdelete", { fg = p.accent })
+hl("GitSignsChangedelete", { fg = p.dimmed })
+hl("GitSignsUntracked", { fg = p.dimmed })
 hl("WinSeparator", { bg = p.transparent, fg = p.separator })
 hl("SnacksPickerPreviewBorder", { bg = p.transparent, fg = p.dimmed })
 hl("Substitute", { bg = p.accent, fg = p.separator })
@@ -188,12 +194,18 @@ hl("AgentMarker", { fg = p.muted, bold = true })
 hl("ReviewLine", { fg = p.fg })
 hl("AgentLine", { fg = p.fg })
 
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
-        vim.fn.matchadd("ReviewLine", "\\v.*<review:.*", 10)
-        vim.fn.matchadd("AgentLine", "\\v.*<agent:.*", 10)
-        vim.fn.matchadd("ReviewMarker", "\\v<review:", 11)
-        vim.fn.matchadd("AgentMarker", "\\v<agent:", 11)
+        for _, id in ipairs(vim.w.review_marker_matches or {}) do
+            pcall(vim.fn.matchdelete, id)
+        end
+
+        vim.w.review_marker_matches = {
+            vim.fn.matchadd("ReviewLine", "\\v.*<review:.*", 200),
+            vim.fn.matchadd("AgentLine", "\\v.*<agent:.*", 200),
+            vim.fn.matchadd("ReviewMarker", "\\v<review:", 201),
+            vim.fn.matchadd("AgentMarker", "\\v<agent:", 201),
+        }
     end,
 })
 

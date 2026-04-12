@@ -8,17 +8,7 @@ theme.replace.c.bg = "None"
 theme.command.c.bg = "None"
 
 local file_type = function()
-    if vim.bo.filetype == "Trouble" then
-        return false
-    elseif vim.bo.filetype == "NvimTree" then
-        return false
-    elseif vim.api.nvim_win_get_config(0).relative == "win" then
-        return false
-    elseif vim.api.nvim_win_get_config(0).relative == "editor" then
-        return false
-    else
-        return true
-    end
+    return vim.api.nvim_win_get_config(0).relative == ""
 end
 
 local function hide_in_filetypes(ft_list)
@@ -29,7 +19,7 @@ end
 
 local active_lsp_name = function()
     local clients = vim.lsp.get_clients({ bufnr = 0 })
-    if next(clients) ~= nil then
+    if #clients > 0 then
         return clients[1].name
     end
     return ""
@@ -139,7 +129,7 @@ require("lualine").setup({
                 active_lsp_name,
                 always_visible = false,
                 color = { fg = p.fg, bg = "None" },
-                cond = hide_in_filetypes({ "netrw", "Telescope" }),
+                cond = hide_in_filetypes({ "netrw" }),
             },
             {
                 "filetype",

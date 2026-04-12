@@ -6,6 +6,7 @@ vim.lsp.enable({
     "zls",
     "typescript",
     "taplo",
+    "ty",
 })
 
 vim.diagnostic.config({
@@ -36,12 +37,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("<leader>lca", vim.lsp.buf.code_action, "Code Action")
         map("<leader>lr", vim.lsp.buf.rename, "Rename all references")
         map("<leader>lf", vim.lsp.buf.format, "Format")
-        map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+        map("<leader>v", function()
+            vim.lsp.buf.definition({
+                on_list = function(options)
+                    if not options.items or #options.items == 0 then return end
+                    local item = options.items[1]
+                    vim.cmd("vsplit " .. vim.fn.fnameescape(item.filename))
+                    vim.api.nvim_win_set_cursor(0, { item.lnum, (item.col or 1) - 1 })
+                end,
+            })
+        end, "Goto Definition in Vertical Split")
         map("<leader>th", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }), { bufnr = event.buf })
         end, "Toggle Inlay Hints")
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client then
+        if client and client.server_capabilities then
             client.server_capabilities.semanticTokensProvider = nil
 
             -- Enable inlay hints if supported
@@ -52,6 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         if
             client
+            ---@diagnostic disable-next-line: deprecated
             and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
         then
             local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })

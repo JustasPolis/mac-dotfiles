@@ -16,6 +16,8 @@ vim.keymap.set("n", "<leader>|", ":vnew <cr>", opts)
 vim.keymap.set("n", "gb", "<C-o>", opts)
 vim.keymap.set("n", "+", ":resize +2<CR>", opts)
 vim.keymap.set("n", "_", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<A-=>", ":vertical resize +2<CR>", opts)
+vim.keymap.set("n", "<A-->", ":vertical resize -2<CR>", opts)
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 vim.keymap.set("v", "p", '"_dP', opts)
@@ -30,25 +32,19 @@ vim.keymap.set("n", "<leader>wq", ":wqa <CR>", opts)
 
 vim.keymap.set("n", "<ESC>", function()
     for _, win in pairs(vim.api.nvim_list_wins()) do
-        if not vim.api.nvim_win_is_valid(win) then
-            return
-        end
-
-        if vim.api.nvim_win_get_config(win).relative ~= "" then
-            if vim.api.nvim_win_is_valid(win) then
-                vim.api.nvim_win_close(win, false)
-            end
+        if vim.api.nvim_win_is_valid(win) and vim.api.nvim_win_get_config(win).relative ~= "" then
+            vim.api.nvim_win_close(win, false)
         end
     end
 end, opts)
 
 local function open_tmux_at_root()
-    local git_root = vim.fs.root(0, { ".git" })
-
-    local target_dir = git_root or vim.fn.getcwd()
-
-    local cmd = string.format('tmux display-popup -d "%s" -w 80%% -h 80%% -E', target_dir)
-    vim.fn.jobstart(cmd)
+    if vim.fn.executable("tmux") == 0 then
+        vim.notify("tmux not found", vim.log.levels.WARN)
+        return
+    end
+    local target_dir = vim.fs.root(0, { ".git" }) or vim.fn.getcwd()
+    vim.fn.jobstart(string.format('tmux display-popup -d "%s" -w 80%% -h 80%% -E', target_dir))
 end
 
 vim.keymap.set("n", "<leader>tf", open_tmux_at_root, { desc = "Tmux Popup at Git Root" })
