@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cd "$HOME/.config/sketchybar" || exit 1
+exec /usr/bin/env -u DYLD_INSERT_LIBRARIES /opt/homebrew/bin/lua init.lua

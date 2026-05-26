@@ -1,0 +1,591 @@
+{
+  "global": {
+    "show_in_menu_bar": false
+  },
+  "profiles": [
+    {
+      "name": "Default profile",
+      "selected": true,
+      "virtual_hid_keyboard": {
+        "keyboard_type_v2": "iso"
+      },
+      "complex_modifications": {
+        "rules": [
+          {
+            "description": "fn -> left_control",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "fn"
+                },
+                "to": [
+                  {
+                    "key_code": "left_control"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "ctrl + p/n/f/b -> arrows",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Layer - cmd_mode",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "caps_lock"
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 1
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "cmd_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "__layer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "1"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 1"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 2"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "3"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 3"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "4"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 4"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "5"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 5"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "6"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 6"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "7"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 7"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "8"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 8"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "9"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 9"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "h"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --focus west"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --focus south"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --focus north"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l"
+                },
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --focus east"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "escape"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "caps_lock"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "__layer",
+                      "value": 0
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "parameters": {
+          "basic.to_if_alone_timeout_milliseconds": 1000,
+          "basic.to_if_held_down_threshold_milliseconds": 500,
+          "basic.to_delayed_action_delay_milliseconds": 500,
+          "basic.simultaneous_threshold_milliseconds": 50,
+          "mouse_motion_to_scroll.speed": 100
+        }
+      }
+    }
+  ]
+}

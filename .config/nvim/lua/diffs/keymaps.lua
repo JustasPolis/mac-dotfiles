@@ -4,6 +4,7 @@ local M = {}
 
 ---@type integer?
 local _augroup = nil
+local _mapped_buffers = {}
 
 --- Set up keymaps for a single buffer.
 --- @param buf number Buffer handle
@@ -16,6 +17,7 @@ local function setup_diff_keymaps(buf)
     vim.keymap.set("n", keys.next_hunk, diffs.next_hunk, opts)
     vim.keymap.set("n", keys.prev_hunk, diffs.prev_hunk, opts)
     vim.keymap.set("n", keys.close, diffs.close, opts)
+    _mapped_buffers[buf] = true
 end
 
 --- Setup keymaps for current diff buffers and auto-apply on BufEnter.
@@ -52,6 +54,18 @@ function M.cleanup()
         vim.api.nvim_del_augroup_by_id(_augroup)
         _augroup = nil
     end
+
+    local keys = require("diffs").config.keymaps
+    for buf in pairs(_mapped_buffers) do
+        if vim.api.nvim_buf_is_valid(buf) then
+            pcall(vim.keymap.del, "n", keys.next_file, { buffer = buf })
+            pcall(vim.keymap.del, "n", keys.prev_file, { buffer = buf })
+            pcall(vim.keymap.del, "n", keys.next_hunk, { buffer = buf })
+            pcall(vim.keymap.del, "n", keys.prev_hunk, { buffer = buf })
+            pcall(vim.keymap.del, "n", keys.close, { buffer = buf })
+        end
+    end
+    _mapped_buffers = {}
 end
 
 return M

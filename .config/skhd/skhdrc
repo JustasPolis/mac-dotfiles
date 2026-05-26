@@ -1,2 +1,13 @@
 # Open kitty in fullscreen, attach to tmux or start sesh session picker
 hyper - t : open -na /Applications/kitty.app --args --start-as fullscreen -e fish -c "tmux attach; or seshstart"
+
+# Focus space N
+hyper - 1 : yabai -m space --focus 1
+hyper - 2 : yabai -m space --focus 2
+hyper - 3 : yabai -m space --focus 3
+hyper - 4 : yabai -m space --focus 4
+hyper - 5 : yabai -m space --focus 5
+hyper - 6 : yabai -m space --focus 6
+hyper - 7 : yabai -m space --focus 7
+hyper - 8 : yabai -m space --focus 8
+hyper - 9 : yabai -m space --focus 9

@@ -62,8 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         if
             client
-            ---@diagnostic disable-next-line: deprecated
-            and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
+            and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, { bufnr = event.buf })
         then
             local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 

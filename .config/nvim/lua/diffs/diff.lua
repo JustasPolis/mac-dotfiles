@@ -2,6 +2,9 @@
 --- Uses virtual lines for alignment so buffers contain clean source code.
 ---@diagnostic disable: param-type-mismatch, assign-type-mismatch
 local M = {}
+local LEFT_NS = vim.api.nvim_create_namespace("diffs-left")
+local RIGHT_NS = vim.api.nvim_create_namespace("diffs-right")
+M._decorated_right_bufs = {}
 
 --- Ensure treesitter is attached for a buffer/filetype.
 --- @param buf integer
@@ -86,6 +89,56 @@ local function resolve_filetype(file)
     return FILETYPES[file.language] or vim.filetype.match({ filename = file.path })
 end
 
+local function set_diff_buffer_name(buf, path, side)
+    if not buf or not vim.api.nvim_buf_is_valid(buf) then
+        return
+    end
+
+    local name = path or ""
+    if name == "" then
+        name = "diff"
+    end
+
+    name = string.format("%s [%s]", name, side)
+    if vim.api.nvim_buf_get_name(buf) ~= name then
+        pcall(vim.api.nvim_buf_set_name, buf, name)
+    end
+end
+
+local function resolve_live_right_buf(file)
+    if not file.use_live_right_buf or not file.right_abs_path then
+        return nil
+    end
+
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf) then
+            local name = vim.api.nvim_buf_get_name(buf)
+            if name ~= "" and vim.fs.normalize(name) == file.right_abs_path and vim.bo[buf].buftype == "" then
+                return buf
+            end
+        end
+    end
+
+    local stat = vim.uv.fs_stat(file.right_abs_path)
+    if not stat or stat.type ~= "file" then
+        return nil
+    end
+
+    local buf = vim.fn.bufadd(file.right_abs_path)
+    if buf <= 0 then
+        return nil
+    end
+
+    pcall(vim.fn.bufload, buf)
+    return buf
+end
+
+local function clear_right_decorations(buf)
+    if buf and vim.api.nvim_buf_is_valid(buf) then
+        vim.api.nvim_buf_clear_namespace(buf, RIGHT_NS, 0, -1)
+    end
+end
+
 
 --- Set window options for diff windows (no scrollbind — we do manual sync).
 --- @param win integer Window handle
@@ -164,6 +217,10 @@ function M.cleanup()
         vim.api.nvim_del_augroup_by_id(M._sync_augroup)
         M._sync_augroup = nil
     end
+    for buf in pairs(M._decorated_right_bufs) do
+        clear_right_decorations(buf)
+    end
+    M._decorated_right_bufs = {}
     M._sync_map = nil
     M._syncing = false
     M.left_hunk_positions = {}
@@ -182,12 +239,14 @@ function M.open(state)
     vim.api.nvim_win_set_buf(state.left_win, state.left_buf)
     setup_diff_buffer(state.left_buf)
 
-    -- Create right diff pane (scratch, new version)
+    -- Create right diff pane. This starts as scratch, but worktree diffs can
+    -- swap in a real file buffer during render so LSP/modifiable state stays intact.
     vim.cmd("vsplit")
     state.right_win = vim.api.nvim_get_current_win()
-    state.right_buf = vim.api.nvim_create_buf(false, true)
+    state.right_scratch_buf = vim.api.nvim_create_buf(false, true)
+    state.right_buf = state.right_scratch_buf
     vim.api.nvim_win_set_buf(state.right_win, state.right_buf)
-    setup_diff_buffer(state.right_buf)
+    setup_diff_buffer(state.right_scratch_buf)
 
     setup_diff_window(state.left_win)
     setup_diff_window(state.right_win)
@@ -199,17 +258,32 @@ end
 function M.render(state, file)
     local config = require("diffs").config
     local rows = file.rows or {}
+    local right_buf = resolve_live_right_buf(file) or state.right_scratch_buf
+
+    set_diff_buffer_name(state.left_buf, file.left_path or file.path, "old")
+    set_diff_buffer_name(state.right_scratch_buf, file.right_path or file.path, "new")
 
     M.left_hunk_positions = {}
     M.right_hunk_positions = {}
 
+    if state.right_buf ~= right_buf then
+        clear_right_decorations(state.right_buf)
+        state.right_buf = right_buf
+        vim.api.nvim_win_set_buf(state.right_win, state.right_buf)
+    end
+    setup_diff_window(state.right_win)
+
     if #rows == 0 then
         vim.bo[state.left_buf].modifiable = true
-        vim.bo[state.right_buf].modifiable = true
         vim.api.nvim_buf_set_lines(state.left_buf, 0, -1, false, { "-- Empty --" })
-        vim.api.nvim_buf_set_lines(state.right_buf, 0, -1, false, { "-- Empty --" })
         vim.bo[state.left_buf].modifiable = false
-        vim.bo[state.right_buf].modifiable = false
+        if state.right_buf == state.right_scratch_buf then
+            vim.bo[state.right_buf].modifiable = true
+            vim.api.nvim_buf_set_lines(state.right_buf, 0, -1, false, { "-- Empty --" })
+            vim.bo[state.right_buf].modifiable = false
+        else
+            clear_right_decorations(state.right_buf)
+        end
         return
     end
 
@@ -277,24 +351,27 @@ function M.render(state, file)
     vim.api.nvim_buf_set_lines(state.left_buf, 0, -1, false, left_lines)
     vim.bo[state.left_buf].modifiable = false
 
-    vim.bo[state.right_buf].modifiable = true
-    vim.api.nvim_buf_set_lines(state.right_buf, 0, -1, false, right_lines)
-    vim.bo[state.right_buf].modifiable = false
+    if state.right_buf == state.right_scratch_buf then
+        vim.bo[state.right_buf].modifiable = true
+        vim.api.nvim_buf_set_lines(state.right_buf, 0, -1, false, right_lines)
+        vim.bo[state.right_buf].modifiable = false
+    end
 
     local ft = resolve_filetype(file)
     local use_treesitter = config.highlight_mode ~= "difftastic"
     vim.bo[state.left_buf].filetype = ft or ""
-    vim.bo[state.right_buf].filetype = ft or ""
     if use_treesitter and ft then
         ensure_treesitter(state.left_buf, ft)
-        ensure_treesitter(state.right_buf, ft)
+        if state.right_buf == state.right_scratch_buf then
+            vim.bo[state.right_buf].filetype = ft or ""
+            ensure_treesitter(state.right_buf, ft)
+        end
     end
 
     -- Namespaces for highlights and virtual lines
-    local left_ns = vim.api.nvim_create_namespace("diffs-left")
-    local right_ns = vim.api.nvim_create_namespace("diffs-right")
-    vim.api.nvim_buf_clear_namespace(state.left_buf, left_ns, 0, -1)
-    vim.api.nvim_buf_clear_namespace(state.right_buf, right_ns, 0, -1)
+    vim.api.nvim_buf_clear_namespace(state.left_buf, LEFT_NS, 0, -1)
+    vim.api.nvim_buf_clear_namespace(state.right_buf, RIGHT_NS, 0, -1)
+    M._decorated_right_bufs[state.right_buf] = true
 
     local removed_hl = use_treesitter and "DifftRemoved" or "DifftRemovedFg"
     local added_hl = use_treesitter and "DifftAdded" or "DifftAddedFg"
@@ -304,7 +381,7 @@ function M.render(state, file)
         local lr = row_to_left[i]
         if lr then
             for _, hl in ipairs(row.left.highlights) do
-                vim.api.nvim_buf_set_extmark(state.left_buf, left_ns, lr - 1, hl.start, {
+                vim.api.nvim_buf_set_extmark(state.left_buf, LEFT_NS, lr - 1, hl.start, {
                     end_col = hl["end"],
                     hl_group = removed_hl,
                 })
@@ -314,7 +391,7 @@ function M.render(state, file)
         local rr = row_to_right[i]
         if rr and rr <= vim.api.nvim_buf_line_count(state.right_buf) then
             for _, hl in ipairs(row.right.highlights) do
-                pcall(vim.api.nvim_buf_set_extmark, state.right_buf, right_ns, rr - 1, hl.start, {
+                pcall(vim.api.nvim_buf_set_extmark, state.right_buf, RIGHT_NS, rr - 1, hl.start, {
                     end_col = hl["end"],
                     hl_group = added_hl,
                 })
@@ -331,7 +408,7 @@ function M.render(state, file)
             for _ = 1, count do
                 vlines[#vlines + 1] = filler_virt
             end
-            vim.api.nvim_buf_set_extmark(state.left_buf, left_ns, real_line - 1, 0, {
+            vim.api.nvim_buf_set_extmark(state.left_buf, LEFT_NS, real_line - 1, 0, {
                 virt_lines_above = true,
                 virt_lines = vlines,
             })
@@ -342,7 +419,7 @@ function M.render(state, file)
         for _ = 1, left_trailing do
             vlines[#vlines + 1] = filler_virt
         end
-        vim.api.nvim_buf_set_extmark(state.left_buf, left_ns, #left_lines - 1, 0, {
+        vim.api.nvim_buf_set_extmark(state.left_buf, LEFT_NS, #left_lines - 1, 0, {
             virt_lines = vlines,
         })
     end
@@ -354,7 +431,7 @@ function M.render(state, file)
             for _ = 1, count do
                 vlines[#vlines + 1] = filler_virt
             end
-            vim.api.nvim_buf_set_extmark(state.right_buf, right_ns, real_line - 1, 0, {
+            vim.api.nvim_buf_set_extmark(state.right_buf, RIGHT_NS, real_line - 1, 0, {
                 virt_lines_above = true,
                 virt_lines = vlines,
             })
@@ -365,7 +442,7 @@ function M.render(state, file)
         for _ = 1, right_trailing do
             vlines[#vlines + 1] = filler_virt
         end
-        vim.api.nvim_buf_set_extmark(state.right_buf, right_ns, right_buf_lines - 1, 0, {
+        vim.api.nvim_buf_set_extmark(state.right_buf, RIGHT_NS, right_buf_lines - 1, 0, {
             virt_lines = vlines,
         })
     end
@@ -392,6 +469,9 @@ function M.render(state, file)
     vim.api.nvim_set_current_win(state.right_win)
     safe_set_cursor(state.left_win, { 1, 0 })
     safe_set_cursor(state.right_win, { 1, 0 })
+    vim.schedule(function()
+        pcall(vim.cmd, "redrawstatus")
+    end)
 end
 
 --- Get the current diff window (left or right).

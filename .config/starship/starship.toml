@@ -8,7 +8,7 @@ $character\
 
 [directory]
 format = "[$path]($style) "
-style = "#bdb2e0"
+style = "#968a7c"
 truncation_symbol = '…/'
 truncate_to_repo = false
 
@@ -17,7 +17,7 @@ disabled = true
 
 [character]
 disabled = false
-success_symbol = '[❯](#bdb2e0)'
+success_symbol = '[❯](#968a7c)'
 error_symbol = '[❯](#d4b5a0)'
 
 [jobs]

@@ -113,7 +113,7 @@ function M.open(state)
     local split = Split({
         relative = "editor",
         position = "bottom",
-        size = "30%",
+        size = "20%",
         enter = true,
         buf_options = {
             buftype = "nofile",
@@ -132,6 +132,8 @@ function M.open(state)
 
     state.tree_win = split.winid
     state.tree_buf = split.bufnr
+    pcall(vim.api.nvim_buf_set_name, split.bufnr, "[DiffTree]")
+    vim.b[split.bufnr].lualine_name = state.diff_label or "diff"
 
     local nodes = M.build_nodes(state.files)
     local tree = NuiTree({

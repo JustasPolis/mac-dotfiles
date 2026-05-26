@@ -5,7 +5,6 @@ local M = {}
 
 local diff = require("diffs.diff")
 local tree = require("diffs.tree")
-local highlight = require("diffs.highlight")
 local keymaps = require("diffs.keymaps")
 
 ---@class DiffsConfig
@@ -37,6 +36,7 @@ M.config = {
 ---@field tree_buf integer?
 ---@field left_win integer?
 ---@field left_buf integer?
+---@field right_scratch_buf integer?
 ---@field right_win integer?
 ---@field right_buf integer?
 ---@field original_tabpage integer?
@@ -51,11 +51,62 @@ M.state = {
     tree_buf = nil,
     left_win = nil,
     left_buf = nil,
+    right_scratch_buf = nil,
     right_win = nil,
     right_buf = nil,
     original_tabpage = nil,
     diff_tabpage = nil,
 }
+
+local function build_diff_label(range, diff_args, right_source)
+    if range == "--staged" or right_source == "index" then
+        return "staged"
+    end
+
+    if diff_args and #diff_args > 0 then
+        return table.concat(diff_args, " ")
+    end
+
+    return "worktree"
+end
+
+local function flash_message(msg)
+    local text = " " .. msg .. " "
+    local buf = vim.api.nvim_create_buf(false, true)
+    vim.bo[buf].bufhidden = "wipe"
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, { text })
+    vim.bo[buf].modifiable = false
+
+    local width = vim.fn.strdisplaywidth(text)
+    local height = 1
+    local win = vim.api.nvim_open_win(buf, true, {
+        relative = "editor",
+        row = math.floor((vim.o.lines - height) / 2),
+        col = math.floor((vim.o.columns - width) / 2),
+        width = width,
+        height = height,
+        style = "minimal",
+        border = "rounded",
+        zindex = 250,
+    })
+    vim.wo[win].winhighlight = "NormalFloat:FloatBorder,FloatBorder:FloatBorder"
+
+    local function close()
+        if vim.api.nvim_win_is_valid(win) then
+            vim.api.nvim_win_close(win, true)
+        end
+    end
+    vim.keymap.set("n", "q", close, { buffer = buf, nowait = true, silent = true })
+    vim.keymap.set("n", "<Esc>", close, { buffer = buf, nowait = true, silent = true })
+end
+
+local function notify_no_changes(_)
+    flash_message("nothing to diff")
+end
+
+local function notify_no_diffable_changes(_)
+    flash_message("nothing to diff")
+end
 
 local function split_content(content)
     local lines = vim.split(content or "", "\n", { plain = true })
@@ -97,6 +148,19 @@ local function read_worktree_file(git_root, path)
         return ""
     end
     return table.concat(lines, "\n")
+end
+
+local function get_modified_buffer_content(git_root, path)
+    local abs_path = vim.fs.normalize(vim.fs.joinpath(git_root, path))
+
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf) then
+            local name = vim.api.nvim_buf_get_name(buf)
+            if name ~= "" and vim.fs.normalize(name) == abs_path and vim.bo[buf].buftype == "" and vim.bo[buf].modified then
+                return table.concat(vim.api.nvim_buf_get_lines(buf, 0, -1, false), "\n")
+            end
+        end
+    end
 end
 
 local function detect_right_source(git_root, diff_args)
@@ -195,6 +259,25 @@ local function get_file_contents(git_root, path, entry, right_source)
     return old_content, new_content
 end
 
+local function write_temp_version(path, content)
+    local dir = vim.fn.tempname()
+    vim.fn.mkdir(dir, "p")
+
+    local filename = vim.fs.basename(path)
+    local temp_path = vim.fs.joinpath(dir, filename)
+
+    local fd = vim.uv.fs_open(temp_path, "w", 384)
+    if not fd then
+        vim.fn.delete(dir, "rf")
+        return nil, nil
+    end
+
+    vim.uv.fs_write(fd, content, -1)
+    vim.uv.fs_close(fd)
+
+    return dir, temp_path
+end
+
 --- Transform difft CLI JSON into the rows format expected by diff.render().
 ---@param data table Parsed JSON object from difft --display json
 ---@param old_content string Content of the old file version
@@ -275,6 +358,129 @@ local function transform_file(data, old_content, new_content)
     }
 end
 
+local function show_spinner(label, on_cancel)
+    local frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+    local function render(frame)
+        return " " .. frame .. "  Diffing " .. label .. " "
+    end
+
+    local buf = vim.api.nvim_create_buf(false, true)
+    vim.bo[buf].bufhidden = "wipe"
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, { render(frames[1]) })
+    vim.bo[buf].modifiable = false
+
+    local width = vim.fn.strdisplaywidth(render(frames[1]))
+    local height = 1
+    local win = vim.api.nvim_open_win(buf, true, {
+        relative = "editor",
+        row = math.floor((vim.o.lines - height) / 2),
+        col = math.floor((vim.o.columns - width) / 2),
+        width = width,
+        height = height,
+        style = "minimal",
+        border = "rounded",
+        zindex = 250,
+    })
+    vim.wo[win].winhighlight = "NormalFloat:FloatBorder,FloatBorder:FloatBorder"
+
+    local idx = 1
+    local timer = vim.uv.new_timer()
+    timer:start(80, 80, vim.schedule_wrap(function()
+        idx = idx % #frames + 1
+        if vim.api.nvim_buf_is_valid(buf) then
+            vim.bo[buf].modifiable = true
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, { render(frames[idx]) })
+            vim.bo[buf].modifiable = false
+        end
+    end))
+
+    local cancelled = false
+    local function teardown()
+        if timer and not timer:is_closing() then
+            timer:stop()
+            timer:close()
+        end
+        if win and vim.api.nvim_win_is_valid(win) then
+            vim.api.nvim_win_close(win, true)
+        end
+    end
+
+    local function cancel()
+        if cancelled then return end
+        cancelled = true
+        teardown()
+        if on_cancel then on_cancel() end
+    end
+
+    vim.keymap.set("n", "q", cancel, { buffer = buf, nowait = true, silent = true })
+    vim.keymap.set("n", "<Esc>", cancel, { buffer = buf, nowait = true, silent = true })
+
+    -- If user closes the window any other way (e.g. :q, focus + close), still cancel.
+    vim.api.nvim_create_autocmd("WinClosed", {
+        pattern = tostring(win),
+        once = true,
+        callback = function()
+            if not cancelled then
+                cancelled = true
+                if timer and not timer:is_closing() then
+                    timer:stop()
+                    timer:close()
+                end
+                if on_cancel then on_cancel() end
+            end
+        end,
+    })
+
+    return {
+        close = teardown,
+        is_cancelled = function() return cancelled end,
+    }
+end
+
+local function build_live_buffer_file(path, old_content, new_content)
+    local old_dir, old_path = write_temp_version(path, old_content)
+    local new_dir, new_path = write_temp_version(path, new_content)
+    if not old_path or not new_path then
+        return nil
+    end
+
+    local ok, data = pcall(function()
+        local obj = vim
+            .system({
+                "env",
+                "DFT_UNSTABLE=yes",
+                "difft",
+                "--display",
+                "json",
+                "--context",
+                "9999",
+                old_path,
+                new_path,
+            }, { text = true })
+            :wait(5000)
+
+        if obj.code ~= 0 or not obj.stdout or obj.stdout == "" then
+            return nil
+        end
+
+        for _, line in ipairs(vim.split(vim.trim(obj.stdout), "\n", { trimempty = true })) do
+            local decoded_ok, decoded = pcall(vim.json.decode, line)
+            if decoded_ok and decoded.aligned_lines then
+                decoded.path = path
+                return transform_file(decoded, old_content, new_content)
+            end
+        end
+    end)
+
+    vim.fn.delete(old_dir, "rf")
+    vim.fn.delete(new_dir, "rf")
+
+    if ok then
+        return data
+    end
+    return nil
+end
+
 --- Initialize the plugin with user options.
 --- @param opts table|nil User configuration
 function M.setup(opts)
@@ -294,10 +500,9 @@ function M.setup(opts)
             M.config.keymaps[k] = v
         end
     end
-    highlight.setup(opts.highlights)
 end
 
---- Open diff view for a git commit range (blocking with 5s timeout).
+--- Open diff view for a git commit range (async; shows a floating spinner while difft runs).
 --- @param range string|nil Git range (nil = unstaged, "--staged" = staged)
 function M.open(range)
     if M.state.tree_win or M.state.left_win or M.state.right_win then
@@ -313,6 +518,7 @@ function M.open(range)
     local git_root = vim.fs.root(0, ".git") or vim.uv.cwd()
     local diff_args = build_diff_args(range)
     local right_source = detect_right_source(git_root, diff_args)
+    local diff_label = build_diff_label(range, diff_args, right_source)
     local raw_entries = get_raw_entries(git_root, diff_args)
 
     local cmd = {
@@ -322,46 +528,98 @@ function M.open(range)
     }
     vim.list_extend(cmd, diff_args)
 
-    local obj = vim.system(cmd, { cwd = git_root, text = true }):wait(5000)
-    if obj.signal ~= 0 then
-        vim.notify("Diff timed out", vim.log.levels.WARN)
-        return
-    end
-
-    local stdout = obj.stdout or ""
-    if stdout == "" then return end
-
-    local json_lines = vim.split(vim.trim(stdout), "\n", { trimempty = true })
-    local parsed = {}
-    for _, line in ipairs(json_lines) do
-        local ok, data = pcall(vim.json.decode, line)
-        if ok and data.aligned_lines and #data.aligned_lines > 0 then
-            parsed[#parsed + 1] = data
+    local handle
+    local spinner = show_spinner(diff_label, function()
+        if handle then
+            pcall(function() handle:kill("sigterm") end)
         end
-    end
+    end)
 
-    if #parsed == 0 then return end
+    local leave_au = vim.api.nvim_create_autocmd("VimLeavePre", {
+        once = true,
+        callback = function()
+            if handle then
+                pcall(function() handle:kill("sigterm") end)
+            end
+        end,
+    })
 
-    -- All data ready — open the UI.
-    M.state.original_tabpage = original_tabpage
-    vim.cmd("tabnew")
-    M.state.diff_tabpage = vim.api.nvim_get_current_tabpage()
+    handle = vim.system(cmd, { cwd = git_root, text = true }, function(obj)
+        vim.schedule(function()
+            pcall(vim.api.nvim_del_autocmd, leave_au)
+            if spinner.is_cancelled() then
+                return
+            end
+            spinner.close()
 
-    M.state.files = {}
-    for i, pf in ipairs(parsed) do
-        local old_content, new_content = get_file_contents(git_root, pf.path, raw_entries[pf.path], right_source)
-        M.state.files[i] = transform_file(pf, old_content, new_content)
-    end
-    M.state.current_file_idx = 1
+            if obj.code ~= 0 and obj.signal ~= 0 then
+                vim.notify("Diff failed", vim.log.levels.WARN)
+                return
+            end
 
-    tree.open(M.state)
-    diff.open(M.state)
-    keymaps.setup(M.state)
+            local stdout = vim.trim(obj.stdout or "")
+            if stdout == "" then
+                notify_no_changes(diff_label)
+                return
+            end
 
-    local first_idx = tree.first_file_in_display_order()
-    if first_idx then
-        M.show_file(first_idx)
-    end
+            local json_lines = vim.split(vim.trim(stdout), "\n", { trimempty = true })
+            local parsed = {}
+            for _, line in ipairs(json_lines) do
+                local ok, data = pcall(vim.json.decode, line)
+                if ok and data.aligned_lines and #data.aligned_lines > 0 then
+                    parsed[#parsed + 1] = data
+                end
+            end
+
+            if #parsed == 0 then
+                notify_no_diffable_changes(diff_label)
+                return
+            end
+
+            -- All data ready — open the UI.
+            M.state.original_tabpage = original_tabpage
+            vim.cmd("tabnew")
+            M.state.diff_tabpage = vim.api.nvim_get_current_tabpage()
+            M.state.diff_label = diff_label
+
+            M.state.files = {}
+            for i, pf in ipairs(parsed) do
+                local entry = raw_entries[pf.path]
+                local old_content, new_content = get_file_contents(git_root, pf.path, entry, right_source)
+                local live_content = nil
+                local live_path = entry and (entry.new_path or pf.path) or pf.path
+                if right_source == "worktree" then
+                    live_content = get_modified_buffer_content(git_root, live_path)
+                end
+
+                local file
+                if live_content ~= nil then
+                    file = build_live_buffer_file(pf.path, old_content, live_content)
+                        or transform_file(pf, old_content, new_content)
+                else
+                    file = transform_file(pf, old_content, new_content)
+                end
+
+                file.left_path = entry and (entry.old_path or pf.path) or pf.path
+                file.right_path = live_path
+                file.right_abs_path = vim.fs.normalize(vim.fs.joinpath(git_root, live_path))
+                file.use_live_right_buf = right_source == "worktree"
+
+                M.state.files[i] = file
+            end
+            M.state.current_file_idx = 1
+
+            tree.open(M.state)
+            diff.open(M.state)
+            keymaps.setup(M.state)
+
+            local first_idx = tree.first_file_in_display_order()
+            if first_idx then
+                M.show_file(first_idx)
+            end
+        end)
+    end)
 end
 
 --- Close the diff view.
@@ -380,10 +638,12 @@ function M.close()
         tree_buf = nil,
         left_win = nil,
         left_buf = nil,
+        right_scratch_buf = nil,
         right_win = nil,
         right_buf = nil,
         original_tabpage = nil,
         diff_tabpage = nil,
+        diff_label = nil,
     }
 
     if original_tabpage and vim.api.nvim_tabpage_is_valid(original_tabpage) then

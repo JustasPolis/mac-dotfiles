@@ -1,0 +1,87 @@
+#!/usr/bin/env sh
+
+# Load scripting addition (requires SIP partially disabled)
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# Global layout
+yabai -m config layout                       bsp
+yabai -m config window_placement             second_child
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+
+# Padding & gaps
+yabai -m config top_padding                  14
+yabai -m config bottom_padding               14
+yabai -m config left_padding                 14
+yabai -m config right_padding                14
+yabai -m config window_gap                   14
+
+# Mouse
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            swap
+
+# Window appearance
+yabai -m config window_origin_display        default
+yabai -m config window_topmost               off
+yabai -m config window_shadow                on
+yabai -m config window_animation_duration    0.0
+yabai -m config window_opacity               off
+yabai -m config menubar_opacity              0.0
+yabai -m config external_bar                 all:0:0
+
+# Rules: float common dialogs/utilities
+yabai -m rule --add app="^System Settings$"  manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Finder$"           manage=off
+yabai -m rule --add app="^Calculator$"       manage=off
+yabai -m rule --add app="^Archive Utility$"  manage=off
+yabai -m rule --add app="^App Store$"        manage=off
+yabai -m rule --add title="Preferences$"     manage=off
+yabai -m rule --add app="^Loungy$"           manage=off
+
+# Ensure at least 5 spaces exist, then label them
+while [ "$(yabai -m query --spaces | grep -c '"index"')" -lt 5 ]; do
+    yabai -m space --create
+done
+yabai -m space 1 --label term 2>/dev/null
+yabai -m space 2 --label web  2>/dev/null
+yabai -m space 3 --label chat 2>/dev/null
+yabai -m space 4 --label code 2>/dev/null
+yabai -m space 5 --label sim  2>/dev/null
+
+# Pin apps to spaces (by label, so reordering doesn't break)
+yabai -m rule --add app="^kitty$"      space=term
+yabai -m rule --add app="^Zen$"        space=web
+yabai -m rule --add app="^Slack$"      space=chat
+yabai -m rule --add app="^Xcode$"      space=code
+yabai -m rule --add app="^Xcode$"      title="^(Welcome|Organizer|Preferences)" manage=off
+yabai -m rule --add app="^Simulator$"  space=sim
+
+# Autostart apps (launch only if not already running)
+autostart() {
+    pgrep -xq "$1" || open -ga "$1"
+}
+
+autostart "kitty"
+autostart "Zen"
+autostart "Slack"
+
+# SketchyBar disabled
+# brew services list | grep -q "sketchybar.*started" || brew services start sketchybar >/dev/null 2>&1
+#
+# yabai -m signal --add event=window_focused         action="sketchybar --trigger window_focus"
+# yabai -m signal --add event=window_created         action="sketchybar --trigger windows_on_spaces"
+# yabai -m signal --add event=window_destroyed       action="sketchybar --trigger windows_on_spaces"
+# yabai -m signal --add event=window_moved           action="sketchybar --trigger windows_on_spaces"
+# yabai -m signal --add event=window_title_changed   action="sketchybar --trigger window_focus"
+# yabai -m signal --add event=space_changed          action="sketchybar --trigger space_change"
+# yabai -m signal --add event=display_changed        action="sketchybar --trigger display_change"
+# yabai -m signal --add event=application_launched   action="sketchybar --trigger windows_on_spaces"
+# yabai -m signal --add event=application_terminated action="sketchybar --trigger windows_on_spaces"
+
+echo "yabai configuration loaded.."

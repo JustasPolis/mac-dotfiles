@@ -7,19 +7,19 @@ set -l mellow_fg           c9c7cd
 set -l mellow_bg           161617
 set -l mellow_black        27272a
 set -l mellow_bright_black 353539
-set -l mellow_red          f5a191
-set -l mellow_bright_red   ffae9f
+set -l mellow_red          d4b5a0
+set -l mellow_bright_red   dfc2ad
 
-set -l mellow_yellow       e6b99d
-set -l mellow_bright_yellow f0c5a9
-set -l mellow_blue         aca1cf
-set -l mellow_bright_blue  b9aeda
-set -l mellow_magenta      e29eca
-set -l mellow_bright_magenta ecaad6
-set -l mellow_cyan         ea83a5
-set -l mellow_bright_cyan  f591b2
-set -l mellow_white        c1c0d4
-set -l mellow_bright_white cac9dd
+set -l mellow_yellow       d4b5a0
+set -l mellow_bright_yellow dfc2ad
+set -l mellow_blue         968a7c
+set -l mellow_bright_blue  b3a193
+set -l mellow_magenta      968a7c
+set -l mellow_bright_magenta b3a193
+set -l mellow_cyan         968a7c
+set -l mellow_bright_cyan  b3a193
+set -l mellow_white        c9c7cd
+set -l mellow_bright_white d4d2d8
 set -l mellow_grey         7b7b80
 
 set -U fish_color_normal           $mellow_fg

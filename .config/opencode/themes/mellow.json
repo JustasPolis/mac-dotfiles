@@ -1,15 +1,15 @@
 {
   "$schema": "https://opencode.ai/theme.json",
   "defs": {
-    "mellowBlue": "#aca1cf",
-    "mellowBrightBlue": "#b9aeda",
-    "mellowGreen": "#90b99f",
+    "mellowBlue": "#968a7c",
+    "mellowBrightBlue": "#b3a193",
+    "mellowGreen": "#968a7c",
     "mellowGrey": "#7b7b80",
-    "mellowYellow": "#e6b99d",
-    "mellowMagenta": "#e29eca",
-    "mellowPink": "#ea83a5",
+    "mellowYellow": "#d4b5a0",
+    "mellowMagenta": "#968a7c",
+    "mellowPink": "#d4b5a0",
     "mellowFg": "#c9c7cd",
-    "mellowRed": "#f5a191",
+    "mellowRed": "#d4b5a0",
     "mellowBlack": "#27272a",
     "mellowBrightBlack": "#353539",
     "mellowBorder": "#7b7b80"

@@ -7,7 +7,7 @@ theme.insert.c.bg = "None"
 theme.replace.c.bg = "None"
 theme.command.c.bg = "None"
 
-local file_type = function()
+local is_normal_win = function()
     return vim.api.nvim_win_get_config(0).relative == ""
 end
 
@@ -23,6 +23,20 @@ local active_lsp_name = function()
         return clients[1].name
     end
     return ""
+end
+
+local function display_filename()
+    local label = vim.b.lualine_name
+    if label and label ~= "" then
+        return label
+    end
+
+    local name = vim.api.nvim_buf_get_name(0)
+    if name == "" then
+        return ""
+    end
+
+    return vim.fn.fnamemodify(name, ":t")
 end
 
 local function agent_cond()
@@ -71,14 +85,14 @@ require("lualine").setup({
     options = {
         icons_enabled = true,
         theme = theme,
-        ignore_focus = { "help", "NetrwTreeListing", "difftree" },
+        ignore_focus = { "help", "NetrwTreeListing" },
         always_divide_middle = false,
         globalstatus = true,
         refresh = {
             statusline = 1000,
         },
         disabled_filetypes = {
-            statusline = { "alpha", "fish" },
+            statusline = {},
             winbar = {},
         },
     },
@@ -119,7 +133,7 @@ require("lualine").setup({
                 always_visible = false,
                 color = { fg = "None", bg = "None" },
                 sections = { "error", "warn", "info", "hint" },
-                cond = file_type,
+                cond = is_normal_win,
                 padding = {
                     left = 0,
                     right = 0,
@@ -135,15 +149,13 @@ require("lualine").setup({
                 "filetype",
                 icon_only = true,
                 separator = "",
-                cond = function() return file_type() and not vim.b.agent end,
+                cond = function() return is_normal_win() and not vim.b.agent end,
                 padding = { left = 0, right = 1 },
                 color = { fg = "None", bg = "None" },
             },
             {
-                "filename",
-                path = 0,
-                cond = function() return file_type() and not vim.b.agent end,
-                symbols = { modified = "", readonly = "", unnamed = "" },
+                display_filename,
+                cond = function() return is_normal_win() and not vim.b.agent end,
                 padding = { left = 0, right = 0 },
                 color = { fg = p.fg, bg = "None" },
             },

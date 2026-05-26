@@ -4,6 +4,11 @@
   },
   "profiles": [
     {
+      "name": "Default profile",
+      "selected": true,
+      "virtual_hid_keyboard": {
+        "keyboard_type_v2": "iso"
+      },
       "complex_modifications": {
         "rules": [
           {
@@ -92,7 +97,7 @@
             ]
           },
           {
-            "description": "cmd_mode (hold)",
+            "description": "cmd_mode (hold + tap-leader)",
             "manipulators": [
               {
                 "type": "basic",
@@ -103,6 +108,14 @@
                   {
                     "set_variable": {
                       "name": "cmd_mode_hold",
+                      "value": 1
+                    }
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
                       "value": 1
                     }
                   }
@@ -125,12 +138,87 @@
                       "name": "send_mode",
                       "value": 0
                     }
+                  }
+                ],
+                "to_delayed_action": {
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "cmd_mode_tap",
+                        "value": 0
+                      }
+                    },
+                    {
+                      "set_variable": {
+                        "name": "send_prefix",
+                        "value": 0
+                      }
+                    },
+                    {
+                      "set_variable": {
+                        "name": "send_mode",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "cmd_mode_tap",
+                        "value": 0
+                      }
+                    },
+                    {
+                      "set_variable": {
+                        "name": "send_prefix",
+                        "value": 0
+                      }
+                    },
+                    {
+                      "set_variable": {
+                        "name": "send_mode",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 1000
+                }
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "escape"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
                   },
                   {
                     "set_variable": {
-                      "name": "window_prefix",
+                      "name": "send_prefix",
                       "value": 0
                     }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "send_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "key_code": "escape"
                   }
                 ]
               },
@@ -153,6 +241,12 @@
                   {
                     "set_variable": {
                       "name": "send_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
                       "value": 0
                     }
                   }
@@ -179,6 +273,12 @@
                       "name": "send_mode",
                       "value": 0
                     }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
                   }
                 ]
               },
@@ -201,6 +301,12 @@
                   {
                     "set_variable": {
                       "name": "send_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
                       "value": 0
                     }
                   }
@@ -227,6 +333,12 @@
                       "name": "send_mode",
                       "value": 0
                     }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
                   }
                 ]
               },
@@ -249,6 +361,12 @@
                   {
                     "set_variable": {
                       "name": "send_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
                       "value": 0
                     }
                   }
@@ -275,6 +393,12 @@
                       "name": "send_mode",
                       "value": 0
                     }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
                   }
                 ]
               },
@@ -297,6 +421,12 @@
                   {
                     "set_variable": {
                       "name": "send_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
                       "value": 0
                     }
                   }
@@ -323,6 +453,12 @@
                       "name": "send_mode",
                       "value": 0
                     }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
                   }
                 ]
               },
@@ -345,6 +481,12 @@
                   {
                     "set_variable": {
                       "name": "send_mode",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
                       "value": 0
                     }
                   }
@@ -386,6 +528,27 @@
                   {
                     "type": "variable_if",
                     "name": "cmd_mode_hold",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "send_prefix",
+                      "value": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "s"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
                     "value": 1
                   }
                 ],
@@ -635,6 +798,318 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "1"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 1"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 2"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "3"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 3"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "4"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 4"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "5"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 5"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "6"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 6"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "7"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 7"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "8"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 8"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "9"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m space --focus 9"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "h"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --focus west"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --focus south"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --focus north"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l"
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "cmd_mode_tap",
+                    "value": 1
+                  }
+                ],
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --focus east"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "cmd_mode_tap",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "semicolon"
                 },
                 "conditions": [
@@ -653,51 +1128,6 @@
                       "left_option",
                       "left_shift"
                     ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "f"
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "window_prefix",
-                    "value": 1
-                  }
-                ],
-                "to": [
-                  {
-                    "shell_command": "/opt/homebrew/bin/yabai -m window --toggle windowed-fullscreen"
-                  },
-                  {
-                    "set_variable": {
-                      "name": "window_prefix",
-                      "value": 0
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "w"
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "cmd_mode_hold",
-                    "value": 1
-                  }
-                ],
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "window_prefix",
-                      "value": 1
-                    }
                   }
                 ]
               }
@@ -753,11 +1183,6 @@
           "basic.simultaneous_threshold_milliseconds": 50,
           "mouse_motion_to_scroll.speed": 100
         }
-      },
-      "name": "Default profile",
-      "selected": true,
-      "virtual_hid_keyboard": {
-        "keyboard_type_v2": "iso"
       }
     }
   ]

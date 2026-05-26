@@ -1,15 +1,13 @@
 local opts = { silent = true }
 
-local keys = {
-    ["\27[49;5u"] = "<C-1>",
-    ["\27[50;5u"] = "<C-2>",
-    ["\27[51;5u"] = "<C-3>",
-    ["\27[52;5u"] = "<C-4>",
-    ["\27[53;5u"] = "<C-5>",
-}
-for code, mapping in pairs(keys) do
-    vim.keymap.set("n", code, mapping, { remap = true, silent = true })
-end
+-- Register CSI-u Ctrl+digit sequences as terminal key codes (NOT user mappings).
+-- Termcap entries use ttimeoutlen (=0) for disambiguation, so <Esc> has no delay
+-- in any mode. User mappings would use timeoutlen (=350) and slow ESC down.
+vim.cmd([[execute "set <C-1>=\e[49;5u"]])
+vim.cmd([[execute "set <C-2>=\e[50;5u"]])
+vim.cmd([[execute "set <C-3>=\e[51;5u"]])
+vim.cmd([[execute "set <C-4>=\e[52;5u"]])
+vim.cmd([[execute "set <C-5>=\e[53;5u"]])
 
 vim.keymap.set("", "<Space>", "<Nop>", opts)
 vim.keymap.set("n", "<leader>|", ":vnew <cr>", opts)
@@ -18,8 +16,6 @@ vim.keymap.set("n", "+", ":resize +2<CR>", opts)
 vim.keymap.set("n", "_", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<A-=>", ":vertical resize +2<CR>", opts)
 vim.keymap.set("n", "<A-->", ":vertical resize -2<CR>", opts)
-vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
-vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 vim.keymap.set("v", "p", '"_dP', opts)
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
 vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)

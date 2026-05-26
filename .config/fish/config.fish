@@ -1,7 +1,11 @@
 set fish_greeting ""
-set -x FZF_DEFAULT_OPTS '--no-sort --ansi --header "" --no-info --preview-window hidden --color=fg:#c9c7cd,bg:#161617,hl:#c9a5b5,fg+:#c9c7cd,bg+:#353539,hl+:#c9a5b5,info:#7b7b80,prompt:#bdb2e0,pointer:#c9a5b5,marker:#d4b5a0,spinner:#bdb2e0,header:#7b7b80,scrollbar:#353539,border:#353539'
+set -x FZF_DEFAULT_OPTS '--no-sort --ansi --header "" --no-info --preview-window hidden --color=fg:#c9c7cd,bg:#161617,hl:#b3a193,fg+:#c9c7cd,bg+:#353539,hl+:#b3a193,info:#7b7b80,prompt:#968a7c,pointer:#b3a193,marker:#d4b5a0,spinner:#968a7c,header:#7b7b80,scrollbar:#353539,border:#353539'
 set -gx TERMINFO_DIRS "$TERMINFO_DIRS:/opt/homebrew/share/terminfo"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
+set -gx HOMEBREW_NO_ANALYTICS 1
+set -gx HOMEBREW_NO_INSECURE_REDIRECT 1
+set -gx HOMEBREW_CASK_OPTS --require-sha
 starship init fish | source
 set EDITOR nvim
 set -x PATH $PATH ~/.cargo/bin ~/.local/bin
@@ -43,8 +47,25 @@ abbr -a gcm git commit
 abbr -a gch git checkout 
 abbr -a gp git push
 abbr -a gl git log
-abbr -a oc opencode
 abbr -a ss seshstart
+
+function git --wraps git
+    if test (count $argv) -ge 1; and test "$argv[1]" = diff
+        set -l diff_args $argv[2..-1]
+        if contains -- --staged $diff_args; or contains -- --cached $diff_args
+            command git diff --quiet $diff_args >/dev/null 2>&1
+            set -l diff_status $status
+            if test $diff_status -eq 0
+                echo "No changes"
+                return 0
+            else if test $diff_status -gt 1
+                return $diff_status
+            end
+        end
+    end
+
+    command git $argv
+end
 
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH

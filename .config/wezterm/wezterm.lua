@@ -66,23 +66,23 @@ config.color_schemes = {
 
     ansi = {
       "#27272a", -- black
-      "#f5a191", -- red
-      "#e29eca", -- green (mapped to magenta in your kitty)
-      "#e6b99d", -- yellow
-      "#aca1cf", -- blue
-      "#e29eca", -- magenta
-      "#ea83a5", -- cyan
-      "#c1c0d4", -- white
+      "#d4b5a0", -- red    (peach)
+      "#968a7c", -- green  (taupe)
+      "#d4b5a0", -- yellow (peach)
+      "#968a7c", -- blue   (taupe)
+      "#968a7c", -- magenta (taupe)
+      "#968a7c", -- cyan   (taupe)
+      "#c9c7cd", -- white
     },
     brights = {
       "#353539", -- bright black
-      "#ffae9f", -- bright red
-      "#ecaad6", -- bright green
-      "#f0c5a9", -- bright yellow
-      "#b9aeda", -- bright blue
-      "#ecaad6", -- bright magenta
-      "#f591b2", -- bright cyan
-      "#cac9dd", -- bright white
+      "#dfc2ad", -- bright red    (light peach)
+      "#b3a193", -- bright green  (light taupe)
+      "#dfc2ad", -- bright yellow (light peach)
+      "#b3a193", -- bright blue   (light taupe)
+      "#b3a193", -- bright magenta (light taupe)
+      "#b3a193", -- bright cyan   (light taupe)
+      "#d4d2d8", -- bright white
     },
 
     tab_bar = {

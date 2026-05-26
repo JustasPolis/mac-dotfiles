@@ -1,1 +1,0 @@
--- nui.nvim: no setup needed, loaded by vim.pack

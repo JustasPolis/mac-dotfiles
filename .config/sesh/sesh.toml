@@ -14,7 +14,7 @@ startup_command = "yazi"
 
 [[session]]
 name = "podimo"
-path = "~/job/podimo-app-ios.git/"
+path = "~/job/podimo-ios/"
 
 [[session]]
 name = "desktop"
@@ -45,11 +45,6 @@ startup_command = "nvim"
 name = "kitty"
 path = "~/.dotfiles/.config/kitty"
 startup_command = "nvim kitty.conf"
-
-[[session]]
-name = "opencode"
-path = "~/.dotfiles/.config/opencode"
-startup_command = "nvim opencode.json"
 
 [[session]]
 name = "sesh"
