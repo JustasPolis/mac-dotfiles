@@ -1,0 +1,9 @@
+<application>
+  <component name="LafManager">
+    <laf themeId="ef29b6ef-e306-45f0-919d-6264c9105248" />
+    <lafs-to-previous-schemes>
+      <laf-to-scheme laf="Islands Dark" scheme="Neovim Custom" />
+      <laf-to-scheme laf="ae7a917c-04b2-4468-bab7-6ddd4c43f879" scheme="Xcode 27 Default Dark" />
+    </lafs-to-previous-schemes>
+  </component>
+</application>

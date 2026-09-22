@@ -1,0 +1,17 @@
+<application>
+  <component name="UISettings">
+    <option name="DISABLE_MNEMONICS_IN_CONTROLS" value="true" />
+    <option name="EDITOR_TAB_PLACEMENT" value="0" />
+    <option name="HIDE_KNOWN_EXTENSION_IN_TABS" value="true" />
+    <option name="HIDE_TOOL_STRIPES" value="true" />
+    <option name="KEEP_POPUPS_FOR_TOGGLES" value="false" />
+    <option name="SHOW_DIRECTORY_FOR_NON_UNIQUE_FILENAMES" value="false" />
+    <option name="SHOW_EDITOR_TOOLTIP" value="false" />
+    <option name="SHOW_FILE_ICONS_IN_TABS" value="false" />
+    <option name="SHOW_ICONS_IN_MENUS" value="false" />
+    <option name="SHOW_NAVIGATION_BAR_MEMBERS" value="false" />
+    <option name="SHOW_NEW_MAIN_TOOLBAR" value="false" />
+    <option name="SHOW_STATUS_BAR" value="false" />
+    <option name="SHOW_TABS_TOOLTIPS" value="false" />
+  </component>
+</application>
