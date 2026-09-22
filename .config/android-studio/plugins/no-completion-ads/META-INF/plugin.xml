@@ -1,0 +1,11 @@
+<idea-plugin>
+  <id>local.disable-completion-ads</id>
+  <name>Disable Completion Ads</name>
+  <version>1.0.0</version>
+  <vendor>Local</vendor>
+  <idea-version since-build="261.0"/>
+  <depends>com.intellij.modules.lang</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <postStartupActivity implementation="com.justas.noads.DisableCompletionAdsStartupActivity"/>
+  </extensions>
+</idea-plugin>

@@ -1,0 +1,102 @@
+<idea-plugin>
+  <id>net.antelle.intellij-xcode-dark-theme</id>
+  <name>Xcode-Dark Theme</name>
+  <version>1.2.5</version>
+  <vendor email="antelle.net@gmail.com" url="https://antelle.net">Antelle</vendor>
+
+  <description><![CDATA[
+  This theme brings colors from the Xcode Dark theme to IntelliJ.
+
+  <br/><br/>
+  To install:
+  <ul>
+  <li>Go to <i>Settings (Preferences) | Plugins</i>, find the theme plugin, and install it</li>
+  <li>Restart the IDE</li>
+  <li>Go to <i>Settings (Preferences) | Appearance & Behavior | Appearance</i> and select Xcode-Dark in the <i>Theme</i> dropdown</li>
+  </ul>
+  <br/>
+
+  <a href="https://github.com/antelle/intellij-xcode-dark-theme">GitHub: source code and issues</a>
+  <br/><br/><br/>
+  <img src="https://raw.githubusercontent.com/antelle/intellij-xcode-dark-theme/master/images/screenshot-small-code.png" border="0" width="500" alt="Code screenshot">
+  <br/>
+  <img src="https://raw.githubusercontent.com/antelle/intellij-xcode-dark-theme/master/images/screenshot-small-settings.png" border="0" width="506" alt="Settings screenshot">
+  <br/>
+  <img src="https://raw.githubusercontent.com/antelle/intellij-xcode-dark-theme/master/images/screenshot-small-actions.png" border="0" width="359" alt="Actions screenshot">
+  ]]></description>
+
+  <change-notes><![CDATA[
+    <p>v1.2.4 <small>2021-07-04</small></p><ul>
+    <li>Fixed non-project tabs highlighting</li>
+    </ul>
+
+    <p>v1.2.3 <small>2021-06-30</small></p><ul>
+    <li>Fixed XML coloring in cshtml (Rider)</li>
+    </ul>
+
+    <p>v1.2.2 <small>2021-02-28</small></p><ul>
+    <li>Fixed incompatibilities with Material Theme UI</li>
+    </ul>
+
+    <p>v1.2.1 <small>2020-09-05</small></p><ul>
+    <li>Fixed syntax highlighting in Android studio</li>
+    </ul>
+
+    <p>v1.2.0 <small>2020-08-19</small></p><ul>
+    <li>Python syntax highlighting support</li>
+    </ul>
+
+    <p>v1.1.1 <small>2020-04-15</small></p><ul>
+    <li>Fixed contrast of selected unused variables</li>
+    </ul>
+
+    <p>v1.1.0 <small>2020-02-19</small></p><ul>
+    <li>Go language support</li>
+    </ul>
+
+    <p>v1.0.7 <small>2020-02-16</small></p><ul>
+    <li>Fixed plugin name: now it's Xcode instead of XCode</li>
+    </ul>
+
+    <p>v1.0.6 <small>2019-12-29</small></p><ul>
+    <li>Fixed colors in UML diagrams</li>
+    </ul>
+
+    <p>v1.0.5 <small>2019-10-29</small></p><ul>
+    <li>Fixed code completion tooltip text colors</li>
+    </ul>
+
+    <p>v1.0.4 <small>2019-10-27</small></p><ul>
+    <li>Removed transparency from matching braces causing different issues</li>
+    </ul>
+
+    <p>v1.0.3 <small>2019-10-11</small></p><ul>
+    <li>Fixed matching brace color</li>
+    </ul>
+
+    <p>v1.0.2 <small>2019-10-09</small></p><ul>
+    <li>Fixed notification and search colors</li>
+    <li>Updated screenshots</li>
+    </ul>
+
+    <p>v1.0.1 <small>2019-10-02</small></p><ul>
+    <li>Fixed dependencies</li>
+    </ul>
+
+    <p>v1.0.0 <small>2019-10-02</small></p><ul>
+    <li>First version released</li>
+    </ul>
+  ]]></change-notes>
+
+  <idea-version since-build="191.0"/>
+
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <themeProvider id="ef29b6ef-e306-45f0-919d-6264c9105248" path="/Xcode-Dark.theme.json"/>
+  </extensions>
+
+  <actions>
+  </actions>
+
+</idea-plugin>

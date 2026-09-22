@@ -1,0 +1,1670 @@
+<scheme name='Xcode 27 Default Dark' parent_scheme='Darcula' version='142'>
+  <colors>
+    <option name='ADDED_LINES_COLOR' value='417041'/>
+    <option name='CARET_COLOR' value='FFFFFF'/>
+    <option name='CARET_ROW_COLOR' value='1b1b1f'/>
+    <option name='CONSOLE_BACKGROUND_KEY' value='1F1F24'/>
+    <option name='DOCUMENTATION_COLOR' value='212327'/>
+    <option name='DOC_COMMENT_LINK' value='9DB3AF'/>
+    <option name='EDITOR_BACKGROUND' value='1b1b1f'/>
+    <option name='EDITOR_FOREGROUND' value='C9C7CD'/>
+    <option name='GUTTER_BACKGROUND' value='1F1F24'/>
+    <option name='INFORMATION_HINT' value='212327'/>
+    <option name='LINE_NUMBERS_COLOR' value='82888F'/>
+    <option name='LINE_NUMBER_ON_CARET_ROW_COLOR' value='C9C7CD'/>
+    <option name='MODIFIED_LINES_COLOR' value='64583C'/>
+    <option name='NOTIFICATION_BACKGROUND' value='1F1F24'/>
+    <option name='SELECTION_BACKGROUND' value='FFFFFF33'/>
+    <option name='WHITESPACES_MODIFIED_LINES_COLOR' value='64583C'/>
+  <option name='DELETED_LINES_COLOR' value='82888F'/><option name='IGNORED_ADDED_LINES_BORDER_COLOR' value='417041'/><option name='IGNORED_MODIFIED_LINES_BORDER_COLOR' value='417041'/><option name='IGNORED_DELETED_LINES_BORDER_COLOR' value='82888F'/><option name='ANNOTATIONS_COLOR' value='82888F'/><option name='FILESTATUS_ADDED' value='417041'/><option name='FILESTATUS_COPIED' value='417041'/><option name='FILESTATUS_DELETED' value='82888F'/><option name='FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM' value='82888F'/><option name='FILESTATUS_IDEA_FILESTATUS_IGNORED' value='64583C'/><option name='FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS' value='FC6A5D'/><option name='FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS' value='FC6A5D'/><option name='FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS' value='FC6A5D'/><option deuteranopia='828eba' name='FILESTATUS_MERGED' protanopia='828eba' value='82888F'/><option name='FILESTATUS_MODIFIED' value='82888F'/><option name='FILESTATUS_RENAMED' value='417041'/><option name='FILESTATUS_NOT_CHANGED' value=''/><option name='FILESTATUS_NOT_CHANGED_IMMEDIATE' value='82888F'/><option name='FILESTATUS_NOT_CHANGED_RECURSIVE' value='82888F'/><option name='FILESTATUS_UNKNOWN' value='FC6A5D'/><option name='FILESTATUS_addedOutside' value='417041'/><option name='FILESTATUS_changelistConflict' value='FC6A5D'/><option name='FILESTATUS_modifiedOutside' value='82888F'/><option name='LOOKUP_COLOR' value='1b1b1f'/><option name='INDENT_GUIDE' value='23252B'/><option name='METHOD_SEPARATORS_COLOR' value='64583C'/><option name='READONLY_FRAGMENT_BACKGROUND' value=''/><option name='RECURSIVE_CALL_ATTRIBUTES' value='64583C'/><option name='RIGHT_MARGIN_COLOR' value='64583C'/><option name='SELECTED_INDENT_GUIDE' value='64583C'/><option name='SELECTED_TEARLINE_COLOR' value='82888F'/><option name='SELECTION_FOREGROUND' value=''/><option name='TEARLINE_COLOR' value='64583C'/><option name='WHITESPACES' value='64583C'/><option name='DIFF_SEPARATOR_WAVE' value='64583C'/><option name='STRING_CONTENT_INDENT_GUIDE' value='417041'/><option name='VISUAL_INDENT_GUIDE' value='23252B'/><option name='FOLDED_TEXT_BORDER_COLOR' value='64583C'/><option name='RECENT_LOCATIONS_SELECTION' value='23252B'/><option name='DOC_COMMENT_GUIDE' value='417041'/><option name='INLINE_REFACTORING_SETTINGS_DEFAULT' value='64583C8c'/><option name='INLINE_REFACTORING_SETTINGS_FOCUSED' value='82888F8c'/><option name='INLINE_REFACTORING_SETTINGS_HOVERED' value='82888F8c'/><option name='MODIFIED_TAB_ICON' value='82888F'/><option name='VCS_ANNOTATIONS_COLOR_1' value='64583C'/><option name='VCS_ANNOTATIONS_COLOR_2' value='64583C'/><option name='VCS_ANNOTATIONS_COLOR_3' value='64583C'/><option name='VCS_ANNOTATIONS_COLOR_4' value='64583C'/><option name='VCS_ANNOTATIONS_COLOR_5' value='64583C'/><option name='BLOCK_TERMINAL_BLOCK_BACKGROUND_START' value='23252B'/><option name='BLOCK_TERMINAL_BLOCK_BACKGROUND_END' value='212327'/><option name='BLOCK_TERMINAL_SELECTED_BLOCK_BACKGROUND' value='23252B'/><option name='BLOCK_TERMINAL_SELECTED_BLOCK_STROKE_COLOR' value='82888F'/><option name='BLOCK_TERMINAL_HOVERED_BLOCK_BACKGROUND_START' value='D4D2D80A'/><option name='BLOCK_TERMINAL_HOVERED_BLOCK_BACKGROUND_END' value='D4D2D803'/><option name='BLOCK_TERMINAL_INACTIVE_SELECTED_BLOCK_BACKGROUND' value='23252B'/><option name='BLOCK_TERMINAL_INACTIVE_SELECTED_BLOCK_STROKE_COLOR' value='64583C'/><option name='BLOCK_TERMINAL_ERROR_BLOCK_STROKE_COLOR' value='FC6A5D'/><option name='BLOCK_TERMINAL_PROMPT_SEPARATOR_COLOR' value='23252B'/><option name='BLOCK_TERMINAL_GENERATE_COMMAND_PLACEHOLDER_FOREGROUND' value='82888F'/><option name='BLOCK_TERMINAL_GENERATE_COMMAND_CARET_COLOR' value='82888F'/><option name='Table.hoverBackground' value='64583C'/><option name='Bookmark.iconBackground' value='D0BF69'/><option name='Bookmark.Mnemonic.iconForeground' value='B8B7BB'/><option name='Bookmark.Mnemonic.iconBackground' value='64583C'/><option name='Bookmark.Mnemonic.iconBorderColor' value='D0BF69'/><option name='ScrollBar.background' value='64583C'/><option name='ScrollBar.trackColor' value='82888F00'/><option name='ScrollBar.thumbColor' value='9DB3AF47'/><option name='ScrollBar.thumbBorderColor' value='23252B47'/><option name='ScrollBar.hoverTrackColor' value='82888F00'/><option name='ScrollBar.hoverThumbColor' value='9DB3AF59'/><option name='ScrollBar.hoverThumbBorderColor' value='23252B59'/><option name='ScrollBar.Transparent.trackColor' value='82888F00'/><option name='ScrollBar.Transparent.thumbColor' value='9DB3AF47'/><option name='ScrollBar.Transparent.thumbBorderColor' value='23252B47'/><option name='ScrollBar.Transparent.hoverTrackColor' value='82888F1A'/><option name='ScrollBar.Transparent.hoverThumbColor' value='9DB3AF59'/><option name='ScrollBar.Transparent.hoverThumbBorderColor' value='23252B59'/><option name='ScrollBar.Mac.trackColor' value='82888F00'/><option name='ScrollBar.Mac.thumbColor' value='82888F59'/><option name='ScrollBar.Mac.thumbBorderColor' value='21232759'/><option name='ScrollBar.Mac.hoverTrackColor' value='82888F00'/><option name='ScrollBar.Mac.hoverThumbColor' value='82888F8C'/><option name='ScrollBar.Mac.hoverThumbBorderColor' value='2123278C'/><option name='ScrollBar.Mac.Transparent.trackColor' value='82888F00'/><option name='ScrollBar.Mac.Transparent.thumbColor' value='82888F00'/><option name='ScrollBar.Mac.Transparent.thumbBorderColor' value='21232700'/><option name='ScrollBar.Mac.Transparent.hoverTrackColor' value='82888F1A'/><option name='ScrollBar.Mac.Transparent.hoverThumbColor' value='82888F8C'/><option name='ScrollBar.Mac.Transparent.hoverThumbBorderColor' value='2123278C'/><option name='Scrollbar.Tabs.TransparentThumbColor' value='64583C00'/><option name='Scrollbar.Tabs.ThumbColor' value='64583CFF'/><option name='Scrollbar.Tabs.HoveredThumbColor' value='64583CFF'/><option name='ActionButton.hoverBackground' value='64583C'/><option name='ActionButton.pressedBackground' value='64583C'/><option name='ActionButton.iconTextForeground' value='B8B7BB'/></colors>
+  <attributes>
+    <option baseAttributes='DEFAULT_METADATA' name='ANNOTATION_NAME_ATTRIBUTES'/>
+    <option name='RAINBOW_COLOR0'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='RAINBOW_COLOR1'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='RAINBOW_COLOR2'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='RAINBOW_COLOR3'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='RAINBOW_COLOR4'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='HTML_CUSTOM_TAG_NAME'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='KOTLIN_COROUTINE_DEBUGGER_VALUE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='LiveLiteralsHighlightAttribute'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='MARKDOWN_HEADER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='OC.CLASS_REFERENCE'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='OC.MACRONAME'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='OC.MESSAGE_ARGUMENT'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='OC.METHOD_DECLARATION'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='OC.OVERLOADED_OPERATOR'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='OC.PROTOCOL_REFERENCE'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='OC.STRUCT_FIELD'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='OC.STRUCT_LIKE'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='OC.TYPEDEF'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='Static property reference ID'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='Unresolved reference access'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='XML_CUSTOM_TAG_NAME'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='com.jetbrains.cmake.COMMAND'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='BASH.EXTERNAL_COMMAND'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='CONSTRUCTOR_CALL_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option baseAttributes='' name='CSS.COLOR'/>
+    <option name='CSS.FUNCTION'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='CSS.IDENT'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option baseAttributes='' name='CSS.IMPORTANT'/>
+    <option baseAttributes='' name='CSS.URL'/>
+    <option name='CTRL_CLICKABLE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_COLOR' value='9DB3AF'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='CUSTOM_KEYWORD1_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='CUSTOM_KEYWORD2_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='CUSTOM_KEYWORD3_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option baseAttributes='DEFAULT_STRING' name='CUSTOM_STRING_ATTRIBUTES'/>
+    <option baseAttributes='DEFAULT_VALID_STRING_ESCAPE' name='CUSTOM_VALID_STRING_ESCAPE_ATTRIBUTES'/>
+    <option name='Class'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='DEFAULT_ATTRIBUTE'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='DEFAULT_BLOCK_COMMENT'>
+      <value>
+        <option name='FOREGROUND' value='968A7C'/>
+      </value>
+    </option>
+    <option name='DEFAULT_CLASS_NAME'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='DEFAULT_CLASS_REFERENCE'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='DEFAULT_COMMA'>
+      <value/>
+    </option>
+    <option name='DEFAULT_CONSTANT'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='DEFAULT_DOC_COMMENT'>
+      <value>
+        <option name='FOREGROUND' value='968A7C'/>
+      </value>
+    </option>
+    <option name='DEFAULT_DOC_COMMENT_TAG'>
+      <value>
+        <option name='FOREGROUND' value='968A7C'/>
+        <option name='FONT_TYPE' value='1'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='DEFAULT_DOC_COMMENT_TAG_VALUE'>
+      <value>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='DEFAULT_DOC_MARKUP'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='DEFAULT_ENTITY'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='DEFAULT_FUNCTION_CALL'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='DEFAULT_FUNCTION_DECLARATION'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='DEFAULT_GLOBAL_VARIABLE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='DEFAULT_HIGHLIGHTED_REFERENCE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_COLOR' value='fc6a5d'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='DEFAULT_IDENTIFIER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='DEFAULT_INSTANCE_FIELD'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='DEFAULT_INTERFACE_NAME'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='DEFAULT_INVALID_STRING_ESCAPE'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+        <option name='EFFECT_COLOR' value='FC6A5D'/>
+        <option name='EFFECT_TYPE' value='2'/>
+      </value>
+    </option>
+    <option name='DEFAULT_KEYWORD'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='DEFAULT_LABEL'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='DEFAULT_LINE_COMMENT'>
+      <value>
+        <option name='FOREGROUND' value='968A7C'/>
+      </value>
+    </option>
+    <option name='DEFAULT_LOCAL_VARIABLE'>
+      <value/>
+    </option>
+    <option name='DEFAULT_METADATA'>
+      <value>
+        <option name='FOREGROUND' value='B8B7BB'/>
+      </value>
+    </option>
+    <option name='DEFAULT_NUMBER'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='DEFAULT_PARAMETER'>
+      <value/>
+    </option>
+    <option name='DEFAULT_PREDEFINED_SYMBOL'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='DEFAULT_REASSIGNED_LOCAL_VARIABLE'>
+      <value>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='DEFAULT_REASSIGNED_PARAMETER'>
+      <value>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='DEFAULT_SEMICOLON'>
+      <value/>
+    </option>
+    <option name='DEFAULT_STATIC_FIELD'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='DEFAULT_STATIC_METHOD'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='DEFAULT_STRING'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='DEFAULT_TAG'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='DEFAULT_TEMPLATE_LANGUAGE_COLOR'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='BACKGROUND' value='212327'/>
+      </value>
+    </option>
+    <option name='DEFAULT_VALID_STRING_ESCAPE'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='DUPLICATE_FROM_SERVER'>
+      <value>
+        <option name='BACKGROUND' value='23252B'/>
+      </value>
+    </option>
+    <option name='FOLLOWED_HYPERLINK_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='EFFECT_COLOR' value='9DB3AF'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='GO_BUILTIN_FUNCTION_CALL'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='GO_COMMENT_REFERENCE'>
+      <value>
+        <option name='FOREGROUND' value='968A7C'/>
+      </value>
+    </option>
+    <option name='GO_PACKAGE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='GO_TYPE_REFERENCE'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='GQL_ID'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='Groovy method declaration'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='HAML_CLASS'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='HAML_COMMENT'>
+      <value>
+        <option name='FOREGROUND' value='968A7C'/>
+        <option name='FONT_TYPE' value='2'/>
+      </value>
+    </option>
+    <option name='HAML_ID'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='HAML_LINE_CONTINUATION'>
+      <value/>
+    </option>
+    <option name='HAML_TAG'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option baseAttributes='DEFAULT_ATTRIBUTE' name='HTML_ATTRIBUTE_NAME'/>
+    <option baseAttributes='DEFAULT_STRING' name='HTML_ATTRIBUTE_VALUE'/>
+    <option baseAttributes='DEFAULT_ENTITY' name='HTML_ENTITY_REFERENCE'/>
+    <option baseAttributes='DEFAULT_TAG' name='HTML_TAG'/>
+    <option baseAttributes='DEFAULT_KEYWORD' name='HTML_TAG_NAME'/>
+    <option name='HYPERLINK_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='EFFECT_COLOR' value='9DB3AF'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='IDENTIFIER_UNDER_CARET_ATTRIBUTES'>
+      <value>
+        <option name='BACKGROUND' value='23252B'/>
+        <option name='EFFECT_COLOR' value='23252B'/>
+        <option name='ERROR_STRIPE_COLOR' value='36b13'/>
+      </value>
+    </option>
+    <option name='IMPLICIT_ANONYMOUS_CLASS_PARAMETER_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='IntelliJComposableCallTextAttributes'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='INACTIVE_HYPERLINK_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='EFFECT_COLOR' value='9DB3AF'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='INJECTED_LANGUAGE_FRAGMENT'>
+      <value>
+        <option name='BACKGROUND' value='212327'/>
+      </value>
+    </option>
+    <option name='JAVA_KEYWORD'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option baseAttributes='' name='JSP_DIRECTIVE_NAME'/>
+    <option name='KOTLIN_CONSTRUCTOR'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='KOTLIN_DYNAMIC_FUNCTION_CALL'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='KOTLIN_DYNAMIC_PROPERTY_CALL'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='KOTLIN_LABEL'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='KOTLIN_MUTABLE_VARIABLE'>
+      <value>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='KOTLIN_NAMED_ARGUMENT'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='KOTLIN_PACKAGE_FUNCTION_CALL'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='KOTLIN_TYPE_PARAMETER'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='LESS_ID_SELECTOR'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='LESS_PSEUDO'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option baseAttributes='' name='LESS_VARIABLE'/>
+    <option name='MAGIC_MEMBER_ACCESS'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='MARKDOWN_IMAGE'>
+      <value/>
+    </option>
+    <option name='MARKDOWN_INLINE_HTML'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='MARKDOWN_ITALIC'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='MATCHED_BRACE_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='BACKGROUND' value='23252B'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='PHP_ALIAS_REFERENCE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='PHP_CLASS'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='PHP_DOC_IDENTIFIER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='PHP_HEREDOC_CONTENT'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='PHP_IDENTIFIER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='PHP_INSTANCE_METHOD'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='PHP_NAMED_ARGUMENT'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='PHP_PARAMETER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='PHP_SCRIPTING_BACKGROUND'>
+      <value/>
+    </option>
+    <option name='PHP_SEMICOLON'>
+      <value/>
+    </option>
+    <option name='PHP_THIS_VAR'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option baseAttributes='DEFAULT_KEYWORD' name='PROPERTIES.KEY'/>
+    <option name='PY.ANNOTATION'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='PY.BUILTIN_NAME'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='PY.DECORATOR'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='PY.KEYWORD_ARGUMENT'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='PY.PREDEFINED_DEFINITION'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='PY.SELF_PARAMETER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='REGEXP.BRACES'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='REGEXP.BRACKETS'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='REGEXP.CHAR_CLASS'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='REGEXP.ESC_CHARACTER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='REGEXP.META'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='REGEXP.NAME'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='REGEXP.PARENTHS'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='REGEXP.QUANTIFIER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='REGEXP.QUOTE_CHARACTER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='RUBY_CONSTANT_DECLARATION'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='RUBY_HEREDOC_CONTENT'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='RUBY_HEREDOC_ID'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option baseAttributes='' name='SASS_COMMENT'/>
+    <option baseAttributes='' name='SASS_VARIABLE'/>
+    <option baseAttributes='DEFAULT_STATIC_METHOD' name='STATIC_METHOD_ATTRIBUTES'/>
+    <option name='Scala Class'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='Scala Immutable Collection'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='Scala Mutable Collection'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='Scala Object'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='Scala Predefined types'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option baseAttributes='' name='Scala Type parameter'/>
+    <option name='StandardF Java Collection'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option baseAttributes='STATIC_METHOD_ATTRIBUTES' name='Static method access'/>
+    <option baseAttributes='STATIC_FINAL_FIELD_ATTRIBUTES' name='Static property reference ID'/>
+    <option name='TEXT'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='BACKGROUND' value='1b1b1f'/>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='TODO_DEFAULT_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='FONT_TYPE' value='1'/>
+        <option name='ERROR_STRIPE_COLOR' value='977ab'/>
+      </value>
+    </option>
+    <option name='TS.GLOBAL_FUNCTION'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='TS.INSTANCE_MEMBER_FUNCTION'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='TS.MODULE_NAME'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='TS.REGEXP'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='TS.TYPE_PARAMETER'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='TYPE_PARAMETER_NAME_ATTRIBUTES'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='VELOCITY_DIRECTIVE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='VELOCITY_KEYWORD'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='VELOCITY_REFERENCE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='WARNING_ATTRIBUTES'>
+      <value>
+        <option name='BACKGROUND' value='23252B'/>
+        <option name='ERROR_STRIPE_COLOR' value='D0BF69'/>
+        <option name='EFFECT_TYPE' value='2'/>
+      </value>
+    </option>
+    <option name='WRITE_IDENTIFIER_UNDER_CARET_ATTRIBUTES'>
+      <value>
+        <option name='BACKGROUND' value='23252B'/>
+        <option name='ERROR_STRIPE_COLOR' value='FC6A5D'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='WRONG_REFERENCES_ATTRIBUTES'>
+      <value>
+        <option name='EFFECT_COLOR' value='FC6A5D'/>
+        <option name='EFFECT_TYPE' value='2'/>
+      </value>
+    </option>
+    <option baseAttributes='DEFAULT_ATTRIBUTE' name='XML_ATTRIBUTE_NAME'/>
+    <option baseAttributes='TEXT' name='XML_PROLOGUE'/>
+    <option baseAttributes='DEFAULT_TAG' name='XML_TAG'/>
+    <option baseAttributes='DEFAULT_KEYWORD' name='XML_TAG_NAME'/>
+    <option name='XPATH.FUNCTION'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='XPATH.KEYWORD'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='XPATH.XPATH_NAME'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='XPATH.XPATH_PREFIX'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='XPATH.XPATH_VARIABLE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='YAML_ANCHOR'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='YAML_SCALAR_LIST'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='YAML_SCALAR_VALUE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='YAML_TEXT'>
+      <value>
+        <option name='EFFECT_TYPE' value='5'/>
+      </value>
+    </option>
+    <option name='org.rust.ATTRIBUTE'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='org.rust.CFG_DISABLED_CODE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.CHAR'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.CRATE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.LIFETIME'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.MACRO'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.MODULE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.MUT_BINDING'>
+      <value>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.MUT_PARAMETER'>
+      <value>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.MUT_STATIC'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.PRIMITIVE_TYPE'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='org.rust.Q_OPERATOR'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.SELF_PARAMETER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.TYPE_PARAMETER'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='org.rust.UNSAFE_CODE'>
+      <value>
+        <option name='BACKGROUND' value='23252B'/>
+      </value>
+    </option>
+  <option name='ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES'>
+        <value>
+          <option name='FOREGROUND' value='B8B7BB'/>
+        </value>
+      </option><option name='ATTR_INTERNAL_CALL_ID'>
+        <value>
+          <option name='FOREGROUND' value='C9C7CD'/>
+          <option name='FONT_TYPE' value='1'/>
+        </value>
+      </option><option name='BLINKING_HIGHLIGHTS_ATTRIBUTES'>
+        <value>
+          <option name='FOREGROUND'/>
+          <option name='BACKGROUND'/>
+          <option name='EFFECT_COLOR' value='82888F'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='BAD_CHARACTER'>
+        <value>
+          <option deuteranopia='e57132' name='EFFECT_COLOR' protanopia='e57132' value='FC6A5D'/>
+          <option name='EFFECT_TYPE' value='2'/>
+        </value>
+      </option><option name='BREAKPOINT_ATTRIBUTES'>
+        <value>
+          <option deuteranopia='42372b' name='BACKGROUND' protanopia='42372b' value='23252B'/>
+          <option name='ERROR_STRIPE_COLOR' value='64583C'/>
+        </value>
+      </option><option name='INLINE_STACK_FRAMES'>
+        <value>
+          <option name='FOREGROUND'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='COFFEESCRIPT.GLOBAL_VARIABLE'>
+        <value>
+          <option name='FONT_TYPE' value='2'/>
+          <option name='EFFECT_TYPE' value='1'/>
+        </value>
+      </option><option name='CONSOLE_BLACK_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='1B1B1F'/>
+          <option name='BACKGROUND' value='1B1B1F'/>
+        </value>
+      </option><option name='CONSOLE_BLUE_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+          <option name='BACKGROUND' value='417041'/>
+        </value>
+      </option><option name='CONSOLE_BLUE_BRIGHT_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='BACKGROUND' value='82888F'/>
+        </value>
+      </option><option name='CONSOLE_CYAN_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='417041'/>
+          <option name='BACKGROUND' value='417041'/>
+        </value>
+      </option><option name='CONSOLE_CYAN_BRIGHT_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='BACKGROUND' value='417041'/>
+        </value>
+      </option><option name='CONSOLE_DARKGRAY_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='64583C'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='CONSOLE_ERROR_OUTPUT'>
+        <value>
+          <option deuteranopia='bd693c' name='FOREGROUND' protanopia='bd693c' value='FC6A5D'/>
+          <option deuteranopia='bold' name='FONT_TYPE' protanopia='bold'/>
+        </value>
+      </option><option name='CONSOLE_GRAY_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='CONSOLE_GREEN_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='417041'/>
+          <option name='BACKGROUND' value='417041'/>
+        </value>
+      </option><option name='CONSOLE_GREEN_BRIGHT_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='417041'/>
+          <option name='BACKGROUND' value='417041'/>
+        </value>
+      </option><option name='CONSOLE_MAGENTA_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='CONSOLE_MAGENTA_BRIGHT_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='C9C7CD'/>
+          <option name='BACKGROUND' value='82888F'/>
+        </value>
+      </option><option name='CONSOLE_NORMAL_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='B8B7BB'/>
+        </value>
+      </option><option name='CONSOLE_USER_INPUT'>
+        <value>
+          <option deuteranopia='4c84d9' name='FOREGROUND' protanopia='4c84d9' value='417041'/>
+          <option name='FONT_TYPE' value='2'/>
+        </value>
+      </option><option name='CONSOLE_OUTPUT'>
+        <value>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='CONSOLE_RED_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='FC6A5D'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='CONSOLE_RED_BRIGHT_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='FC6A5D'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='CONSOLE_SYSTEM_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='B8B7BB'/>
+        </value>
+      </option><option name='CONSOLE_WHITE_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='D4D2D8'/>
+          <option name='BACKGROUND' value='D4D2D8'/>
+        </value>
+      </option><option name='CONSOLE_YELLOW_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='64583C'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='CONSOLE_YELLOW_BRIGHT_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='D0BF69'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='TERMINAL_COMMAND_TO_RUN_USING_IDE'>
+        <value>
+          <option name='BACKGROUND' value='417041'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_COMMAND'>
+        <value>
+          <option name='FOREGROUND' value='D4D2D8'/>
+          <option name='FONT_TYPE' value='1'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_SEARCH_ENTRY'>
+        <value>
+          <option name='FOREGROUND' value='1B1B1F'/>
+          <option name='BACKGROUND' value='D0BF69'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_CURRENT_SEARCH_ENTRY'>
+        <value>
+          <option name='FOREGROUND' value='1B1B1F'/>
+          <option name='BACKGROUND' value='FC6A5D'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_GENERATE_COMMAND_PROMPT_TEXT'>
+        <value>
+          <option name='FOREGROUND' value='B8B7BB'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_BLACK'>
+        <value>
+          <option name='FOREGROUND' value='0'/>
+          <option name='BACKGROUND' value='1F1F24'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_RED'>
+        <value>
+          <option name='FOREGROUND' value='FC6A5D'/>
+          <option name='BACKGROUND' value='FC6A5D'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_GREEN'>
+        <value>
+          <option name='FOREGROUND' value='968A7C'/>
+          <option name='BACKGROUND' value='417041'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_YELLOW'>
+        <value>
+          <option name='FOREGROUND' value='D0BF69'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_BLUE'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='BACKGROUND' value='82888F'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_MAGENTA'>
+        <value>
+          <option name='FOREGROUND' value='C9C7CD'/>
+          <option name='BACKGROUND' value='82888F'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_CYAN'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='BACKGROUND' value='8576'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_WHITE'>
+        <value>
+          <option name='FOREGROUND' value='D4D2D8'/>
+          <option name='BACKGROUND' value='D4D2D8'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_BLACK_BRIGHT'>
+        <value>
+          <option name='FOREGROUND' value='64583C'/>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_RED_BRIGHT'>
+        <value>
+          <option name='FOREGROUND' value='FC6A5D'/>
+          <option name='BACKGROUND' value='FC6A5D'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_GREEN_BRIGHT'>
+        <value>
+          <option name='FOREGROUND' value='D0BF69'/>
+          <option name='BACKGROUND' value='417041'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_YELLOW_BRIGHT'>
+        <value>
+          <option name='FOREGROUND' value='D0BF69'/>
+          <option name='BACKGROUND' value='D0BF69'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_BLUE_BRIGHT'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='BACKGROUND' value='9DB3AF'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_MAGENTA_BRIGHT'>
+        <value>
+          <option name='FOREGROUND' value='C9C7CD'/>
+          <option name='BACKGROUND' value='B8B7BB'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_CYAN_BRIGHT'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='BACKGROUND' value='9DB3AF'/>
+        </value>
+      </option><option name='BLOCK_TERMINAL_WHITE_BRIGHT'>
+        <value>
+          <option name='FOREGROUND' value='D4D2D8'/>
+          <option name='BACKGROUND' value='D4D2D8'/>
+        </value>
+      </option><option name='CUSTOM_KEYWORD4_ATTRIBUTES'>
+        <value>
+          <option name='FOREGROUND' value='968A7C'/>
+          <option name='EFFECT_TYPE' value='1'/>
+        </value>
+      </option><option name='DEBUGGER_SMART_STEP_INTO_TARGET'>
+        <value>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='DEBUGGER_SMART_STEP_INTO_SELECTION'>
+        <value>
+          <option name='BACKGROUND' value='82888F'/>
+          <option name='EFFECT_COLOR' value='B3A193'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='DEBUGGER_INLINED_VALUES'>
+        <value>
+          <option deuteranopia='737373' name='FOREGROUND' protanopia='737373' value='82888F'/>
+          <option name='FONT_TYPE' value='2'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='DEBUGGER_INLINED_VALUES_EXECUTION_LINE'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+          <option name='FONT_TYPE' value='2'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='DEBUGGER_INLINED_VALUES_MODIFIED'>
+        <value>
+          <option deuteranopia='8c842a' name='FOREGROUND' protanopia='8c842a' value='FC6A5D'/>
+          <option name='FONT_TYPE' value='2'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='DEFAULT_BRACES'>
+        <value/>
+      </option><option name='DEFAULT_BRACKETS'>
+        <value/>
+      </option><option name='DOC_TIPS_SHORTCUT'>
+        <value>
+          <option name='FOREGROUND' value='B8B7BB'/>
+          <option name='EFFECT_COLOR' value='82888F'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='DEFAULT_DOT'>
+        <value/>
+      </option><option name='DEFAULT_OPERATION_SIGN'>
+        <value/>
+      </option><option name='DEFAULT_PARENTHS'>
+        <value/>
+      </option><option name='DELETED_TEXT_ATTRIBUTES'>
+        <value>
+          <option name='FOREGROUND' value='B8B7BB'/>
+          <option deuteranopia='1a1a1a' name='BACKGROUND' protanopia='1a1a1a' value='1B1B1F'/>
+          <option name='EFFECT_COLOR' value='C9C7CD'/>
+          <option name='EFFECT_TYPE' value='3'/>
+        </value>
+      </option><option name='DEPRECATED_ATTRIBUTES'>
+        <value>
+          <option name='EFFECT_COLOR' value='C9C7CD'/>
+          <option name='EFFECT_TYPE' value='3'/>
+        </value>
+      </option><option name='MARKED_FOR_REMOVAL_ATTRIBUTES'>
+        <value>
+          <option deuteranopia='e57132' name='EFFECT_COLOR' protanopia='e57132' value='FC6A5D'/>
+          <option name='EFFECT_TYPE' value='3'/>
+        </value>
+      </option><option name='DIFF_CONFLICT'>
+        <value>
+          <option deuteranopia='453900' name='BACKGROUND' protanopia='453900' value='23252B'/>
+          <option deuteranopia='7a6c25' name='ERROR_STRIPE_COLOR' protanopia='7a6c25' value='64583C'/>
+        </value>
+      </option><option name='DIFF_DELETED'>
+        <value>
+          <option name='BACKGROUND' value='64583C'/>
+          <option name='ERROR_STRIPE_COLOR' value='82888F'/>
+        </value>
+      </option><option name='DIFF_INSERTED'>
+        <value>
+          <option deuteranopia='29452e' name='BACKGROUND' protanopia='29452e' value='23252B'/>
+          <option deuteranopia='468058' name='ERROR_STRIPE_COLOR' protanopia='468058' value='417041'/>
+        </value>
+      </option><option name='DIFF_MODIFIED'>
+        <value>
+          <option deuteranopia='385570' name='BACKGROUND' protanopia='385570' value='417041'/>
+          <option deuteranopia='1c5c99' name='ERROR_STRIPE_COLOR' protanopia='1c5c99' value='82888F'/>
+        </value>
+      </option><option name='ERRORS_ATTRIBUTES'>
+        <value>
+          <option deuteranopia='e57132' name='EFFECT_COLOR' protanopia='e57132' value='FC6A5D'/>
+          <option name='EFFECT_TYPE' value='2'/>
+          <option deuteranopia='ff8f40' name='ERROR_STRIPE_COLOR' protanopia='ff8f40' value='64583C'/>
+        </value>
+      </option><option name='FILESTATUS_ERRORS'>
+        <value>
+          <option name='EFFECT_TYPE' value='2'/>
+          <option deuteranopia='e57132' name='EFFECT_COLOR' protanopia='e57132' value='FC6A5D'/>
+          <option deuteranopia='ff8f40' name='ERROR_STRIPE_COLOR' protanopia='ff8f40' value='64583C'/>
+        </value>
+      </option><option name='RUNTIME_ERROR'>
+        <value>
+          <option name='EFFECT_COLOR' value='FC6A5D'/>
+          <option name='EFFECT_TYPE' value='5'/>
+          <option name='ERROR_STRIPE_COLOR' value='64583C'/>
+        </value>
+      </option><option name='EXECUTIONPOINT_ATTRIBUTES'>
+        <value>
+          <option name='BACKGROUND' value='417041'/>
+        </value>
+      </option><option name='NOT_TOP_FRAME_ATTRIBUTES'>
+        <value>
+          <option name='BACKGROUND' value='23252B'/>
+        </value>
+      </option><option name='EVALUATED_EXPRESSION_ATTRIBUTES'>
+        <value>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='EVALUATED_EXPRESSION_EXECUTION_LINE_ATTRIBUTES'>
+        <value>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='FOLDED_TEXT_ATTRIBUTES'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+          <option name='BACKGROUND' value='1B1B1F'/>
+        </value>
+      </option><option name='GENERIC_SERVER_ERROR_OR_WARNING'>
+        <value>
+          <option deuteranopia='f49810' name='EFFECT_COLOR' protanopia='f49810' value='FC6A5D'/>
+          <option name='EFFECT_TYPE' value='1'/>
+          <option deuteranopia='754810' name='ERROR_STRIPE_COLOR' protanopia='754810' value='64583C'/>
+        </value>
+      </option><option name='HAML_FILTER'>
+        <value/>
+      </option><option name='HAML_FILTER_CONTENT'>
+        <value/>
+      </option><option name='HAML_RUBY_CODE'>
+        <value>
+          <option name='BACKGROUND' value='212327'/>
+        </value>
+      </option><option name='HAML_RUBY_START'>
+        <value/>
+      </option><option name='HAML_TEXT'>
+        <value>
+          <option name='EFFECT_TYPE' value='2'/>
+        </value>
+      </option><option name='HAML_XHTML'>
+        <value/>
+      </option><option name='INLINE_SUGGESTION'>
+        <value>
+          <option deuteranopia='7a7a7a' name='FOREGROUND' protanopia='7a7a7a' value='82888F'/>
+        </value>
+      </option><option name='INLINE_PARAMETER_HINT'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+          <option name='BACKGROUND' value='1B1B1F'/>
+        </value>
+      </option><option name='INLINE_PARAMETER_HINT_HIGHLIGHTED'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='BACKGROUND' value='1B1B1F'/>
+        </value>
+      </option><option name='INLINE_PARAMETER_HINT_CURRENT'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='BACKGROUND' value='1B1B1F'/>
+        </value>
+      </option><option name='INLAY_DEFAULT'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+          <option name='BACKGROUND' value='1B1B1F'/>
+        </value>
+      </option><option name='INLAY_BUTTON_DEFAULT'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='EFFECT_COLOR' value='D4D2D833'/>
+        </value>
+      </option><option name='INLAY_BUTTON_FOCUSED'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='EFFECT_COLOR' value='D4D2D852'/>
+        </value>
+      </option><option name='INLAY_BUTTON_HOVERED'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='EFFECT_COLOR' value='D4D2D852'/>
+        </value>
+      </option><option name='AI_INLAY_BUTTON_DEFAULT'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='EFFECT_COLOR' value='82888F'/>
+        </value>
+      </option><option name='AI_INLAY_BUTTON_FOCUSED'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='EFFECT_COLOR' value='82888F'/>
+        </value>
+      </option><option name='AI_INLAY_BUTTON_HOVERED'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='EFFECT_COLOR' value='82888F'/>
+        </value>
+      </option><option name='INLAY_BUTTON_HINT'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+        </value>
+      </option><option name='INLAY_TEXT_WITHOUT_BACKGROUND'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+        </value>
+      </option><option name='INFO_ATTRIBUTES'>
+        <value>
+          <option deuteranopia='737355' name='EFFECT_COLOR' protanopia='737355' value='B3A193'/>
+          <option name='EFFECT_TYPE' value='2'/>
+          <option deuteranopia='666666' name='ERROR_STRIPE_COLOR' protanopia='666666' value='64583C'/>
+        </value>
+      </option><option name='LINE_FULL_COVERAGE'>
+        <value>
+          <option deuteranopia='445956' name='FOREGROUND' protanopia='445956' value='417041'/>
+          <option name='FONT_TYPE' value='1'/>
+        </value>
+      </option><option name='LINE_NONE_COVERAGE'>
+        <value>
+          <option deuteranopia='704b25' name='FOREGROUND' protanopia='704b25' value='64583C'/>
+          <option name='FONT_TYPE' value='1'/>
+        </value>
+      </option><option name='LINE_PARTIAL_COVERAGE'>
+        <value>
+          <option deuteranopia='807540' name='FOREGROUND' protanopia='807540' value='968A7C'/>
+          <option name='FONT_TYPE' value='1'/>
+        </value>
+      </option><option name='LIVE_TEMPLATE_ATTRIBUTES'>
+        <value>
+          <option name='FOREGROUND'/>
+          <option name='BACKGROUND'/>
+          <option name='EFFECT_COLOR' value='9DB3AF'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='LIVE_TEMPLATE_INACTIVE_SEGMENT'>
+        <value>
+          <option name='FOREGROUND'/>
+          <option name='BACKGROUND'/>
+          <option name='EFFECT_COLOR' value='82888F'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='LOG_DEBUG_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+        </value>
+      </option><option name='LOG_VERBOSE_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+        </value>
+      </option><option name='LOG_INFO_OUTPUT'>
+        <value>
+          <option name='FOREGROUND' value='D0BF69'/>
+        </value>
+      </option><option name='LOG_WARNING_OUTPUT'>
+        <value>
+          <option deuteranopia='99956b' name='FOREGROUND' protanopia='99956b'/>
+        </value>
+      </option><option name='LOG_ERROR_OUTPUT'>
+        <value>
+          <option deuteranopia='bd693c' name='FOREGROUND' protanopia='bd693c' value='FC6A5D'/>
+          <option deuteranopia='bold' name='FONT_TYPE' protanopia='bold'/>
+        </value>
+      </option><option name='LOG_EXPIRED_ENTRY'>
+        <value>
+          <option name='FOREGROUND' value='64583C'/>
+        </value>
+      </option><option name='NOT_USED_ELEMENT_ATTRIBUTES'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+          <option deuteranopia='806a00' name='ERROR_STRIPE_COLOR' protanopia='806a00' value='D0BF69'/>
+        </value>
+      </option><option name='PROPERTIES.INVALID_STRING_ESCAPE'>
+        <value>
+          <option name='FOREGROUND' value='D0BF69'/>
+          <option name='BACKGROUND' value='1B1B1F'/>
+          <option deuteranopia='e57132' name='EFFECT_COLOR' protanopia='e57132' value='FC6A5D'/>
+          <option name='EFFECT_TYPE' value='2'/>
+        </value>
+      </option><option name='PROPERTIES.KEY_VALUE_SEPARATOR'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+        </value>
+      </option><option name='PROPERTIES.VALID_STRING_ESCAPE'>
+        <value/>
+      </option><option name='REGEXP.REDUNDANT_ESCAPE'>
+        <value>
+          <option name='FOREGROUND' value='9DB3AF'/>
+          <option name='FONT_TYPE' value='1'/>
+        </value>
+      </option><option name='SASS_ATTRIBUTE'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+        </value>
+      </option><option name='SASS_CONSTANT'>
+        <value>
+          <option name='FOREGROUND' value='D4D2D8'/>
+        </value>
+      </option><option name='SASS_DIRECTIVE'>
+        <value>
+          <option name='FOREGROUND' value='FC6A5D'/>
+        </value>
+      </option><option name='SASS_MIXIN'>
+        <value>
+          <option name='FOREGROUND' value='D4D2D8'/>
+        </value>
+      </option><option name='SASS_RULE'>
+        <value>
+          <option name='FOREGROUND' value='D0BF69'/>
+        </value>
+      </option><option name='SEARCH_RESULT_ATTRIBUTES'>
+        <value>
+          <option deuteranopia='404861' name='BACKGROUND' protanopia='404861' value='23252B'/>
+          <option deuteranopia='4b6f99' name='ERROR_STRIPE_COLOR' protanopia='4b6f99' value='212327'/>
+        </value>
+      </option><option name='REGEXP_MATCHED_GROUPS'>
+        <value>
+          <option name='BACKGROUND' value='64583C'/>
+        </value>
+      </option><option name='TERMINAL_CLASS_NAME_LOG_REFERENCE'>
+        <value>
+          <option name='EFFECT_TYPE' value='5'/>
+          <option name='EFFECT_COLOR' value='82888F'/>
+        </value>
+      </option><option name='SPY-JS.FUNCTION_SCOPE'>
+        <value>
+          <option name='BACKGROUND' value='23252B'/>
+          <option name='EFFECT_TYPE' value='2'/>
+        </value>
+      </option><option name='SPY-JS.PROGRAM_SCOPE'>
+        <value>
+          <option name='BACKGROUND' value='23252B'/>
+          <option name='EFFECT_TYPE' value='2'/>
+        </value>
+      </option><option name='SPY-JS.EXCEPTION'>
+        <value>
+          <option deuteranopia='453900' name='BACKGROUND' protanopia='453900' value='23252B'/>
+          <option name='EFFECT_TYPE' value='2'/>
+        </value>
+      </option><option name='SPY-JS.PATH_LEVEL_ONE'>
+        <value>
+          <option name='BACKGROUND' value='417041'/>
+          <option name='EFFECT_TYPE' value='2'/>
+        </value>
+      </option><option name='SPY-JS.PATH_LEVEL_TWO'>
+        <value>
+          <option name='EFFECT_COLOR' value='B8B7BB'/>
+          <option name='EFFECT_TYPE' value='1'/>
+        </value>
+      </option><option name='SPY-JS.VALUE_HINT'>
+        <value>
+          <option name='EFFECT_COLOR' value='B8B7BB'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='Scala Type Alias'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+        </value>
+      </option><option name='TEMPLATE_VARIABLE_ATTRIBUTES'>
+        <value>
+          <option deuteranopia='828eba' name='FOREGROUND' protanopia='828eba' value='B8B7BB'/>
+        </value>
+      </option><option name='TEXT_SEARCH_RESULT_ATTRIBUTES'>
+        <value>
+          <option deuteranopia='363827' name='BACKGROUND' protanopia='363827' value='417041'/>
+          <option deuteranopia='66731d' name='EFFECT_COLOR' protanopia='66731d' value='417041'/>
+          <option deuteranopia='65a878' name='ERROR_STRIPE_COLOR' protanopia='65a878' value='82888F'/>
+        </value>
+      </option><option name='TYPO'>
+        <value>
+          <option deuteranopia='4b734f' name='EFFECT_COLOR' protanopia='4b734f' value='82888F'/>
+          <option name='EFFECT_TYPE' value='2'/>
+        </value>
+      </option><option name='NO_ANALYSIS'>
+        <value>
+          <option name='ERROR_STRIPE_COLOR' value='64583C'/>
+        </value>
+      </option><option name='DO_NOT_SHOW'>
+        <value>
+          <option name='ERROR_STRIPE_COLOR' value='417041'/>
+        </value>
+      </option><option name='BOOKMARKS_ATTRIBUTES'>
+        <value>
+          <option name='ERROR_STRIPE_COLOR' value='D4D2D8'/>
+        </value>
+      </option><option name='UNMATCHED_BRACE_ATTRIBUTES'>
+        <value>
+          <option deuteranopia='bd693c' name='FOREGROUND' protanopia='bd693c' value='FC6A5D'/>
+        </value>
+      </option><option name='VELOCITY_SCRIPTING_BACKGROUND'>
+        <value>
+          <option name='BACKGROUND' value='23252B'/>
+        </value>
+      </option><option name='WRITE_SEARCH_RESULT_ATTRIBUTES'>
+        <value>
+          <option deuteranopia='2f4794' name='BACKGROUND' protanopia='2f4794' value='23252B'/>
+          <option deuteranopia='5fcc' name='ERROR_STRIPE_COLOR' protanopia='5fcc' value='64583C'/>
+        </value>
+      </option><option name='XML_ENTITY_REFERENCE'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+        </value>
+      </option><option name='XML_TAG_DATA'>
+        <value/>
+      </option><option name='osmorc.attributeName'>
+        <value>
+          <option name='FOREGROUND' value='D4D2D8'/>
+          <option name='FONT_TYPE' value='1'/>
+        </value>
+      </option><option name='osmorc.directiveName'>
+        <value>
+          <option name='FOREGROUND' value='D4D2D8'/>
+          <option name='FONT_TYPE' value='1'/>
+        </value>
+      </option><option name='osmorc.headerName'>
+        <value>
+          <option deuteranopia='597cc2' name='FOREGROUND' protanopia='597cc2' value='FC6A5D'/>
+          <option name='FONT_TYPE' value='1'/>
+        </value>
+      </option><option name='BREADCRUMBS_DEFAULT'>
+         <value>
+           <option name='FOREGROUND' value='B8B7BB'/>
+         </value>
+      </option><option name='BREADCRUMBS_HOVERED'>
+         <value>
+           <option name='FOREGROUND' value='B8B7BB'/>
+           <option name='BACKGROUND' value='23252B'/>
+         </value>
+      </option><option name='BREADCRUMBS_CURRENT'>
+         <value>
+           <option name='FOREGROUND' value='B8B7BB'/>
+           <option name='BACKGROUND' value='64583C'/>
+         </value>
+      </option><option name='BREADCRUMBS_INACTIVE'>
+         <value>
+           <option name='FOREGROUND' value='B8B7BB'/>
+         </value>
+      </option><option name='CODE_LENS_BORDER_COLOR'>
+        <value>
+          <option name='EFFECT_COLOR' value='B3A193'/>
+          <option name='EFFECT_TYPE' value='0'/>
+        </value>
+      </option><option name='INLINE_PROMPT'>
+        <value>
+          <option name='FOREGROUND' value='B8B7BB'/>
+        </value>
+      </option><option name='INLINE_PROMPT_PROGRESS_DARK'>
+        <value>
+          <option name='FOREGROUND' value='82888F'/>
+        </value>
+      </option><option name='INLINE_PROMPT_PROGRESS_LIGHT'>
+        <value>
+          <option name='FOREGROUND' value='D4D2D8'/>
+        </value>
+      </option><option name='BEAN.ACTIVE'>
+        <value>
+          <option name='FONT_TYPE' value='0'/>
+        </value>
+      </option><option name='BEAN.INACTIVE'>
+        <value>
+          <option name='EFFECT_TYPE' value='6'/>
+          <option name='EFFECT_COLOR' value='82888F'/>
+        </value>
+      </option></attributes>
+</scheme>

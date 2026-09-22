@@ -1,0 +1,1 @@
+Bump max ide version for intellij 2026.1 (#38)
