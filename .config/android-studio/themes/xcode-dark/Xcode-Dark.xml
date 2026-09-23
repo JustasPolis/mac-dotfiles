@@ -906,6 +906,12 @@
         <option name='FONT_TYPE' value='1'/>
       </value>
     </option>
+    <option name='org.rust.KEYWORD'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
     <option name='org.rust.MACRO'>
       <value>
         <option name='FOREGROUND' value='9DB3AF'/>
@@ -1928,6 +1934,323 @@
     <option name='org.rust.VARIABLE'>
       <value>
           <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='OC.BUILTIN_TYPE_KEYWORD'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='OC.CONCEPT'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='OC.CONSTANT'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='OC.CONTROL_FLOW_KEYWORD'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='OC.CONTROL_TRANSFER_KEYWORD'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='OC.DEDUCTION_GUIDE'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='OC.DEPENDENT_CODE'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='OC.FORMAT_TOKEN'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='OC.GENERIC_PARAMETER'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='OC.HEADER_PATH'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='OC.INVALID_STRING_ESCAPE'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+        <option name='EFFECT_COLOR' value='FC6A5D'/>
+        <option name='EFFECT_TYPE' value='2'/>
+      </value>
+    </option>
+    <option name='OC.LABEL'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='OC.NAMESPACE_LIKE'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='OC.PROPERTY_ATTRIBUTE'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+      </value>
+    </option>
+    <option name='OC.STD_INITIALIZER_LIST'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='OC.TEMPLATE_TYPE'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='OC.TEMPLATE_VALUE'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='OC.VALID_STRING_ESCAPE'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='org.rust.ASSOC_TRAIT_FUNCTION'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='org.rust.ASSOC_TRAIT_FUNCTION_CALL'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='org.rust.BLOCK_COMMENT'>
+      <value>
+        <option name='FOREGROUND' value='968A7C'/>
+      </value>
+    </option>
+    <option name='org.rust.BRACES'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.BRACKETS'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.CLOSURE'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='org.rust.COMMA'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.DOC_CODE'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='org.rust.DOC_COMMENT'>
+      <value>
+        <option name='FOREGROUND' value='968A7C'/>
+      </value>
+    </option>
+    <option name='org.rust.DOC_EMPHASIS'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='FONT_TYPE' value='2'/>
+      </value>
+    </option>
+    <option name='org.rust.DOC_HEADING'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.DOC_LINK'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='org.rust.DOC_STRONG'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.DOT'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.EOL_COMMENT'>
+      <value>
+        <option name='FOREGROUND' value='968A7C'/>
+      </value>
+    </option>
+    <option name='org.rust.FORMAT_PARAMETER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.FORMAT_SPECIFIER'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='org.rust.GENERATED_ITEM'>
+      <value>
+        <option name='FOREGROUND' value='D4D2D8'/>
+      </value>
+    </option>
+    <option name='org.rust.INLINE_ERROR_DESCRIPTION'>
+      <value>
+        <option name='FOREGROUND' value='FC6A5D'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.INLINE_EXPLANATION'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='org.rust.INLINE_WARNING_DESCRIPTION'>
+      <value>
+        <option name='FOREGROUND' value='D0BF69'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.INVALID_STRING_ESCAPE'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+        <option name='EFFECT_COLOR' value='FC6A5D'/>
+        <option name='EFFECT_TYPE' value='2'/>
+      </value>
+    </option>
+    <option name='org.rust.KEYWORD_UNSAFE'>
+      <value>
+        <option name='FOREGROUND' value='B3A193'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.MACRO_BINDING_IDENTIFIER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.MACRO_COLON'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.MACRO_DOLLAR'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.MACRO_EXCL'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.MACRO_GROUP_ELEMENTS'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.MACRO_IDENTIFIER'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='org.rust.MACRO_META_VAR_IDENTIFIER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.MACRO_RULES'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.MUT_SELF_PARAMETER'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+        <option name='EFFECT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.NUMBER'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='org.rust.OPERATORS'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.OVERLOADED_OPERATOR'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.PARENTHESES'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.SELF_EXPRESSION'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+        <option name='FONT_TYPE' value='1'/>
+      </value>
+    </option>
+    <option name='org.rust.SEMICOLON'>
+      <value>
+        <option name='FOREGROUND' value='C9C7CD'/>
+      </value>
+    </option>
+    <option name='org.rust.STRING'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
+      </value>
+    </option>
+    <option name='org.rust.TRAIT_METHOD'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='org.rust.TRAIT_METHOD_CALL'>
+      <value>
+        <option name='FOREGROUND' value='9DB3AF'/>
+      </value>
+    </option>
+    <option name='org.rust.VALID_STRING_ESCAPE'>
+      <value>
+        <option name='FOREGROUND' value='D4B5A0'/>
       </value>
     </option>
   </attributes>
